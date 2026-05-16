@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
+import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { 
@@ -20,10 +20,10 @@ const ProductSchema = z.object({
   name: z.string().min(1, "Name is required"),
   description: z.string().min(1, "Description is required"),
   shortDescription: z.string().optional(),
-  price: z.coerce.number().min(0),
-  discountPrice: z.coerce.number().optional().nullable(),
+  price: z.preprocess((val) => Number(val), z.number().min(0)),
+  discountPrice: z.preprocess((val) => (val === '' || val === null ? null : Number(val)), z.number().min(0).nullable().optional()),
   sku: z.string().optional().nullable(),
-  stock: z.coerce.number().int().min(0),
+  stock: z.preprocess((val) => Number(val), z.number().int().min(0)),
   categoryId: z.string().min(1, "Category is required"),
   featured: z.boolean().default(false),
   isTrending: z.boolean().default(false),
@@ -52,7 +52,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
     watch, 
     formState: { errors } 
   } = useForm<ProductFormValues>({
-    resolver: zodResolver(ProductSchema),
+    resolver: zodResolver(ProductSchema) as any,
     defaultValues: initialData || {
       name: '',
       description: '',

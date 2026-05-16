@@ -2,6 +2,8 @@ import React from 'react';
 import ProductList from '@/components/admin/ProductList';
 import { getAdminProducts } from '@/app/actions/admin/products';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminProductsPage() {
   const products = await getAdminProducts();
 

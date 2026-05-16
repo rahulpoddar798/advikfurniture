@@ -2,6 +2,8 @@ import React from 'react';
 import { getAdminCategories } from '@/app/actions/admin/categories';
 import CategoryList from '@/components/admin/CategoryList';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminCategoriesPage() {
   const categories = await getAdminCategories();
 

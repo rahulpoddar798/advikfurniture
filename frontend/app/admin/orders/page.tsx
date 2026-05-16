@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { auth } from '@/auth';
 import OrderList from '@/components/admin/OrderList';
 
+export const dynamic = 'force-dynamic';
+
 async function getAdminOrders() {
   const session = await auth();
   if (!session) return [];

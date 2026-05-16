@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "AdvikFurnitureAndInterior | Premium Furniture & Modern Living",
-  description: "Experience luxury furniture shopping with AdvikFurnitureAndInterior - immersive 3D and cinematic design.",
+  title: "Advik Furniture | Premium Furniture & Interiors",
+  description: "Experience luxury furniture shopping with Advik Furniture - crafted for your home with immersive 3D and cinematic design.",
   icons: {
     icon: "/logoAFI.png",
     apple: "/logoAFI.png",

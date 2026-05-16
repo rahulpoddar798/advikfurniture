@@ -228,7 +228,7 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
         
         {/* Pagination Placeholder */}
         <div className="p-8 border-t border-stone-800/50 flex justify-between items-center">
-          <p className="text-xs font-medium text-stone-500">Showing {products.length} of {products.length} products</p>
+          <p className="text-xs font-medium text-stone-500">Showing {filteredAndSortedProducts.length} of {initialProducts.length} products</p>
           <div className="flex items-center space-x-2">
             <button className="px-4 py-2 rounded-xl bg-stone-800 text-stone-500 text-xs font-bold uppercase tracking-widest disabled:opacity-50" disabled>Prev</button>
             <button className="px-4 py-2 rounded-xl bg-stone-800 text-stone-500 text-xs font-bold uppercase tracking-widest disabled:opacity-50" disabled>Next</button>

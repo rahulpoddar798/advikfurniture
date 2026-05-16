@@ -30,6 +30,8 @@ const ProductSchema = z.object({
   isBestSeller: z.boolean().default(false),
   dimensions: z.string().optional().nullable(),
   material: z.string().optional().nullable(),
+  colors: z.array(z.string()).default([]),
+  tags: z.array(z.string()).default([]),
   status: z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED', 'HIDDEN']).default('DRAFT'),
   images: z.array(z.string()).min(1, "At least one image is required"),
 });
@@ -67,6 +69,8 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
       isBestSeller: false,
       dimensions: '',
       material: '',
+      colors: [],
+      tags: [],
       status: 'DRAFT',
       images: [],
     }

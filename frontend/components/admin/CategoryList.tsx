@@ -7,7 +7,8 @@ import {
   Trash2, 
   Search,
   Loader2,
-  X
+  X,
+  Save
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { createCategory, deleteCategory, updateCategory } from '@/app/actions/admin/categories';

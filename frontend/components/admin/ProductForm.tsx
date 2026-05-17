@@ -298,13 +298,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                 { label: 'Trending Item', id: 'isTrending' },
                 { label: 'Best Seller', id: 'isBestSeller' }
               ].map((tag) => (
-                <div key={tag.id} className="flex items-center justify-between p-5 rounded-[1.25rem] bg-stone-950/40 border border-stone-800/50 hover:border-white/20 transition-all cursor-pointer group">
+                <label key={tag.id} className="flex items-center justify-between p-5 rounded-[1.25rem] bg-stone-950/40 border border-stone-800/50 hover:border-white/20 transition-all cursor-pointer group">
                   <span className="text-[10px] font-black uppercase tracking-widest text-stone-500 group-hover:text-stone-300 transition-colors">{tag.label}</span>
-                  <div className="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" {...register(tag.id as any)} className="sr-only peer" />
+                  <div className="relative inline-flex items-center">
+                    <input 
+                      type="checkbox" 
+                      {...register(tag.id as any)} 
+                      className="sr-only peer" 
+                    />
                     <div className="w-11 h-6 bg-stone-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-stone-500 after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-white peer-checked:after:bg-stone-900"></div>
                   </div>
-                </div>
+                </label>
               ))}
             </div>
           </div>

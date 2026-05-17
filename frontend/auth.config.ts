@@ -2,6 +2,13 @@ import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 
+// Debug logging for server-side (Vercel logs)
+if (typeof window === "undefined") {
+  if (!process.env.GOOGLE_CLIENT_ID) console.warn("Missing GOOGLE_CLIENT_ID");
+  if (!process.env.GOOGLE_CLIENT_SECRET) console.warn("Missing GOOGLE_CLIENT_SECRET");
+  if (!process.env.AUTH_SECRET) console.warn("Missing AUTH_SECRET (Required for production)");
+}
+
 export const authConfig = {
   providers: [
     Google({

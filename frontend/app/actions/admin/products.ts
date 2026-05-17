@@ -81,7 +81,7 @@ export async function createProduct(values: z.infer<typeof ProductSchema>) {
   } catch (error: any) {
     console.error("Create product error:", error);
     if (error instanceof z.ZodError) {
-      return { error: error.errors.map(e => e.message).join(", ") };
+      return { error: error.issues.map(e => e.message).join(", ") };
     }
     return { error: error.message || "Failed to create product" };
   }
@@ -133,7 +133,7 @@ export async function updateProduct(id: string, values: z.infer<typeof ProductSc
   } catch (error: any) {
     console.error("Update product error:", error);
     if (error instanceof z.ZodError) {
-      return { error: error.errors.map(e => e.message).join(", ") };
+      return { error: error.issues.map(e => e.message).join(", ") };
     }
     return { error: error.message || "Failed to update product" };
   }

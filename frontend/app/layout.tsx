@@ -10,6 +10,7 @@ import { SessionProvider } from "next-auth/react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import { siteUrl } from "@/lib/site";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -37,7 +38,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://advikfurniture.com"),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://advikfurniture.com",
+    url: siteUrl,
     title: "Advik Furniture | Premium Furniture & Interiors",
     description: "Experience luxury furniture shopping with Advik Furniture - crafted for your home with immersive 3D and cinematic design.",
     siteName: "Advik Furniture",
@@ -114,8 +115,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Advik Furniture",
-              "url": "https://advikfurniture.com",
-              "logo": "https://advikfurniture.com/logoAFI.png",
+              "url": siteUrl,
+              "logo": `${siteUrl}/logoAFI.png`,
               "sameAs": [
                 "https://instagram.com/advikfurniture",
                 "https://facebook.com/advikfurniture"

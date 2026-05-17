@@ -3,6 +3,7 @@ import { getProductById } from '@/lib/services';
 import ProductClient from './ProductClient';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { siteUrl } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
 
@@ -70,7 +71,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             },
             "offers": {
               "@type": "Offer",
-              "url": `https://advikfurniture.com/product/${id}`,
+              "url": `${siteUrl}/product/${id}`,
               "priceCurrency": "INR",
               "price": product.price,
               "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",

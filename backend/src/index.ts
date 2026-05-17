@@ -11,11 +11,32 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const defaultAllowedOrigins = [
+  'https://advikfurniture.vercel.app',
+  'http://localhost:3000',
+  'http://192.168.1.35:3000',
+];
+const configuredAllowedOrigins = [
+  process.env.FRONTEND_URL,
+  ...(process.env.CORS_ORIGINS?.split(',') ?? []),
+]
+  .filter((origin): origin is string => Boolean(origin))
+  .map((origin) => origin.trim().replace(/\/+$/, ''));
+const allowedOrigins = new Set([...defaultAllowedOrigins, ...configuredAllowedOrigins]);
 
 // Middleware
 app.use(helmet());
 app.use(compression());
-app.use(cors());
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ''))) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 

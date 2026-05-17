@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/auth
 
-Sitemap: https://advikfurniture.com/sitemap.xml
+Sitemap: https://advikfurniture.vercel.app/sitemap.xml

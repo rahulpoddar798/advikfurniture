@@ -1,9 +1,8 @@
 import { Resend } from "resend";
-
-const domain = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+import { siteUrl } from "@/lib/site";
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetLink = `${domain}/auth/new-password?token=${token}`;
+  const resetLink = `${siteUrl}/auth/new-password?token=${token}`;
   const apiKey = process.env.RESEND_API_KEY;
 
   // Fallback for development if no API key is provided

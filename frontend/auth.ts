@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { type DefaultSession } from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -6,10 +6,18 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { authConfig } from "@/auth.config";
 import { Role } from "@/types";
+import { siteUrl } from "@/lib/site";
 
 declare module "next-auth" {
   interface User {
     role: Role;
+  }
+
+  interface Session {
+    user: {
+      id: string;
+      role: Role;
+    } & DefaultSession["user"];
   }
 }
 
@@ -18,7 +26,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.AUTH_SECRET,
   trustHost: true,
-  debug: true,
+  debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },
   cookies: {
     sessionToken: {
@@ -32,17 +40,42 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
   callbacks: {
-    async jwt({ token, user, account, profile }) {
+    async redirect({ url, baseUrl }) {
+      const appBaseUrl = siteUrl || baseUrl;
+
+      if (url.startsWith("/")) {
+        return `${appBaseUrl}${url}`;
+      }
+
+      try {
+        const targetUrl = new URL(url);
+        const currentBaseUrl = new URL(baseUrl);
+        const appUrl = new URL(appBaseUrl);
+
+        if (targetUrl.origin === appUrl.origin) {
+          return url;
+        }
+
+        if (targetUrl.origin === currentBaseUrl.origin) {
+          return `${appUrl.origin}${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+        }
+      } catch {
+        return appBaseUrl;
+      }
+
+      return appBaseUrl;
+    },
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role || "USER";
+        token.role = user.role || "USER";
       }
       return token;
     },
     async session({ session, token }) {
       if (token && session.user) {
-        session.user.id = token.id as string;
-        (session.user as any).role = (token.role as string) || "USER";
+        session.user.id = (token.id as string | undefined) || "";
+        session.user.role = (token.role as Role | undefined) || "USER";
       }
       return session;
     },

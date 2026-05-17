@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { getProducts, getCategories } from '@/lib/services';
+import { siteUrl } from '@/lib/site';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://advikfurniture.com';
+  const baseUrl = siteUrl;
 
   // Fetch all products and categories for dynamic routes
   const [products, categories] = await Promise.all([

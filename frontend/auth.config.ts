@@ -18,9 +18,6 @@ if (typeof window === "undefined") {
 
 export const authConfig = {
   trustHost: true,
-  // Strictly prioritize AUTH_URL for stable production redirects.
-  // Fall back to VERCEL_URL only if AUTH_URL is not provided.
-  redirectProxyUrl: process.env.AUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -30,6 +27,7 @@ export const authConfig = {
     // Credentials provider will be fully defined in auth.ts to avoid Prisma in middleware
     Credentials({}),
   ],
+  debug: process.env.NODE_ENV === "development", // Enable debug logs in dev
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

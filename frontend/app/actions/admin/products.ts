@@ -63,15 +63,40 @@ export async function getAdminProductById(id: string) {
   }
 }
 
+async function generateUniqueSlug(name: string, currentId?: string) {
+  const baseSlug = name
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+  
+  // Try the base slug first
+  const existingProduct = await prisma.product.findFirst({
+    where: { 
+      slug: baseSlug,
+      NOT: currentId ? { id: currentId } : undefined
+    }
+  });
+
+  if (!existingProduct) {
+    return baseSlug;
+  }
+
+  // If it exists, append a unique suffix
+  const suffix = Math.random().toString(36).substring(2, 7);
+  return `${baseSlug}-${suffix}`;
+}
+
 export async function createProduct(values: z.infer<typeof ProductSchema>) {
   try {
     await checkAdmin();
     const validated = ProductSchema.parse(values);
     
+    const slug = await generateUniqueSlug(validated.name);
+    
     const product = await prisma.product.create({
       data: {
         ...validated,
-        slug: validated.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, ''),
+        slug,
       }
     });
     
@@ -106,7 +131,7 @@ export async function updateProduct(id: string, values: z.infer<typeof ProductSc
     
     // Update slug if name changed or if it's currently null
     if (existingProduct.name !== validated.name || !existingProduct.slug) {
-      updateData.slug = validated.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+      updateData.slug = await generateUniqueSlug(validated.name, id);
     }
 
     const product = await prisma.product.update({

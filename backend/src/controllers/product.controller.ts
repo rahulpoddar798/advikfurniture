@@ -135,10 +135,33 @@ export const getCategories = async (req: Request, res: Response) => {
   }
 };
 
+async function generateUniqueSlug(name: string, currentId?: string) {
+  const baseSlug = name
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+  
+  // Try the base slug first
+  const existingProduct = await prisma.product.findFirst({
+    where: { 
+      slug: baseSlug,
+      NOT: currentId ? { id: currentId } : undefined
+    }
+  });
+
+  if (!existingProduct) {
+    return baseSlug;
+  }
+
+  // If it exists, append a unique suffix
+  const suffix = Math.random().toString(36).substring(2, 7);
+  return `${baseSlug}-${suffix}`;
+}
+
 export const createProduct = async (req: Request, res: Response) => {
   try {
     const data = req.body;
-    const slug = data.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    const slug = await generateUniqueSlug(data.name);
     
     const product = await prisma.product.create({
       data: {
@@ -160,7 +183,7 @@ export const updateProduct = async (req: Request, res: Response) => {
     
     const updateData = { ...data };
     if (data.name) {
-      updateData.slug = data.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+      updateData.slug = await generateUniqueSlug(data.name, id);
     }
     
     const product = await prisma.product.update({

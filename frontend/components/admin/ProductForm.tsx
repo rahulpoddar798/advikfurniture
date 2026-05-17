@@ -19,17 +19,17 @@ import CloudinaryUpload from './CloudinaryUpload';
 const ProductSchema = z.object({
   name: z.string().min(1, "Name is required"),
   description: z.string().min(1, "Description is required"),
-  shortDescription: z.string().optional(),
+  shortDescription: z.preprocess((val) => (val === '' ? null : val), z.string().optional().nullable()),
   price: z.preprocess((val) => Number(val), z.number().min(0)),
   discountPrice: z.preprocess((val) => (val === '' || val === null ? null : Number(val)), z.number().min(0).nullable().optional()),
-  sku: z.string().optional().nullable(),
+  sku: z.preprocess((val) => (val === '' ? null : val), z.string().optional().nullable()),
   stock: z.preprocess((val) => Number(val), z.number().int().min(0)),
   categoryId: z.string().min(1, "Category is required"),
   featured: z.boolean().default(false),
   isTrending: z.boolean().default(false),
   isBestSeller: z.boolean().default(false),
-  dimensions: z.string().optional().nullable(),
-  material: z.string().optional().nullable(),
+  dimensions: z.preprocess((val) => (val === '' ? null : val), z.string().optional().nullable()),
+  material: z.preprocess((val) => (val === '' ? null : val), z.string().optional().nullable()),
   colors: z.array(z.string()).default([]),
   tags: z.array(z.string()).default([]),
   status: z.enum(['DRAFT', 'PUBLISHED', 'ARCHIVED', 'HIDDEN']).default('DRAFT'),
@@ -52,6 +52,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
     handleSubmit, 
     setValue, 
     watch, 
+    getValues,
     formState: { errors } 
   } = useForm<ProductFormValues>({
     resolver: zodResolver(ProductSchema) as any,
@@ -81,17 +82,27 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
   const onSubmit = async (data: ProductFormValues) => {
     setLoading(true);
     try {
+      let result;
       if (initialData) {
-        await updateProduct(initialData.id, data);
+        result = await updateProduct(initialData.id, data);
+        if (result.error) {
+          toast.error(result.error);
+          return;
+        }
         toast.success("Product updated successfully");
       } else {
-        await createProduct(data);
+        result = await createProduct(data);
+        if (result.error) {
+          toast.error(result.error);
+          return;
+        }
         toast.success("Product created successfully");
       }
       router.push('/admin/products');
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong");
+      console.error("Form submission error:", error);
+      toast.error("An unexpected error occurred");
     } finally {
       setLoading(false);
     }
@@ -150,6 +161,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                     placeholder="0"
                     className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
                   />
+                  {errors.price && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.price.message}</p>}
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Discount Price (₹)</label>
@@ -159,6 +171,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                     placeholder="Optional"
                     className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
                   />
+                  {errors.discountPrice && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.discountPrice.message}</p>}
                 </div>
               </div>
 
@@ -170,6 +183,30 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                   placeholder="Tell the story of this piece..."
                   className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm resize-none"
                 />
+                {errors.description && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.description.message}</p>}
+              </div>
+            </div>
+          </div>
+
+          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Specifications</h3>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Dimensions</label>
+                <input 
+                  {...register('dimensions')}
+                  placeholder="e.g. 80cm x 75cm x 90cm"
+                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Material</label>
+                <input 
+                  {...register('material')}
+                  placeholder="e.g. Solid Oak, Premium Velvet"
+                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                />
               </div>
             </div>
           </div>
@@ -178,8 +215,8 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
             <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Product Images</h3>
             <CloudinaryUpload 
               value={images}
-              onChange={(urls) => setValue('images', urls)}
-              onRemove={(url) => setValue('images', images.filter(i => i !== url))}
+              onChange={(url) => setValue('images', [...getValues('images'), url], { shouldValidate: true, shouldDirty: true })}
+              onRemove={(url) => setValue('images', getValues('images').filter(i => i !== url), { shouldValidate: true, shouldDirty: true })}
             />
             {errors.images && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.images.message}</p>}
           </div>
@@ -202,6 +239,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                     <option key={cat.id} value={cat.id}>{cat.name}</option>
                   ))}
                 </select>
+                {errors.categoryId && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.categoryId.message}</p>}
               </div>
 
               <div className="space-y-2">
@@ -220,6 +258,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                   type="number"
                   className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
                 />
+                {errors.stock && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.stock.message}</p>}
               </div>
 
               <div className="space-y-2">

@@ -6,8 +6,8 @@ import { Plus, X, Image as ImageIcon } from 'lucide-react';
 
 interface CloudinaryUploadProps {
   value: string[];
-  onChange: (value: string[]) => void;
-  onRemove: (value: string) => void;
+  onChange: (url: string) => void;
+  onRemove: (url: string) => void;
 }
 
 const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
@@ -16,7 +16,9 @@ const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
   onRemove
 }) => {
   const onUpload = (result: any) => {
-    onChange([...value, result.info.secure_url]);
+    if (result.event === 'success') {
+      onChange(result.info.secure_url);
+    }
   };
 
   return (
@@ -45,6 +47,10 @@ const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
       <CldUploadWidget 
         onSuccess={onUpload} 
         uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+        options={{
+          multiple: true,
+          maxFiles: 10,
+        }}
       >
         {({ open }) => {
           const onClick = () => {

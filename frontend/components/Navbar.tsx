@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ShoppingCart, User, Heart, Search, Menu, X, Sun, Moon, LogOut, Settings } from 'lucide-react';
+import { ShoppingCart, User, Heart, Search, Menu, X, Sun, Moon, LogOut, Settings, LayoutDashboard } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,7 +13,7 @@ import { useThemeStore } from '@/store/useThemeStore';
 import CartDrawer from './CartDrawer';
 import SearchOverlay from './SearchOverlay';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const router = useRouter();
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,16 +21,20 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  
   const totalItems = useCartStore((state) => state.totalItems());
   const { theme, toggleTheme } = useThemeStore();
   const { data: session } = useSession();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrolled = window.scrollY > 50;
+      setIsScrolled((prev) => prev !== scrolled ? scrolled : prev);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -41,9 +45,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Collections', href: '/collections' },
-    { name: 'Living', href: '/category/living' },
-    { name: 'Bedroom', href: '/category/bedroom' },
-    { name: 'Office', href: '/category/office' },
+    { name: 'Chairs', href: '/category/chairs' },
+    { name: 'Sofas', href: '/category/sofas' },
+    { name: 'Tables', href: '/category/tables' },
+    { name: 'Beds', href: '/category/beds' },
     { name: 'Showroom', href: '/showroom' },
     ...(session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as any)?.role) 
       ? [{ name: 'Admin', href: '/admin' }] 
@@ -56,36 +61,44 @@ const Navbar = () => {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           isScrolled 
             ? 'py-4 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md shadow-sm' 
-            : 'py-8 bg-transparent'
+            : 'py-6 md:py-8 bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
-            <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <Link href="/" prefetch={true} className="flex items-center space-x-2 md:space-x-3 group transition-all duration-300">
+            <div className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
               <Image 
                 src="/logoAFI.png" 
                 alt="Advik Furniture" 
-                width={40} 
-                height={40}
+                width={32} 
+                height={32}
                 className="object-contain p-1"
+                priority
               />
             </div>
-            <span className="text-xl font-serif font-bold tracking-tighter text-stone-900 dark:text-white hidden sm:block">
-              Advik<span className="text-stone-600 dark:text-stone-400 font-normal">Furniture</span>
+            <span className="text-lg md:text-xl font-serif font-bold tracking-tighter text-stone-900 dark:text-white">
+              Advik<span className="text-stone-600 dark:text-stone-400 font-normal hidden xs:inline">Furniture</span>
             </span>
           </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.name}
-                href={link.href}
-                className="text-sm font-medium hover:text-stone-500 transition-colors uppercase tracking-widest dark:text-stone-300 dark:hover:text-white"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.href}
+                  prefetch={true}
+                  className="text-sm font-medium hover:text-stone-500 transition-colors uppercase tracking-widest dark:text-stone-300 dark:hover:text-white"
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -113,15 +126,17 @@ const Navbar = () => {
             <button 
               onClick={() => setIsSearchOpen(true)}
               className="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors dark:text-white"
+              aria-label="Open Search"
             >
               <Search size={20} />
             </button>
             <button 
               onClick={() => setIsCartOpen(true)}
               className="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors relative dark:text-white"
+              aria-label="Open Cart"
             >
               <ShoppingCart size={20} />
-              {totalItems > 0 && (
+              {isMounted && totalItems > 0 && (
                 <span className="absolute top-0 right-0 bg-stone-900 dark:bg-white dark:text-stone-900 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                   {totalItems}
                 </span>
@@ -131,6 +146,7 @@ const Navbar = () => {
               <button 
                 onClick={() => session ? setIsProfileOpen(!isProfileOpen) : router.push('/auth')}
                 className="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors hidden md:block dark:text-white"
+                aria-label="User Profile"
               >
                 {session?.user?.image ? (
                   <Image src={session.user.image} alt="User" width={20} height={20} className="rounded-full" />
@@ -159,6 +175,16 @@ const Navbar = () => {
                         <p className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] mb-1">Account</p>
                         <p className="text-sm font-bold truncate dark:text-white">{session.user?.name || session.user?.email}</p>
                       </div>
+                      {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as any)?.role) && (
+                        <Link 
+                          href="/admin" 
+                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-xl transition-colors group"
+                          onClick={() => setIsProfileOpen(false)}
+                        >
+                          <LayoutDashboard size={16} className="group-hover:scale-110 transition-transform" />
+                          <span>Admin Panel</span>
+                        </Link>
+                      )}
                       <Link 
                         href="/settings/profile" 
                         className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-xl transition-colors group"
@@ -187,6 +213,7 @@ const Navbar = () => {
             <button 
               className="md:hidden p-2 dark:text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Mobile Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -214,10 +241,11 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <div className="flex items-center space-x-4 pt-4 border-t border-stone-100 dark:border-stone-800">
-                  <Link href="/wishlist" className="dark:text-white" onClick={() => setIsMobileMenuOpen(false)}><Heart size={20} /></Link>
+                  <Link href="/wishlist" className="dark:text-white" aria-label="Wishlist" onClick={() => setIsMobileMenuOpen(false)}><Heart size={20} /></Link>
                   <Link 
                     href={session ? "/settings/profile" : "/auth"} 
                     className="dark:text-white"
+                    aria-label="User Profile"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <User size={20} />
@@ -233,6 +261,8 @@ const Navbar = () => {
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

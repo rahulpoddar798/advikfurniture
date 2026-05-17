@@ -30,6 +30,8 @@ model User {
   reviews       Review[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  @@index([email])
 }
 
 model Address {
@@ -45,6 +47,8 @@ model Address {
   isDefault  Boolean  @default(false)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model NotificationSettings {
@@ -67,6 +71,8 @@ model WishlistItem {
   createdAt DateTime @default(now())
 
   @@unique([userId, productId])
+  @@index([userId])
+  @@index([productId])
 }
 
 model PasswordResetToken {
@@ -95,6 +101,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@index([userId])
 }
 
 model Session {
@@ -103,6 +110,8 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model VerificationToken {
@@ -146,6 +155,12 @@ model Product {
   status           ProductStatus @default(DRAFT)
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
+
+  @@index([categoryId])
+  @@index([featured])
+  @@index([status])
+  @@index([createdAt])
+  @@index([isTrending])
 }
 
 enum ProductStatus {
@@ -185,6 +200,10 @@ model Order {
   address   String
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
 }
 
 enum OrderStatus {
@@ -203,6 +222,9 @@ model OrderItem {
   productId String
   quantity  Int
   price     Float
+
+  @@index([orderId])
+  @@index([productId])
 }
 
 model Review {
@@ -214,4 +236,7 @@ model Review {
   rating    Int
   comment   String?
   createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@index([userId])
 }

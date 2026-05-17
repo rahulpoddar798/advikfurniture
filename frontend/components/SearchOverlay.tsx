@@ -38,7 +38,12 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
             <X size={32} />
           </button>
 
-          <div className="w-full max-w-4xl space-y-8">
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", damping: 20, stiffness: 100 }}
+            className="w-full max-w-4xl space-y-8"
+          >
             <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-stone-400 text-center">Search our Collection</h2>
             <form onSubmit={handleSearch} className="relative group">
               <input
@@ -58,17 +63,20 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
             </form>
             
             <div className="flex flex-wrap gap-4 justify-center">
-              {['Eames', 'Lounge', 'Velvet', 'Nordic', 'Solid Oak'].map((tag) => (
-                <button
+              {['Eames', 'Lounge', 'Velvet', 'Nordic', 'Solid Oak'].map((tag, index) => (
+                <motion.button
                   key={tag}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + (index * 0.05) }}
                   onClick={() => setQuery(tag)}
                   className="px-6 py-2 rounded-full border border-stone-200 dark:border-stone-800 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all dark:text-white"
                 >
                   {tag}
-                </button>
+                </motion.button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

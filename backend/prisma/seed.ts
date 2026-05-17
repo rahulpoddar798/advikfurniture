@@ -34,6 +34,7 @@ async function main() {
         featured: true,
         material: 'Leather, Walnut Wood',
         dimensions: '32.75" H 32.75" W 32.75" D',
+        status: 'PUBLISHED',
       },
       {
         name: 'Nordic Velvet Sofa',
@@ -45,6 +46,7 @@ async function main() {
         featured: true,
         material: 'Velvet, Pine Wood',
         dimensions: '34" H 88" W 40" D',
+        status: 'PUBLISHED',
       },
       {
         name: 'Minimalist Oak Desk',
@@ -56,6 +58,7 @@ async function main() {
         featured: false,
         material: 'Solid Oak',
         dimensions: '29" H 60" W 30" D',
+        status: 'PUBLISHED',
       },
       {
         name: 'Floating Platform Bed',
@@ -67,6 +70,7 @@ async function main() {
         featured: true,
         material: 'Walnut, Metal',
         dimensions: '12" H 80" W 84" D (King)',
+        status: 'PUBLISHED',
       },
       {
         name: 'Geometric Bookshelf',
@@ -78,6 +82,7 @@ async function main() {
         featured: false,
         material: 'Powder-coated Steel',
         dimensions: '72" H 48" W 14" D',
+        status: 'PUBLISHED',
       },
     ],
   });

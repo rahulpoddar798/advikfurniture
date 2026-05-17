@@ -68,7 +68,7 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-6 space-y-1 overflow-y-auto py-4">
+        <nav className="flex-1 px-6 space-y-1 overflow-y-auto py-4" data-lenis-prevent="true">
           {menuItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
             

@@ -40,7 +40,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
 
       {/* Table */}
       <div className="bg-stone-900/40 backdrop-blur-2xl border border-stone-800 rounded-[2.5rem] overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" data-lenis-prevent="true">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-stone-800/50">

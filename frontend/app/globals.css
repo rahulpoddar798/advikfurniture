@@ -41,12 +41,15 @@
     color: var(--foreground);
     @apply antialiased;
     scrollbar-gutter: stable;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
   body {
     background-color: var(--background);
     color: var(--foreground);
     @apply overflow-x-hidden;
+    max-width: 100vw;
     -webkit-tap-highlight-color: transparent;
     text-rendering: optimizeLegibility;
   }

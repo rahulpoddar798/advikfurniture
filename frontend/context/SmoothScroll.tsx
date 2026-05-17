@@ -32,8 +32,8 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
       duration: 1.2
     });
 
-    // Normalize scroll behavior to prevent jumps
-    ScrollTrigger.normalizeScroll(true);
+    // DO NOT normalize scroll - it breaks mobile touch and momentum scrolling
+    // ScrollTrigger.normalizeScroll(true);
 
     // Ensure ScrollTrigger is refreshed on mount after a short delay
     const timer = setTimeout(() => {
@@ -46,7 +46,8 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
     }
     
     gsap.ticker.add(update);
-    gsap.ticker.lagSmoothing(0);
+    // Restore default lag smoothing to prevent huge jumps on frame drops
+    gsap.ticker.lagSmoothing(1000, 16);
 
     return () => {
       clearTimeout(timer);
@@ -64,7 +65,8 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
         duration: 1.5, 
         smoothWheel: true,
         wheelMultiplier: 0.9, // Avoid aggressive scrolling
-        touchMultiplier: 1.5,
+        syncTouch: false, // Let native touch scrolling handle mobile momentum
+        touchMultiplier: 1, // Reset to natural feel
         infinite: false,
         autoRaf: false, // We handle RAF via GSAP ticker
       }}

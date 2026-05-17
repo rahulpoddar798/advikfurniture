@@ -112,9 +112,9 @@ const Footer = memo(() => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="container mx-auto mt-20 pt-8 border-t border-stone-800 dark:border-stone-900 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-stone-500">
+      <div className="container mx-auto mt-20 pt-8 border-t border-stone-800 dark:border-stone-900 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-stone-500 text-center md:text-left gap-4 md:gap-0">
         <p>© 2025 Advik Furniture and Interior. All rights reserved.</p>
-        <div className="flex space-x-6 mt-4 md:mt-0">
+        <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 mt-4 md:mt-0">
           <Link href="/privacy" prefetch={false} className="hover:text-white transition-colors">Privacy Policy</Link>
           <Link href="/terms" prefetch={false} className="hover:text-white transition-colors">Terms of Service</Link>
           <Link href="/cookies" prefetch={false} className="hover:text-white transition-colors">Cookie Policy</Link>

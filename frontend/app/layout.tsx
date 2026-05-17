@@ -132,7 +132,7 @@ export default function RootLayout({
         />
       </head>
       <body 
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 dark:bg-stone-950 text-stone-900 transition-colors duration-500`}
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 dark:bg-stone-950 text-stone-900 transition-colors duration-500 overflow-x-hidden`}
         suppressHydrationWarning
       >
         <ThemeProvider>

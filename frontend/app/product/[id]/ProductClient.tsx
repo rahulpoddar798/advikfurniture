@@ -141,18 +141,18 @@ export default function ProductClient({ product }: ProductClientProps) {
 
               {/* Actions */}
               <div className="space-y-6 pt-10">
-                <div className="flex items-center space-x-6">
-                  <div className="flex items-center border border-stone-200 dark:border-stone-800 rounded-full px-6 py-4 dark:text-white">
+                <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                  <div className="flex items-center border border-stone-200 dark:border-stone-800 rounded-full px-6 py-4 dark:text-white w-full sm:w-auto justify-center">
                     <button 
                       onClick={() => setQuantity(q => Math.max(1, q - 1))} 
-                      className="text-xl px-2 hover:text-stone-400 transition-colors"
+                      className="text-xl px-4 hover:text-stone-400 transition-colors"
                     >
                       -
                     </button>
                     <span className="mx-6 font-bold w-4 text-center">{quantity}</span>
                     <button 
                       onClick={() => setQuantity(q => q + 1)} 
-                      className="text-xl px-2 hover:text-stone-400 transition-colors"
+                      className="text-xl px-4 hover:text-stone-400 transition-colors"
                     >
                       +
                     </button>
@@ -160,19 +160,19 @@ export default function ProductClient({ product }: ProductClientProps) {
                   <button 
                     onClick={handleAddToCart}
                     disabled={product.stock <= 0}
-                    className="flex-1 bg-stone-900 dark:bg-white dark:text-stone-900 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-stone-800 dark:hover:bg-stone-200 transition-all flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 w-full bg-stone-900 dark:bg-white dark:text-stone-900 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-stone-800 dark:hover:bg-stone-200 transition-all flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ShoppingCart size={18} />
                     <span>{product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}</span>
                   </button>
                 </div>
                 
-                <div className="flex items-center justify-center space-x-12 pt-4">
-                  <button className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors">
+                <div className="flex items-center justify-center space-x-6 sm:space-x-12 pt-4">
+                  <button className="flex items-center space-x-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors">
                     <Heart size={16} />
                     <span>Add to Wishlist</span>
                   </button>
-                  <button className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors">
+                  <button className="flex items-center space-x-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors">
                     <Share2 size={16} />
                     <span>Share Piece</span>
                   </button>

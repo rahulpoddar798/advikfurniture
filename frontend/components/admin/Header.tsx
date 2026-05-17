@@ -12,7 +12,7 @@ const Header = () => {
   const { toggleSidebar } = useAdminStore();
 
   return (
-    <header className="h-24 bg-stone-950/50 backdrop-blur-md border-b border-stone-800 sticky top-0 z-40 px-8 lg:px-12 flex items-center justify-between">
+    <header className="h-24 bg-stone-950/50 backdrop-blur-md border-b border-stone-800 sticky top-0 z-40 px-4 sm:px-8 lg:px-12 flex items-center justify-between">
       {/* Mobile Menu Button */}
       <button 
         onClick={toggleSidebar}
@@ -44,7 +44,7 @@ const Header = () => {
           <span className="absolute top-3 right-3 w-2 h-2 bg-white rounded-full border-2 border-stone-900" />
         </button>
 
-        <div className="flex items-center space-x-4 pl-6 border-l border-stone-800">
+        <div className="flex items-center space-x-4 pl-4 sm:pl-6 border-l border-stone-800">
           <div className="text-right hidden sm:block">
             <p className="text-sm font-bold tracking-tight text-white">{session?.user?.name}</p>
             <p className="text-[10px] font-bold uppercase tracking-widest text-stone-500">{(session?.user as any)?.role?.replace('_', ' ')}</p>

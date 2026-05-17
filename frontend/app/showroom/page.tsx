@@ -37,7 +37,7 @@ const ShowroomPage = () => {
         <ShowroomCanvas />
         
         {/* Controls Overlay */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex space-x-8 px-8 py-4 bg-white/50 dark:bg-stone-900/50 backdrop-blur-md rounded-full border border-white/30 dark:border-stone-800">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex space-x-4 md:space-x-8 px-4 md:px-8 py-4 bg-white/50 dark:bg-stone-900/50 backdrop-blur-md rounded-full border border-white/30 dark:border-stone-800 w-[90%] sm:w-auto justify-center">
           <div className="flex flex-col items-center">
             <span className="text-[10px] font-bold uppercase tracking-tighter text-stone-400">Rotation</span>
             <span className="text-xs font-bold dark:text-white">360°</span>

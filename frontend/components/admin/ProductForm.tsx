@@ -154,8 +154,8 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Valuation (₹)</label>
+                              <div className="space-y-3">
+                                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Valuation (₹)</label>
                   <input 
                     {...register('price')}
                     type="number"

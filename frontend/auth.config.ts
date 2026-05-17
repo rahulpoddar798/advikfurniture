@@ -18,7 +18,9 @@ if (typeof window === "undefined") {
 
 export const authConfig = {
   trustHost: true,
-  redirectProxyUrl: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
+  // Prioritize AUTH_URL if set, otherwise use VERCEL_URL. 
+  // On Vercel, VERCEL_URL is often a unique deployment URL, so setting AUTH_URL to your main domain is safer.
+  redirectProxyUrl: process.env.AUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,

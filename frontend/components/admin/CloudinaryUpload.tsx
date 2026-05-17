@@ -15,11 +15,23 @@ const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
   onChange,
   onRemove
 }) => {
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
   const onUpload = (result: any) => {
     if (result.event === 'success') {
       onChange(result.info.secure_url);
     }
   };
+
+  if (!uploadPreset) {
+    return (
+      <div className="p-8 rounded-2xl border-2 border-dashed border-red-900/20 bg-red-900/5 text-red-500 text-center">
+        <ImageIcon className="mx-auto mb-2 opacity-50" size={24} />
+        <p className="text-[10px] font-bold uppercase tracking-widest">Cloudinary Configuration Missing</p>
+        <p className="text-[9px] mt-1 opacity-70">Please set NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET in Vercel.</p>
+      </div>
+    );
+  }
 
   return (
     <div>

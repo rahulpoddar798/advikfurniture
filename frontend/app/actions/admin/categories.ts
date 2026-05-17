@@ -23,12 +23,8 @@ async function checkAdmin() {
 export async function getAdminCategories() {
   try {
     await checkAdmin();
+    // Simplified fetch to avoid potential aggregation issues in production
     return await prisma.category.findMany({
-      include: {
-        _count: {
-          select: { products: true }
-        }
-      },
       orderBy: { name: 'asc' }
     });
   } catch (error) {

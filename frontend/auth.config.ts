@@ -6,10 +6,18 @@ import Google from "next-auth/providers/google";
 if (typeof window === "undefined") {
   if (!process.env.GOOGLE_CLIENT_ID) console.warn("Missing GOOGLE_CLIENT_ID");
   if (!process.env.GOOGLE_CLIENT_SECRET) console.warn("Missing GOOGLE_CLIENT_SECRET");
-  if (!process.env.AUTH_SECRET) console.warn("Missing AUTH_SECRET (Required for production)");
+  if (!process.env.AUTH_SECRET) console.warn("Missing AUTH_SECRET");
+  
+  // Log critical info for debugging redirect issues
+  console.log("--- Auth Debug Info ---");
+  console.log("VERCEL_URL:", process.env.VERCEL_URL);
+  console.log("AUTH_URL:", process.env.AUTH_URL);
+  console.log("NEXTAUTH_URL:", process.env.NEXTAUTH_URL);
+  console.log("--- End Auth Debug ---");
 }
 
 export const authConfig = {
+  trustHost: true,
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,

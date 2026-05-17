@@ -13,14 +13,41 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { deleteProduct } from '@/app/actions/admin/products';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 interface ProductListProps {
   products: any[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = React.useState('');
   const [sortConfig, setSortConfig] = React.useState<{ key: string, direction: 'asc' | 'desc' } | null>(null);
+  const [deletingId, setDeletingId] = React.useState<string | null>(null);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const itemsPerPage = 10;
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this masterpiece?")) return;
+    
+    setDeletingId(id);
+    try {
+      const result = await deleteProduct(id);
+      if (result.success) {
+        toast.success("Product deleted successfully");
+        router.refresh();
+      } else {
+        toast.error(result.error || "Failed to delete product");
+      }
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   const filteredAndSortedProducts = React.useMemo(() => {
     let result = [...initialProducts];
@@ -41,24 +68,30 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
         let aValue: any = a[sortConfig.key];
         let bValue: any = b[sortConfig.key];
 
-        // Handle nested category name
         if (sortConfig.key === 'category') {
           aValue = a.category?.name || '';
           bValue = b.category?.name || '';
         }
 
-        if (aValue < bValue) {
-          return sortConfig.direction === 'asc' ? -1 : 1;
-        }
-        if (aValue > bValue) {
-          return sortConfig.direction === 'asc' ? 1 : -1;
-        }
+        if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
         return 0;
       });
     }
 
     return result;
   }, [initialProducts, searchQuery, sortConfig]);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredAndSortedProducts.length / itemsPerPage);
+  const paginatedProducts = filteredAndSortedProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, sortConfig]);
 
   const requestSort = (key: string) => {
     let direction: 'asc' | 'desc' = 'asc';
@@ -147,13 +180,13 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-800/30">
-              {filteredAndSortedProducts.map((product) => (
+              {paginatedProducts.map((product) => (
                 <tr key={product.id} className="group hover:bg-white/[0.02] transition-colors">
                   <td className="px-8 py-4">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-xl bg-stone-800 overflow-hidden border border-stone-700 flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-stone-800 overflow-hidden border border-stone-700 flex-shrink-0 relative">
                         {product.images?.[0] ? (
-                          <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
+                          <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="48px" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-stone-600">
                             <Package size={20} />
@@ -213,10 +246,16 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                         <Edit size={16} />
                       </Link>
                       <button 
-                        className="p-2 rounded-lg hover:bg-red-500/10 text-stone-400 hover:text-red-500 transition-all"
+                        onClick={() => handleDelete(product.id)}
+                        disabled={deletingId === product.id}
+                        className="p-2 rounded-lg hover:bg-red-500/10 text-stone-400 hover:text-red-500 transition-all disabled:opacity-50"
                         title="Delete product"
                       >
-                        <Trash2 size={16} />
+                        {deletingId === product.id ? (
+                          <div className="w-4 h-4 border-2 border-red-500/30 border-t-red-500 rounded-full animate-spin" />
+                        ) : (
+                          <Trash2 size={16} />
+                        )}
                       </button>
                     </div>
                   </td>
@@ -226,12 +265,27 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
           </table>
         </div>
         
-        {/* Pagination Placeholder */}
+        {/* Pagination */}
         <div className="p-8 border-t border-stone-800/50 flex justify-between items-center">
-          <p className="text-xs font-medium text-stone-500">Showing {filteredAndSortedProducts.length} of {initialProducts.length} products</p>
+          <p className="text-xs font-medium text-stone-500">
+            Showing {paginatedProducts.length} of {filteredAndSortedProducts.length} products
+          </p>
           <div className="flex items-center space-x-2">
-            <button className="px-4 py-2 rounded-xl bg-stone-800 text-stone-500 text-xs font-bold uppercase tracking-widest disabled:opacity-50" disabled>Prev</button>
-            <button className="px-4 py-2 rounded-xl bg-stone-800 text-stone-500 text-xs font-bold uppercase tracking-widest disabled:opacity-50" disabled>Next</button>
+            <button 
+              className="px-4 py-2 rounded-xl bg-stone-800 text-stone-300 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-opacity"
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
+            <span className="text-[10px] font-bold text-stone-500 px-2 uppercase">Page {currentPage} of {totalPages || 1}</span>
+            <button 
+              className="px-4 py-2 rounded-xl bg-stone-800 text-stone-300 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-opacity"
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages || totalPages === 0}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>

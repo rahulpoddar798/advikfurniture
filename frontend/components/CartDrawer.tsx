@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShoppingCart, Trash2, Plus, Minus, CreditCard } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
@@ -70,41 +71,49 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                   </button>
                 </div>
               ) : (
-                items.map((item) => (
-                  <div key={item.id} className="flex space-x-6">
-                    <div className="w-24 aspect-square bg-stone-100 dark:bg-stone-800 overflow-hidden rounded-sm flex-shrink-0">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-1 space-y-2 dark:text-white">
-                      <div className="flex justify-between">
-                        <h3 className="text-sm font-bold uppercase tracking-tight">{item.name}</h3>
-                        <button onClick={() => removeItem(item.id)} className="text-stone-400 hover:text-red-500 transition-colors">
-                          <Trash2 size={16} />
-                        </button>
+                <div className="space-y-8">
+                  {items.map((item, index) => (
+                    <motion.div 
+                      key={item.id} 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                      className="flex space-x-6"
+                    >
+                      <div className="w-24 aspect-square bg-stone-100 dark:bg-stone-800 overflow-hidden rounded-sm flex-shrink-0 relative">
+                        <Image src={item.image} alt={item.name} fill sizes="96px" className="object-cover" />
                       </div>
-                      <p className="text-sm font-serif text-stone-500 dark:text-stone-400">₹{item.price.toLocaleString()}</p>
-                      
-                      <div className="flex items-center justify-between pt-2">
-                        <div className="flex items-center border border-stone-200 dark:border-stone-800 rounded-full px-3 py-1">
-                          <button 
-                            onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
-                            className="hover:text-stone-400 p-1"
-                          >
-                            <Minus size={12} />
-                          </button>
-                          <span className="mx-4 text-xs font-bold w-4 text-center">{item.quantity}</span>
-                          <button 
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="hover:text-stone-400 p-1"
-                          >
-                            <Plus size={12} />
+                      <div className="flex-1 space-y-2 dark:text-white">
+                        <div className="flex justify-between">
+                          <h3 className="text-sm font-bold uppercase tracking-tight">{item.name}</h3>
+                          <button onClick={() => removeItem(item.id)} className="text-stone-400 hover:text-red-500 transition-colors">
+                            <Trash2 size={16} />
                           </button>
                         </div>
-                        <p className="text-sm font-bold">₹{(item.price * item.quantity).toLocaleString()}</p>
+                        <p className="text-sm font-serif text-stone-500 dark:text-stone-400">₹{item.price.toLocaleString()}</p>
+                        
+                        <div className="flex items-center justify-between pt-2">
+                          <div className="flex items-center border border-stone-200 dark:border-stone-800 rounded-full px-3 py-1">
+                            <button 
+                              onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                              className="hover:text-stone-400 p-1"
+                            >
+                              <Minus size={12} />
+                            </button>
+                            <span className="mx-4 text-xs font-bold w-4 text-center">{item.quantity}</span>
+                            <button 
+                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              className="hover:text-stone-400 p-1"
+                            >
+                              <Plus size={12} />
+                            </button>
+                          </div>
+                          <p className="text-sm font-bold">₹{(item.price * item.quantity).toLocaleString()}</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))
+                    </motion.div>
+                  ))}
+                </div>
               )}
             </div>
 

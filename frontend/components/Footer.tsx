@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
-const Footer = () => {
+const Footer = memo(() => {
   const pathname = usePathname();
 
   // Do not show main footer on admin pages
@@ -64,11 +64,11 @@ const Footer = () => {
         <div className="space-y-6">
           <h3 className="text-white text-sm font-bold uppercase tracking-widest">Quick Links</h3>
           <ul className="space-y-3 text-sm text-stone-400 dark:text-stone-500">
-            <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-            <li><Link href="/category/beds" className="hover:text-white transition-colors">Beds</Link></li>
-            <li><Link href="/category/sofas" className="hover:text-white transition-colors">Sofas</Link></li>
-            <li><Link href="/category/chairs" className="hover:text-white transition-colors">Chairs</Link></li>
-            <li><Link href="/category/dining" className="hover:text-white transition-colors">Dining Tables</Link></li>
+            <li><Link href="/" prefetch={false} className="hover:text-white transition-colors">Home</Link></li>
+            <li><Link href="/category/beds" prefetch={false} className="hover:text-white transition-colors">Beds</Link></li>
+            <li><Link href="/category/sofas" prefetch={false} className="hover:text-white transition-colors">Sofas</Link></li>
+            <li><Link href="/category/chairs" prefetch={false} className="hover:text-white transition-colors">Chairs</Link></li>
+            <li><Link href="/category/dining" prefetch={false} className="hover:text-white transition-colors">Dining Tables</Link></li>
           </ul>
         </div>
 
@@ -76,11 +76,11 @@ const Footer = () => {
         <div className="space-y-6">
           <h3 className="text-white text-sm font-bold uppercase tracking-widest">Customer Service</h3>
           <ul className="space-y-3 text-sm text-stone-400 dark:text-stone-500">
-            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-            <li><Link href="/shipping" className="hover:text-white transition-colors">Shipping & Delivery</Link></li>
-            <li><Link href="/returns" className="hover:text-white transition-colors">Returns & Exchanges</Link></li>
-            <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-            <li><Link href="/warranty" className="hover:text-white transition-colors">Warranty Information</Link></li>
+            <li><Link href="/contact" prefetch={false} className="hover:text-white transition-colors">Contact Us</Link></li>
+            <li><Link href="/shipping" prefetch={false} className="hover:text-white transition-colors">Shipping & Delivery</Link></li>
+            <li><Link href="/returns" prefetch={false} className="hover:text-white transition-colors">Returns & Exchanges</Link></li>
+            <li><Link href="/faq" prefetch={false} className="hover:text-white transition-colors">FAQ</Link></li>
+            <li><Link href="/warranty" prefetch={false} className="hover:text-white transition-colors">Warranty Information</Link></li>
           </ul>
         </div>
 
@@ -115,13 +115,15 @@ const Footer = () => {
       <div className="container mx-auto mt-20 pt-8 border-t border-stone-800 dark:border-stone-900 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-stone-500">
         <p>© 2025 Advik Furniture and Interior. All rights reserved.</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
-          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
+          <Link href="/privacy" prefetch={false} className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/terms" prefetch={false} className="hover:text-white transition-colors">Terms of Service</Link>
+          <Link href="/cookies" prefetch={false} className="hover:text-white transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

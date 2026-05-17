@@ -1,16 +1,32 @@
 import React from 'react';
 import Sidebar from '@/components/admin/Sidebar';
 import Header from '@/components/admin/Header';
-import { Toaster } from 'sonner';
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
 
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  console.log("--- ADMIN LAYOUT DEBUG ---");
+  const session = await auth();
+  console.log("Server-side Session User:", session?.user?.email);
+  console.log("Server-side User Role:", (session?.user as any)?.role);
+  
+  // Robust check for admin roles
+  const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
+  const userRole = (session?.user as any)?.role;
+
+  if (!session?.user || !adminRoles.includes(userRole)) {
+    console.log("ACCESS DENIED: Redirecting to home. Role was:", userRole);
+    redirect("/");
+  }
+
+  console.log("ACCESS GRANTED to Admin Panel");
+
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 flex relative">
-      <Toaster position="top-right" richColors />
       {/* Premium Sidebar */}
       <Sidebar />
 

@@ -39,15 +39,46 @@
   html {
     background-color: var(--background);
     color: var(--foreground);
-    @apply antialiased transition-colors duration-300;
-    scroll-behavior: smooth;
+    @apply antialiased;
+    scrollbar-gutter: stable;
   }
   
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply transition-colors duration-300 overflow-x-hidden;
+    @apply overflow-x-hidden;
     -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* GPU Acceleration Hints & Stability */
+  canvas, 
+  video,
+  .motion-gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimized will-change classes to prevent over-usage */
+  .will-change-transform { will-change: transform; }
+  .will-change-opacity { will-change: opacity; }
+  .will-change-premium { will-change: transform, opacity; }
+
+  /* Accessibility: Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Improved accessibility focus states */
+  :focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
   }
 
   /* Prevent text selection on interactive elements */
@@ -56,6 +87,18 @@
   [role="button"] {
     user-select: none;
     -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* Increase tap target for mobile */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   /* Hide focus ring for mouse users, keep for keyboard */
@@ -68,9 +111,9 @@
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Premium Minimalist */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -78,8 +121,17 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: #78716c; /* stone-500 */
   border-radius: 10px;
+  opacity: 0.5;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #44403c; /* stone-700 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #57534e; /* stone-600 */
 }
 
 /* Glassmorphism utility */

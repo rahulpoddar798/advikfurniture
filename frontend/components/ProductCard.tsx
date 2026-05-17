@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
@@ -14,10 +15,10 @@ interface ProductCardProps {
   category: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, category }) => {
+const ProductCard: React.FC<ProductCardProps> = memo(({ id, name, price, image, category }) => {
   const addItem = useCartStore((state) => state.addItem);
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     addItem({
@@ -27,39 +28,45 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, categ
       quantity: 1,
       image,
     });
-  };
+  }, [addItem, id, name, price, image]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="group"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="group will-change-transform"
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-800 rounded-sm">
-        <Link href={`/product/${id}`} className="block w-full h-full">
-          <img
+        <Link href={`/product/${id}`} className="block w-full h-full relative">
+          <Image
             src={image}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 will-change-transform"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
           />
         </Link>
         
-        {/* Hover Actions */}
-        <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4 pointer-events-none group-hover:pointer-events-auto">
+        {/* Hover Actions - Optimized with CSS transforms */}
+        <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-4 pointer-events-none group-hover:pointer-events-auto">
           <button 
             onClick={handleAddToCart}
-            className="bg-white dark:bg-stone-900 p-3 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 active:scale-95"
+            className="bg-white dark:bg-stone-900 p-4 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-8 group-hover:translate-y-0 duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-90"
             title="Add to Cart"
+            aria-label={`Add ${name} to cart`}
           >
-            <ShoppingCart size={18} />
+            <ShoppingCart size={20} />
           </button>
           <button 
-            className="bg-white dark:bg-stone-900 p-3 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75 active:scale-95"
+            className="bg-white dark:bg-stone-900 p-4 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-8 group-hover:translate-y-0 duration-700 delay-100 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-90"
             title="Add to Wishlist"
+            aria-label={`Add ${name} to wishlist`}
           >
-            <Heart size={18} />
+            <Heart size={20} />
           </button>
         </div>
 
@@ -81,6 +88,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, categ
       </div>
     </motion.div>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';
 
 export default ProductCard;

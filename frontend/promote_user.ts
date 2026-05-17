@@ -3,8 +3,9 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  const email = "test@example.com".toLowerCase();
   const user = await prisma.user.update({
-    where: { email: "test@example.com" },
+    where: { email },
     data: { role: "SUPER_ADMIN" },
   });
   console.log("User promoted to SUPER_ADMIN:", user.email);

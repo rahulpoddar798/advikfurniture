@@ -1,8 +1,20 @@
 'use client';
 
 import React from 'react';
-import ShowroomCanvas from '@/components/ShowroomCanvas';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
+
+const ShowroomCanvas = dynamic(() => import('@/components/ShowroomCanvas'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full flex items-center justify-center bg-stone-100 dark:bg-stone-900">
+      <div className="animate-pulse flex flex-col items-center">
+        <div className="h-16 w-16 rounded-full border-t-2 border-b-2 border-stone-900 dark:border-white animate-spin"></div>
+        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-stone-500">Loading Render Engine...</p>
+      </div>
+    </div>
+  )
+});
 
 const ShowroomPage = () => {
   return (

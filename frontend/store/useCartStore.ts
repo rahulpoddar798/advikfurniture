@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface CartItem {
   id: string;
@@ -18,28 +19,33 @@ interface CartStore {
   totalPrice: () => number;
 }
 
-export const useCartStore = create<CartStore>((set, get) => ({
-  items: [],
-  addItem: (item) => {
-    const existingItem = get().items.find((i) => i.id === item.id);
-    if (existingItem) {
-      set({
-        items: get().items.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
-        ),
-      });
-    } else {
-      set({ items: [...get().items, item] });
-    }
-    // Added console log to verify button click works
-    console.log(`Added ${item.name} to cart. Total items: ${get().totalItems()}`);
-  },
-  removeItem: (id) => set({ items: get().items.filter((i) => i.id !== id) }),
-  updateQuantity: (id, quantity) =>
-    set({
-      items: get().items.map((i) => (i.id === id ? { ...i, quantity } : i)),
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set, get) => ({
+      items: [],
+      addItem: (item) => {
+        const existingItem = get().items.find((i) => i.id === item.id);
+        if (existingItem) {
+          set({
+            items: get().items.map((i) =>
+              i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
+            ),
+          });
+        } else {
+          set({ items: [...get().items, item] });
+        }
+      },
+      removeItem: (id) => set({ items: get().items.filter((i) => i.id !== id) }),
+      updateQuantity: (id, quantity) =>
+        set({
+          items: get().items.map((i) => (i.id === id ? { ...i, quantity } : i)),
+        }),
+      clearCart: () => set({ items: [] }),
+      totalItems: () => get().items.reduce((acc, item) => acc + item.quantity, 0),
+      totalPrice: () => get().items.reduce((acc, item) => acc + item.price * item.quantity, 0),
     }),
-  clearCart: () => set({ items: [] }),
-  totalItems: () => get().items.reduce((acc, item) => acc + item.quantity, 0),
-  totalPrice: () => get().items.reduce((acc, item) => acc + item.price * item.quantity, 0),
-}));
+    {
+      name: 'advik-cart',
+    }
+  )
+);

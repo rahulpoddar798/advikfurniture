@@ -23,13 +23,28 @@ const FurnitureModel = () => {
 const ShowroomCanvas = () => {
   return (
     <div className="h-full w-full">
-      <Canvas shadows camera={{ position: [0, 0, 5], fov: 45 }}>
+      <Canvas 
+        shadows="soft"
+        camera={{ position: [0, 0, 5], fov: 40 }}
+        dpr={[1, 1.5]} // Limit DPR to 1.5 for performance on retina displays
+        gl={{ 
+          powerPreference: "high-performance",
+          antialias: true,
+          stencil: false,
+          depth: true,
+          alpha: true,
+          preserveDrawingBuffer: false
+        }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#0c0a09', 0); // Match dark background
+        }}
+      >
         <Suspense fallback={null}>
-          <Stage environment="city" intensity={0.6}>
+          <Stage environment="city" intensity={0.5}>
             <FurnitureModel />
           </Stage>
         </Suspense>
-        <OrbitControls enableZoom={false} autoRotate />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
       </Canvas>
     </div>
   );

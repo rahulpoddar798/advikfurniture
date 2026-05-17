@@ -1,42 +1,44 @@
 import { auth } from "@/auth";
 
-export default async function DebugAuthPage() {
+export default async function AuthDebugPage() {
   const session = await auth();
   
-  const envStatus = {
-    GOOGLE_CLIENT_ID: !!process.env.GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET: !!process.env.GOOGLE_CLIENT_SECRET,
-    AUTH_SECRET: !!process.env.AUTH_SECRET,
-    DATABASE_URL: !!process.env.DATABASE_URL,
+  const debugInfo = {
+    VERCEL_URL: process.env.VERCEL_URL,
+    AUTH_URL: process.env.AUTH_URL,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
   };
 
   return (
-    <div className="p-10 font-mono">
-      <h1 className="text-2xl font-bold mb-4">Auth Debug Tool</h1>
+    <div className="p-8 font-mono text-sm">
+      <h1 className="text-xl font-bold mb-4">Auth Debugging Info</h1>
       
-      <div className="mb-8 p-4 bg-gray-100 rounded">
-        <h2 className="text-lg font-semibold mb-2">Environment Variable Status (Present?)</h2>
-        <pre>{JSON.stringify(envStatus, null, 2)}</pre>
-        <p className="mt-2 text-sm text-gray-600">
-          * If any of these are "false", the Auth will fail in production.
-        </p>
-      </div>
+      <section className="mb-6">
+        <h2 className="font-bold border-b mb-2">Environment Variables</h2>
+        <pre className="bg-stone-100 p-4 rounded">
+          {JSON.stringify(debugInfo, null, 2)}
+        </pre>
+      </section>
 
-      <div className="p-4 bg-blue-50 rounded">
-        <h2 className="text-lg font-semibold mb-2">Session Status</h2>
-        <pre>{JSON.stringify(session, null, 2)}</pre>
-      </div>
-      
-      <div className="mt-10 p-4 border rounded border-red-200 bg-red-50">
-        <h2 className="text-red-700 font-bold">Important Instructions:</h2>
-        <ol className="list-decimal ml-5 mt-2 space-y-2">
-          <li>Go to <b>Vercel Dashboard</b> &gt; <b>Settings</b> &gt; <b>Environment Variables</b>.</li>
-          <li>If the list is empty, click <b>"Add New"</b>.</li>
-          <li>Enter the key names exactly as shown above.</li>
-          <li>After adding, you <b>must</b> create a new Deployment for them to take effect.</li>
-        </ol>
-      </div>
+      <section className="mb-6">
+        <h2 className="font-bold border-b mb-2">Session State</h2>
+        <pre className="bg-stone-100 p-4 rounded">
+          {JSON.stringify(session, null, 2)}
+        </pre>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-bold border-b mb-2">Expected Redirect URI</h2>
+        <p className="bg-blue-50 p-4 rounded text-blue-800">
+          https://{process.env.VERCEL_URL || 'your-domain'}/api/auth/callback/google
+        </p>
+      </section>
+
+      <p className="text-stone-500 italic mt-10">
+        If the URI above does not match EXACTLY what is in Google Cloud Console, the login will fail.
+      </p>
     </div>
   );
 }

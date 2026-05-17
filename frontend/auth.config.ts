@@ -18,6 +18,7 @@ if (typeof window === "undefined") {
 
 export const authConfig = {
   trustHost: true,
+  redirectProxyUrl: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,

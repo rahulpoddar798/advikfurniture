@@ -52,7 +52,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="What masterpiece are you looking for?"
-                className="w-full bg-transparent border-b-2 border-stone-200 dark:border-stone-800 py-6 text-2xl sm:text-3xl md:text-6xl font-serif outline-none focus:border-stone-900 dark:focus:border-white transition-all dark:text-white"
+                className="w-full bg-transparent border-b-2 border-stone-200 dark:border-stone-800 py-6 text-3xl md:text-6xl font-serif outline-none focus:border-stone-900 dark:focus:border-white transition-all dark:text-white"
               />
               <button 
                 type="submit"

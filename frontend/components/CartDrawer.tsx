@@ -84,9 +84,9 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                         <Image src={item.image} alt={item.name} fill sizes="96px" className="object-cover" />
                       </div>
                       <div className="flex-1 space-y-2 dark:text-white">
-                        <div className="flex justify-between items-start gap-2">
-                          <h3 className="text-sm font-bold uppercase tracking-tight truncate">{item.name}</h3>
-                          <button onClick={() => removeItem(item.id)} className="text-stone-400 hover:text-red-500 transition-colors shrink-0">
+                        <div className="flex justify-between">
+                          <h3 className="text-sm font-bold uppercase tracking-tight">{item.name}</h3>
+                          <button onClick={() => removeItem(item.id)} className="text-stone-400 hover:text-red-500 transition-colors">
                             <Trash2 size={16} />
                           </button>
                         </div>

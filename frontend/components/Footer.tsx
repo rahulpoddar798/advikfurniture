@@ -14,9 +14,9 @@ const Footer = memo(() => {
   }
   return (
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-200 py-20 px-6 transition-colors duration-500">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand */}
-        <div className="space-y-6 sm:col-span-2 lg:col-span-1">
+        <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-serif font-bold tracking-tighter text-white uppercase leading-tight">
               Advik Furniture <br /> and Interior

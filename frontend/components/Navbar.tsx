@@ -78,7 +78,7 @@ const Navbar = memo(() => {
               />
             </div>
             <span className="text-lg md:text-xl font-serif font-bold tracking-tighter text-stone-900 dark:text-white">
-              Advik<span className="text-stone-600 dark:text-stone-400 font-normal hidden sm:inline">Furniture</span>
+              Advik<span className="text-stone-600 dark:text-stone-400 font-normal hidden xs:inline">Furniture</span>
             </span>
           </Link>
 

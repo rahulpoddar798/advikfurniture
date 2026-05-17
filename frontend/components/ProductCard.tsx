@@ -80,7 +80,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({ id, name, price, image, 
 
       <div className="mt-6 space-y-1 text-center md:text-left">
         <Link href={`/product/${id}`}>
-          <h3 className="text-sm font-medium text-stone-900 dark:text-white uppercase tracking-wider hover:text-stone-500 transition-colors truncate">
+          <h3 className="text-sm font-medium text-stone-900 dark:text-white uppercase tracking-wider hover:text-stone-500 transition-colors">
             {name}
           </h3>
         </Link>

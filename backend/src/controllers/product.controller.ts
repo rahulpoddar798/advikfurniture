@@ -134,3 +134,52 @@ export const getCategories = async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const createProduct = async (req: Request, res: Response) => {
+  try {
+    const data = req.body;
+    const slug = data.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    
+    const product = await prisma.product.create({
+      data: {
+        ...data,
+        slug
+      }
+    });
+    
+    res.status(201).json(product);
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const updateProduct = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    
+    const updateData = { ...data };
+    if (data.name) {
+      updateData.slug = data.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    }
+    
+    const product = await prisma.product.update({
+      where: { id },
+      data: updateData
+    });
+    
+    res.status(200).json(product);
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const deleteProduct = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    await prisma.product.delete({ where: { id } });
+    res.status(204).send();
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+};

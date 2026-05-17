@@ -135,11 +135,11 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
       </div>
 
       {/* Table */}
-      <div className="bg-stone-900/40 backdrop-blur-2xl border border-stone-800 rounded-[2.5rem] overflow-hidden">
+      <div className="bg-stone-900/40 backdrop-blur-2xl border border-stone-800 rounded-[2.5rem] overflow-hidden shadow-2xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-stone-800/50">
+              <tr className="border-b border-stone-800/50 bg-stone-950/20">
                 <th 
                   className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('name')}
@@ -181,66 +181,75 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
             </thead>
             <tbody className="divide-y divide-stone-800/30">
               {paginatedProducts.map((product) => (
-                <tr key={product.id} className="group hover:bg-white/[0.02] transition-colors">
-                  <td className="px-8 py-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-xl bg-stone-800 overflow-hidden border border-stone-700 flex-shrink-0 relative">
+                <tr key={product.id} className="group hover:bg-white/[0.03] transition-all duration-300">
+                  <td className="px-8 py-5">
+                    <div className="flex items-center space-x-5">
+                      <div className="w-14 h-14 rounded-2xl bg-stone-800 overflow-hidden border border-stone-700/50 flex-shrink-0 relative shadow-lg group-hover:scale-105 transition-transform duration-500">
                         {product.images?.[0] ? (
-                          <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="48px" />
+                          <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="56px" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-stone-600">
-                            <Package size={20} />
+                            <Package size={24} />
                           </div>
                         )}
                       </div>
                       <div className="min-w-0">
-                        <p className="text-sm font-bold text-white truncate">{product.name}</p>
-                        <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-0.5">{product.material || 'Standard'}</p>
+                        <p className="text-sm font-bold text-white truncate leading-tight">{product.name}</p>
+                        <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1.5">{product.material || 'Standard Edition'}</p>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className="text-xs font-mono text-stone-400">{product.sku || 'N/A'}</span>
+                  <td className="px-6 py-5">
+                    <span className="text-[11px] font-mono text-stone-400 bg-stone-950/40 px-2.5 py-1 rounded-lg border border-stone-800/50">{product.sku || 'N/A'}</span>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest bg-stone-800/50 border border-stone-700 px-2 py-1 rounded-md text-stone-300">
+                  <td className="px-6 py-5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest bg-stone-100 text-stone-900 px-3 py-1.5 rounded-full">
                       {product.category?.name}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
-                    <p className="text-sm font-bold text-white">₹{product.price.toLocaleString()}</p>
-                    {product.discountPrice && (
-                      <p className="text-[10px] text-stone-500 line-through">₹{product.discountPrice.toLocaleString()}</p>
-                    )}
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center space-x-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${product.stock > 10 ? 'bg-emerald-500' : product.stock > 0 ? 'bg-amber-500' : 'bg-red-500'}`} />
-                      <span className="text-xs font-medium text-stone-300">{product.stock} in stock</span>
+                  <td className="px-6 py-5">
+                    <div className="space-y-1">
+                      <p className="text-sm font-bold text-white">₹{product.price.toLocaleString()}</p>
+                      {product.discountPrice && (
+                        <p className="text-[10px] font-bold text-stone-500 line-through decoration-stone-600">₹{product.discountPrice.toLocaleString()}</p>
+                      )}
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <span className={`text-[10px] font-bold uppercase tracking-tighter px-2.5 py-1 rounded-full border ${
-                      product.status === 'PUBLISHED' ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-500' :
-                      product.status === 'DRAFT' ? 'border-stone-500/20 bg-stone-500/10 text-stone-400' :
-                      'border-red-500/20 bg-red-500/10 text-red-500'
+                  <td className="px-6 py-5">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex flex-col">
+                        <span className="text-[11px] font-bold text-stone-200">{product.stock} units</span>
+                        <div className="w-16 h-1 bg-stone-800 rounded-full mt-1.5 overflow-hidden">
+                          <div 
+                            className={`h-full rounded-full transition-all duration-1000 ${product.stock > 10 ? 'bg-emerald-500' : product.stock > 0 ? 'bg-amber-500' : 'bg-red-500'}`} 
+                            style={{ width: `${Math.min(100, (product.stock / 20) * 100)}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-5">
+                    <span className={`text-[9px] font-black uppercase tracking-[0.1em] px-3 py-1.5 rounded-full border shadow-sm ${
+                      product.status === 'PUBLISHED' ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-400' :
+                      product.status === 'DRAFT' ? 'border-stone-500/30 bg-stone-500/5 text-stone-400' :
+                      'border-red-500/30 bg-red-500/5 text-red-400'
                     }`}>
                       {product.status}
                     </span>
                   </td>
-                  <td className="px-8 py-4 text-right">
-                    <div className="flex items-center justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <td className="px-8 py-5 text-right">
+                    <div className="flex items-center justify-end space-x-1">
                       <Link 
                         href={`/product/${product.id}`} 
                         target="_blank"
-                        className="p-2 rounded-lg hover:bg-stone-800 text-stone-400 hover:text-white transition-all"
+                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-800 text-stone-500 hover:text-white transition-all duration-300"
                         title="View on site"
                       >
                         <ExternalLink size={16} />
                       </Link>
                       <Link 
                         href={`/admin/products/${product.id}`}
-                        className="p-2 rounded-lg hover:bg-stone-800 text-stone-400 hover:text-white transition-all"
+                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-800 text-stone-500 hover:text-white transition-all duration-300"
                         title="Edit product"
                       >
                         <Edit size={16} />
@@ -248,7 +257,7 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                       <button 
                         onClick={() => handleDelete(product.id)}
                         disabled={deletingId === product.id}
-                        className="p-2 rounded-lg hover:bg-red-500/10 text-stone-400 hover:text-red-500 transition-all disabled:opacity-50"
+                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-red-500/10 text-stone-500 hover:text-red-500 transition-all duration-300 disabled:opacity-50"
                         title="Delete product"
                       >
                         {deletingId === product.id ? (

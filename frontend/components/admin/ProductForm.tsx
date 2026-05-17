@@ -85,42 +85,43 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
       let result;
       if (initialData) {
         result = await updateProduct(initialData.id, data);
-        if (result.error) {
+        if (result?.error) {
           toast.error(result.error);
           return;
         }
-        toast.success("Product updated successfully");
+        toast.success("Masterpiece updated");
       } else {
         result = await createProduct(data);
-        if (result.error) {
+        if (result?.error) {
           toast.error(result.error);
           return;
         }
-        toast.success("Product created successfully");
+        toast.success("New masterpiece added");
       }
       router.push('/admin/products');
       router.refresh();
     } catch (error) {
       console.error("Form submission error:", error);
-      toast.error("An unexpected error occurred");
+      toast.error("Operation failed");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="space-y-12">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <Link href="/admin/products" className="p-3 rounded-2xl bg-stone-900 border border-stone-800 text-stone-400 hover:text-white transition-all">
+    <div className="space-y-12 pb-20">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="flex items-center space-x-6">
+          <Link href="/admin/products" className="p-4 rounded-2xl bg-stone-900 border border-stone-800 text-stone-500 hover:text-white transition-all hover:bg-stone-800 shadow-lg">
             <ChevronLeft size={20} />
           </Link>
           <div>
-            <h2 className="text-3xl font-serif font-bold text-white tracking-tight">
-              {initialData ? 'Edit Product' : 'Create New Product'}
+            <h2 className="text-3xl font-serif font-bold text-white tracking-tight leading-tight">
+              {initialData ? 'Edit Masterpiece' : 'Add New Piece'}
             </h2>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-500 mt-1">
-              {initialData ? `SKU: ${initialData.sku || 'N/A'}` : 'Add a new masterpiece to your catalog'}
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 mt-2 flex items-center">
+              <span className="w-1 h-1 rounded-full bg-stone-700 mr-2" />
+              {initialData ? `Serial: ${initialData.sku || 'PENDING'}` : 'Cataloging excellence'}
             </p>
           </div>
         </div>
@@ -128,170 +129,183 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
         <button 
           onClick={handleSubmit(onSubmit)}
           disabled={loading}
-          className="flex items-center space-x-2 px-8 py-4 rounded-2xl bg-white text-stone-950 hover:bg-stone-200 transition-all font-bold uppercase tracking-widest shadow-xl shadow-white/5 disabled:opacity-50"
+          className="w-full md:w-auto flex items-center justify-center space-x-3 px-10 py-5 rounded-[1.25rem] bg-white text-stone-950 hover:bg-stone-200 transition-all font-bold uppercase tracking-[0.15em] text-[11px] shadow-2xl shadow-white/5 disabled:opacity-50"
         >
-          {loading ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}
-          <span>{initialData ? 'Save Changes' : 'Create Product'}</span>
+          {loading ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
+          <span>{initialData ? 'Update Record' : 'Commit to Catalog'}</span>
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Main Details */}
-        <div className="lg:col-span-2 space-y-8">
-          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Basic Information</h3>
+        <div className="lg:col-span-2 space-y-10">
+          <div className="p-10 rounded-[2.5rem] bg-stone-900/30 backdrop-blur-3xl border border-stone-800/50 space-y-10 shadow-2xl">
+            <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800/50 pb-6">Core Specifications</h3>
             
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Product Name</label>
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Nomenclature</label>
                 <input 
                   {...register('name')}
-                  placeholder="e.g. Eames Lounge Chair"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  placeholder="e.g. Minimalist Velvet Divan"
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                 />
-                {errors.name && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.name.message}</p>}
+                {errors.name && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.name.message}</p>}
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Price (₹)</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Valuation (₹)</label>
                   <input 
                     {...register('price')}
                     type="number"
-                    placeholder="0"
-                    className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                    placeholder="0.00"
+                    className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                   />
-                  {errors.price && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.price.message}</p>}
+                  {errors.price && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.price.message}</p>}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Discount Price (₹)</label>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Offer Valuation (Optional)</label>
                   <input 
                     {...register('discountPrice')}
                     type="number"
-                    placeholder="Optional"
-                    className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                    placeholder="Discounted price"
+                    className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                   />
-                  {errors.discountPrice && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.discountPrice.message}</p>}
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Description</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Narrative</label>
                 <textarea 
                   {...register('description')}
-                  rows={6}
-                  placeholder="Tell the story of this piece..."
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm resize-none"
+                  rows={8}
+                  placeholder="Describe the craftsmanship and soul of this piece..."
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.5rem] py-5 px-7 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700 leading-relaxed resize-none"
                 />
-                {errors.description && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.description.message}</p>}
+                {errors.description && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.description.message}</p>}
               </div>
             </div>
           </div>
 
-          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Specifications</h3>
+          <div className="p-10 rounded-[2.5rem] bg-stone-900/30 backdrop-blur-3xl border border-stone-800/50 space-y-10 shadow-2xl">
+            <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800/50 pb-6">Dimensions & Texture</h3>
             
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Dimensions</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Scale (Dimensions)</label>
                 <input 
                   {...register('dimensions')}
-                  placeholder="e.g. 80cm x 75cm x 90cm"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  placeholder="e.g. 210cm x 95cm x 85cm"
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Material</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Composition (Material)</label>
                 <input 
                   {...register('material')}
-                  placeholder="e.g. Solid Oak, Premium Velvet"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  placeholder="e.g. Hand-carved Teak"
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                 />
               </div>
             </div>
           </div>
 
-          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Product Images</h3>
+          <div className="p-10 rounded-[2.5rem] bg-stone-900/30 backdrop-blur-3xl border border-stone-800/50 space-y-10 shadow-2xl">
+            <div className="flex justify-between items-center border-b border-stone-800/50 pb-6">
+              <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400">Visual Portfolio</h3>
+              <span className="text-[9px] font-bold text-stone-600 uppercase tracking-widest">Min. 1 high-res image</span>
+            </div>
             <CloudinaryUpload 
               value={images}
               onChange={(url) => setValue('images', [...getValues('images'), url], { shouldValidate: true, shouldDirty: true })}
               onRemove={(url) => setValue('images', getValues('images').filter(i => i !== url), { shouldValidate: true, shouldDirty: true })}
             />
-            {errors.images && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.images.message}</p>}
+            {errors.images && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.images.message}</p>}
           </div>
         </div>
 
         {/* Sidebar Details */}
-        <div className="space-y-8">
-          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Organization</h3>
+        <div className="space-y-10">
+          <div className="p-10 rounded-[2.5rem] bg-stone-900/30 backdrop-blur-3xl border border-stone-800/50 space-y-10 shadow-2xl">
+            <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800/50 pb-6">Registry</h3>
             
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Category</label>
-                <select 
-                  {...register('categoryId')}
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm appearance-none"
-                >
-                  <option value="">Select Category</option>
-                  {categories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>{cat.name}</option>
-                  ))}
-                </select>
-                {errors.categoryId && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.categoryId.message}</p>}
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Classification</label>
+                <div className="relative">
+                  <select 
+                    {...register('categoryId')}
+                    className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-bold text-white appearance-none cursor-pointer"
+                  >
+                    <option value="" className="bg-stone-900">Select Classification</option>
+                    {categories.map((cat) => (
+                      <option key={cat.id} value={cat.id} className="bg-stone-900">{cat.name}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-stone-500">
+                    <ChevronLeft size={14} className="-rotate-90" />
+                  </div>
+                </div>
+                {errors.categoryId && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.categoryId.message}</p>}
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">SKU</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Inventory Serial (SKU)</label>
                 <input 
                   {...register('sku')}
-                  placeholder="e.g. FURN-CH-001"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  placeholder="e.g. AVK-2025-001"
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-medium text-white placeholder:text-stone-700"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Stock Quantity</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Available Volume</label>
                 <input 
                   {...register('stock')}
                   type="number"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-bold text-white"
                 />
-                {errors.stock && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.stock.message}</p>}
+                {errors.stock && <p className="text-red-500 text-[10px] ml-2 font-bold">{errors.stock.message}</p>}
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Status</label>
-                <select 
-                  {...register('status')}
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm appearance-none"
-                >
-                  <option value="DRAFT">Draft</option>
-                  <option value="PUBLISHED">Published</option>
-                  <option value="ARCHIVED">Archived</option>
-                  <option value="HIDDEN">Hidden</option>
-                </select>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-2">Catalog Status</label>
+                <div className="relative">
+                  <select 
+                    {...register('status')}
+                    className="w-full bg-stone-950/40 border border-stone-800/80 rounded-[1.25rem] py-4.5 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm font-bold text-white appearance-none cursor-pointer"
+                  >
+                    <option value="DRAFT" className="bg-stone-900">Drafting</option>
+                    <option value="PUBLISHED" className="bg-stone-900">Live Catalog</option>
+                    <option value="ARCHIVED" className="bg-stone-900">Archive</option>
+                    <option value="HIDDEN" className="bg-stone-900">Private</option>
+                  </select>
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-stone-500">
+                    <ChevronLeft size={14} className="-rotate-90" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 space-y-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-white border-b border-stone-800 pb-4">Promotions</h3>
+          <div className="p-10 rounded-[2.5rem] bg-stone-900/30 backdrop-blur-3xl border border-stone-800/50 space-y-10 shadow-2xl">
+            <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800/50 pb-6">Visibility Tags</h3>
             
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-stone-950/50 border border-stone-800">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Featured</span>
-                <input type="checkbox" {...register('featured')} className="w-5 h-5 rounded-md border-stone-800 bg-stone-900 accent-white" />
-              </div>
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-stone-950/50 border border-stone-800">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Trending</span>
-                <input type="checkbox" {...register('isTrending')} className="w-5 h-5 rounded-md border-stone-800 bg-stone-900 accent-white" />
-              </div>
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-stone-950/50 border border-stone-800">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Best Seller</span>
-                <input type="checkbox" {...register('isBestSeller')} className="w-5 h-5 rounded-md border-stone-800 bg-stone-900 accent-white" />
-              </div>
+            <div className="space-y-3">
+              {[
+                { label: 'Featured Piece', id: 'featured' },
+                { label: 'Trending Item', id: 'isTrending' },
+                { label: 'Best Seller', id: 'isBestSeller' }
+              ].map((tag) => (
+                <div key={tag.id} className="flex items-center justify-between p-5 rounded-[1.25rem] bg-stone-950/40 border border-stone-800/50 hover:border-white/20 transition-all cursor-pointer group">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-stone-500 group-hover:text-stone-300 transition-colors">{tag.label}</span>
+                  <div className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" {...register(tag.id as any)} className="sr-only peer" />
+                    <div className="w-11 h-6 bg-stone-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-stone-500 after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-white peer-checked:after:bg-stone-900"></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

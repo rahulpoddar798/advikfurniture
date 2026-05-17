@@ -68,7 +68,7 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-6 space-y-2">
+        <nav className="flex-1 px-6 space-y-1 overflow-y-auto py-4">
           {menuItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
             
@@ -77,20 +77,22 @@ const Sidebar = () => {
                 key={item.href} 
                 href={item.href}
                 onClick={() => { if(window.innerWidth < 1024) toggleSidebar(); }}
-                className={`flex items-center justify-between group px-4 py-3.5 rounded-2xl transition-all duration-300 ${
+                className={`flex items-center justify-between group px-5 py-4 rounded-[1.5rem] transition-all duration-300 ${
                   isActive 
-                    ? 'bg-white text-stone-950 shadow-2xl shadow-white/10' 
-                    : 'text-stone-400 hover:text-white hover:bg-stone-800/50'
+                    ? 'bg-white text-stone-950 shadow-2xl shadow-white/5 translate-x-1' 
+                    : 'text-stone-400 hover:text-white hover:bg-stone-800/40'
                 }`}
               >
-                <div className="flex items-center space-x-3">
-                  <item.icon size={20} className={`${isActive ? 'scale-110' : 'group-hover:scale-110'} transition-transform duration-300`} />
-                  <span className="text-sm font-bold uppercase tracking-widest">{item.name}</span>
+                <div className="flex items-center space-x-4">
+                  <div className={`p-2 rounded-xl transition-colors duration-300 ${isActive ? 'bg-stone-100' : 'bg-transparent group-hover:bg-stone-800'}`}>
+                    <item.icon size={18} className={`${isActive ? 'scale-110' : 'group-hover:scale-110'} transition-transform duration-300`} />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em]">{item.name}</span>
                 </div>
                 {isActive ? (
                   <motion.div 
                     layoutId="sidebar-active"
-                    className="w-1.5 h-1.5 rounded-full bg-stone-950" 
+                    className="w-1 h-4 rounded-full bg-stone-950" 
                   />
                 ) : (
                   <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
@@ -101,13 +103,15 @@ const Sidebar = () => {
         </nav>
 
         {/* Logout */}
-        <div className="p-6 mt-auto border-t border-stone-800">
+        <div className="px-6 py-8 border-t border-stone-800/50">
           <button 
             onClick={() => signOut({ callbackUrl: '/' })}
-            className="flex items-center space-x-3 px-4 py-3.5 rounded-2xl text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all w-full group"
+            className="flex items-center space-x-4 px-5 py-4 rounded-[1.5rem] text-stone-500 hover:bg-red-500/10 hover:text-red-400 transition-all w-full group border border-transparent hover:border-red-500/20"
           >
-            <LogOut size={20} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-bold uppercase tracking-widest">Sign Out</span>
+            <div className="p-2 rounded-xl bg-stone-800/50 group-hover:bg-red-500/10 transition-colors">
+              <LogOut size={18} className="group-hover:-translate-x-1 transition-transform" />
+            </div>
+            <span className="text-[11px] font-bold uppercase tracking-[0.15em]">Sign Out</span>
           </button>
         </div>
       </aside>

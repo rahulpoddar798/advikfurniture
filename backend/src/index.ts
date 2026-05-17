@@ -4,8 +4,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import compression from 'compression';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.routes';
-import productRoutes from './routes/product.routes';
+import authRoutes from './routes/auth.routes.js';
+import productRoutes from './routes/product.routes.js';
 
 dotenv.config();
 

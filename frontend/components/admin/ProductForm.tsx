@@ -152,7 +152,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
                 {errors.name && <p className="text-red-500 text-[10px] ml-4 font-bold">{errors.name.message}</p>}
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Price (₹)</label>
                   <input 

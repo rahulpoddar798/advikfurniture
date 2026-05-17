@@ -83,7 +83,7 @@ const Hero = () => {
         <h2 ref={subtitleRef} className="text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] text-stone-600 dark:text-stone-400 mb-6 md:mb-8 will-change-premium">
           Crafting Luxury — 2026 Collection
         </h2>
-        <h1 ref={titleRef} className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-bold tracking-tighter leading-[0.9] mb-8 md:mb-10 text-stone-900 dark:text-white will-change-premium">
+        <h1 ref={titleRef} className="text-[12vw] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-bold tracking-tighter leading-[0.9] mb-8 md:mb-10 text-stone-900 dark:text-white will-change-premium">
           Advik <br className="hidden sm:block" /> Furniture
         </h1>
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 will-change-premium">

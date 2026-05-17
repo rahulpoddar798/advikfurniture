@@ -12,9 +12,14 @@ export default async function AuthDebugPage() {
     AUTH_TRUST_HOST: process.env.AUTH_TRUST_HOST || "NOT SET",
   };
 
-  const expectedRedirect = debugInfo.VERCEL_URL !== "MISSING" 
-    ? `https://${debugInfo.VERCEL_URL}/api/auth/callback/google`
-    : "COULD NOT DETERMINE (VERCEL_URL MISSING)";
+  // Match the logic in auth.config.ts exactly
+  const stableUrl = debugInfo.AUTH_URL !== "NOT SET" 
+    ? debugInfo.AUTH_URL 
+    : (debugInfo.VERCEL_URL !== "MISSING" ? `https://${debugInfo.VERCEL_URL}` : null);
+
+  const expectedRedirect = stableUrl 
+    ? `${stableUrl}/api/auth/callback/google`
+    : "COULD NOT DETERMINE (BOTH AUTH_URL AND VERCEL_URL MISSING)";
 
   return (
     <div className="p-8 font-mono text-sm bg-white text-black min-h-screen">

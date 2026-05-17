@@ -1,6 +1,4 @@
 import { auth } from "@/auth";
-
-import { auth } from "@/auth";
 import { headers, cookies } from "next/headers";
 
 export default async function AuthDebugPage() {

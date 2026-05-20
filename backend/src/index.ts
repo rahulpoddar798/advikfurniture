@@ -26,7 +26,7 @@ const allowedOrigins = new Set([...defaultAllowedOrigins, ...configuredAllowedOr
 
 // Middleware
 app.use(helmet());
-app.use(compression());
+app.use(compression() as any);
 app.use(cors({
   origin(origin, callback) {
     if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ''))) {

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: advik-furniture-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: true
+      - key: DIRECT_URL
+        sync: true
+      - key: JWT_SECRET
+        sync: true
+      - key: FRONTEND_URL
+        sync: true
+      - key: CORS_ORIGINS
+        sync: true

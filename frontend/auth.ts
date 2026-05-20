@@ -28,17 +28,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: true,
   debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },
-  cookies: {
-    sessionToken: {
-      name: `authjs.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-      },
-    },
-  },
   callbacks: {
     async redirect({ url, baseUrl }) {
       const appBaseUrl = siteUrl || baseUrl;

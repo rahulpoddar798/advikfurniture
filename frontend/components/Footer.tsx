@@ -25,7 +25,7 @@ const Footer = memo(() => {
   }
   return (
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-200 py-20 px-6 transition-colors duration-500">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="space-y-6">
           <div>

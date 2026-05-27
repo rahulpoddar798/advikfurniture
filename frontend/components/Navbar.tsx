@@ -261,7 +261,7 @@ const Navbar = memo(() => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 flex flex-col">
+      <header className="fixed top-0 left-0 w-full z-50 flex flex-col md:flex-row flex-wrap gap-2 md:gap-0">
         {/* Main Search & Utility Navbar */}
         <nav
           className={`w-full transition-all duration-300 ${
@@ -270,7 +270,7 @@ const Navbar = memo(() => {
               : 'bg-stone-900 dark:bg-stone-950'
           } text-white px-4 md:px-6 py-3`}
         >
-          <div className="container mx-auto flex items-center justify-between gap-4">
+          <div className="container mx-auto flex flex-wrap items-center justify-between gap-2 md:gap-4">
             
             {/* Left: Logo & Location */}
             <div className="flex items-center space-x-6 shrink-0">
@@ -472,7 +472,7 @@ const Navbar = memo(() => {
         </nav>
 
         {/* Secondary Amazon sub-navbar */}
-        <div className="w-full bg-stone-900 dark:bg-stone-950 border-b border-stone-800 py-2.5 px-4 md:px-6 text-stone-300 flex items-center justify-between text-xs overflow-x-auto no-scrollbar font-semibold">
+        <div className="w-full bg-stone-900 dark:bg-stone-950 border-b border-stone-800 py-2.5 px-4 md:px-6 text-stone-300 flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar font-semibold">
           <div className="container mx-auto flex items-center justify-between w-full">
             <div className="flex items-center space-x-4 overflow-x-auto no-scrollbar">
               <button 

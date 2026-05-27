@@ -38,12 +38,12 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
           <input 
             type="text" 
             placeholder="Search orders..."
-            className="w-full bg-stone-900/50 border border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+            className="w-full bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-stone-900/20 dark:focus:ring-white/20 transition-all text-sm text-stone-900 dark:text-white"
           />
         </div>
         
         <div className="flex items-center space-x-3 w-full md:w-auto">
-          <button className="flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-2xl bg-stone-900/50 border border-stone-800 text-stone-400 hover:text-white transition-all text-sm font-bold uppercase tracking-widest">
+          <button className="flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-2xl bg-stone-100 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-all text-sm font-bold uppercase tracking-widest">
             <Filter size={16} />
             <span>Filter</span>
           </button>
@@ -51,11 +51,11 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
       </div>
 
       {/* Table */}
-      <div className="bg-stone-900/40 backdrop-blur-2xl border border-stone-800 rounded-[2.5rem] overflow-hidden">
+      <div className="bg-white dark:bg-stone-900/40 backdrop-blur-2xl border border-stone-200 dark:border-stone-800 rounded-[2.5rem] overflow-hidden shadow-2xl">
         <div className="overflow-x-auto" data-lenis-prevent="true">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-stone-800/50">
+              <tr className="border-b border-stone-200 dark:border-stone-800/50 bg-stone-50 dark:bg-stone-950/20">
                 <th className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500">Order ID</th>
                 <th className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500">Customer</th>
                 <th className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500">Status</th>
@@ -64,15 +64,15 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
                 <th className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-800/30">
+            <tbody className="divide-y divide-stone-200 dark:divide-stone-800/30">
               {orders.map((order) => (
-                <tr key={order.id} className="group hover:bg-white/[0.02] transition-colors">
+                <tr key={order.id} className="group hover:bg-stone-50/50 dark:hover:bg-white/[0.02] transition-colors">
                   <td className="px-8 py-6">
-                    <span className="text-xs font-mono font-bold text-white uppercase">#{order.id.slice(0, 8)}</span>
+                    <span className="text-xs font-mono font-bold text-stone-900 dark:text-white uppercase">#{order.id.slice(0, 8)}</span>
                   </td>
                   <td className="px-6 py-6">
                     <div>
-                      <p className="text-sm font-bold text-white">{order.user?.name || 'Guest'}</p>
+                      <p className="text-sm font-bold text-stone-900 dark:text-white">{order.user?.name || 'Guest'}</p>
                       <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-0.5">{order.user?.email}</p>
                     </div>
                   </td>
@@ -91,7 +91,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
                     </span>
                   </td>
                   <td className="px-6 py-6">
-                    <p className="text-sm font-bold text-white">₹{order.total.toLocaleString()}</p>
+                    <p className="text-sm font-bold text-stone-900 dark:text-white">₹{order.total.toLocaleString()}</p>
                     <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-0.5">{order.items.length} Items</p>
                   </td>
                   <td className="px-6 py-6 text-xs text-stone-400 font-medium">
@@ -102,7 +102,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
                     })}
                   </td>
                   <td className="px-8 py-6 text-right">
-                    <button className="p-2 rounded-lg hover:bg-stone-800 text-stone-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+                    <button className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-all opacity-0 group-hover:opacity-100">
                       <Eye size={16} />
                     </button>
                   </td>

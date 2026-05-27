@@ -93,9 +93,9 @@
     touch-action: manipulation;
   }
 
-  /* Increase tap target for mobile */
+  /* Increase tap target for mobile - applied selectively via .tap-target class */
   @media (max-width: 768px) {
-    button, a {
+    .tap-target {
       min-height: 44px;
       min-width: 44px;
       display: inline-flex;
@@ -153,4 +153,12 @@
 /* Animation utilities */
 .text-reveal {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Premium Smooth Theme Transitions */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }

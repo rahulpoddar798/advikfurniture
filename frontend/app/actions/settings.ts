@@ -196,3 +196,143 @@ export async function updateNotifications(values: {
     return { error: "Something went wrong!" };
   }
 }
+
+// --- WISHLIST ---
+export async function toggleWishlistItem(productId: string) {
+  const session = await auth();
+  if (!session?.user?.id) return { error: "Unauthorized" };
+
+  try {
+    const existing = await prisma.wishlistItem.findUnique({
+      where: {
+        userId_productId: {
+          userId: session.user.id,
+          productId,
+        },
+      },
+    });
+
+    if (existing) {
+      await prisma.wishlistItem.delete({
+        where: {
+          id: existing.id,
+        },
+      });
+      revalidatePath("/settings/wishlist");
+      revalidatePath(`/product/${productId}`);
+      return { success: "Removed from Wishlist", active: false };
+    } else {
+      await prisma.wishlistItem.create({
+        data: {
+          userId: session.user.id,
+          productId,
+        },
+      });
+      revalidatePath("/settings/wishlist");
+      revalidatePath(`/product/${productId}`);
+      return { success: "Added to Wishlist", active: true };
+    }
+  } catch (err) {
+    console.error("Failed to toggle wishlist item:", err);
+    return { error: "Something went wrong!" };
+  }
+}
+
+export async function getWishlistItems() {
+  const session = await auth();
+  if (!session?.user?.id) return [];
+
+  try {
+    const items = await prisma.wishlistItem.findMany({
+      where: {
+        userId: session.user.id,
+      },
+      include: {
+        product: {
+          select: {
+            id: true,
+            name: true,
+            price: true,
+            images: true,
+            stock: true,
+            category: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return items;
+  } catch (err) {
+    console.error("Failed to fetch wishlist items:", err);
+    return [];
+  }
+}
+
+export async function isInWishlist(productId: string) {
+  const session = await auth();
+  if (!session?.user?.id) return false;
+
+  try {
+    const existing = await prisma.wishlistItem.findUnique({
+      where: {
+        userId_productId: {
+          userId: session.user.id,
+          productId,
+        },
+      },
+    });
+    return !!existing;
+  } catch {
+    return false;
+  }
+}
+
+// --- NOTIFICATION GETTER ---
+export async function getNotificationSettings() {
+  const session = await auth();
+  if (!session?.user?.id) return null;
+
+  try {
+    return await prisma.notificationSettings.findUnique({
+      where: { userId: session.user.id },
+    });
+  } catch {
+    return null;
+  }
+}
+
+// --- USER ORDERS ---
+export async function getUserOrders() {
+  const session = await auth();
+  if (!session?.user?.id) return [];
+
+  try {
+    return await prisma.order.findMany({
+      where: { userId: session.user.id },
+      include: {
+        items: {
+          include: {
+            product: {
+              select: {
+                id: true,
+                name: true,
+                images: true,
+                price: true
+              }
+            }
+          }
+        }
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+  } catch (err) {
+    console.error("Failed to fetch user orders:", err);
+    return [];
+  }
+}

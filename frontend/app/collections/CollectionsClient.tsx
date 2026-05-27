@@ -160,7 +160,7 @@ export default function CollectionsClient({
     <div className="space-y-8 pr-4">
       {/* Category / Department List */}
       <div>
-        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-850">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-800">
           Departments
         </h3>
         <div className="flex flex-col space-y-2.5">
@@ -180,7 +180,7 @@ export default function CollectionsClient({
 
       {/* Customer Reviews Rating Filter */}
       <div>
-        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-850">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-800">
           Customer Reviews
         </h3>
         <div className="flex flex-col space-y-2">
@@ -210,7 +210,7 @@ export default function CollectionsClient({
 
       {/* Price Range Filters */}
       <div>
-        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-850">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-800">
           Price Range
         </h3>
         <div className="flex flex-col space-y-3">
@@ -265,7 +265,7 @@ export default function CollectionsClient({
 
       {/* Materials Filter */}
       <div>
-        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-850">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-800">
           Materials
         </h3>
         <div className="flex flex-col space-y-2.5">
@@ -285,7 +285,7 @@ export default function CollectionsClient({
 
       {/* Availability Filter */}
       <div>
-        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-850">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-stone-900 dark:text-white mb-4 pb-2 border-b border-stone-200 dark:border-stone-800">
           Availability
         </h3>
         <label className="flex items-center space-x-2.5 text-xs text-stone-600 dark:text-stone-400 font-semibold cursor-pointer">
@@ -323,7 +323,7 @@ export default function CollectionsClient({
           <div className="flex-1 space-y-8">
             
             {/* Catalog Info & Sorting Header */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 px-5 bg-white dark:bg-stone-900/40 border border-stone-200/50 dark:border-stone-850 rounded-2xl gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 px-5 bg-white dark:bg-stone-900/40 border border-stone-200/50 dark:border-stone-800 rounded-2xl gap-4">
               <div className="text-xs font-bold text-stone-500 dark:text-stone-400">
                 Showing <span className="text-stone-900 dark:text-white font-black">{sortedProducts.length}</span> results 
                 {searchQuery && (
@@ -343,11 +343,11 @@ export default function CollectionsClient({
 
                 {/* Sort dropdown */}
                 <div className="relative group shrink-0">
-                  <button className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest dark:text-white px-4 py-2 bg-stone-100 dark:bg-stone-850 rounded-xl">
+                  <button className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest dark:text-white px-4 py-2 bg-stone-100 dark:bg-stone-800 rounded-xl">
                     <span>Sort: {sortBy}</span>
                     <ChevronDown size={14} />
                   </button>
-                  <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-stone-900 shadow-2xl border border-stone-100 dark:border-stone-850 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all z-30 rounded-xl overflow-hidden">
+                  <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-stone-900 shadow-2xl border border-stone-100 dark:border-stone-800 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all z-30 rounded-xl overflow-hidden">
                     {['Newest', 'Price: Low to High', 'Price: High to Low', 'Avg. Customer Review'].map((option) => (
                       <button
                         key={option}

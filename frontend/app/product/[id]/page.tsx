@@ -4,6 +4,7 @@ import ProductClient from './ProductClient';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { siteUrl } from '@/lib/site';
+import { isInWishlist } from '@/app/actions/settings';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,6 +54,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  const wishlisted = await isInWishlist(id);
+
   return (
     <>
       <script
@@ -85,7 +88,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           }),
         }}
       />
-      <ProductClient product={product} />
+      <ProductClient product={product} initialIsInWishlist={wishlisted} />
     </>
   );
 }

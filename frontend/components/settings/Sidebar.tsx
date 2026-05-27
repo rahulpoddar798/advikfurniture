@@ -32,7 +32,14 @@ const Sidebar = () => {
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-6 px-4">Dashboard</p>
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
-          const isImplemented = ['/settings/profile', '/settings/account', '/settings/addresses'].includes(item.href);
+          const isImplemented = [
+            '/settings/profile', 
+            '/settings/account', 
+            '/settings/addresses', 
+            '/settings/wishlist', 
+            '/settings/orders', 
+            '/settings/notifications'
+          ].includes(item.href);
           
           return (
             <Link 

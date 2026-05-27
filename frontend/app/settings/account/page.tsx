@@ -2,6 +2,7 @@ import React from 'react';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
+import ChangePasswordForm from '@/components/settings/ChangePasswordForm';
 
 export default async function AccountPage() {
   const session = await auth();
@@ -52,12 +53,14 @@ export default async function AccountPage() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-stone-100 dark:border-stone-800">
-          <h3 className="text-xl font-bold dark:text-white mb-4">Security</h3>
-          <p className="text-stone-500 dark:text-stone-400 mb-6 text-sm">Update your password to keep your account secure.</p>
-          <button className="bg-stone-900 dark:bg-white text-white dark:text-stone-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] hover:opacity-90 transition-all">
-            Change Password
-          </button>
+        <div className="pt-8 border-t border-stone-100 dark:border-stone-800 space-y-6">
+          <div>
+            <h3 className="text-xl font-bold dark:text-white mb-2">Security</h3>
+            <p className="text-stone-500 dark:text-stone-400 text-sm">Update your password to keep your account secure.</p>
+          </div>
+          <div className="max-w-md">
+            <ChangePasswordForm />
+          </div>
         </div>
       </div>
     </div>

@@ -124,7 +124,7 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
       {/* Header Actions */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="relative w-full md:w-96 group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500 group-focus-within:text-white transition-colors" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500 group-focus-within:text-stone-900 dark:group-focus-within:text-white transition-colors" />
           <input 
             type="text" 
             placeholder="Search products..."
@@ -133,14 +133,14 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
               setSearchQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full bg-stone-900/50 border border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm text-white"
+            className="w-full bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-stone-900/20 dark:focus:ring-white/20 transition-all text-sm text-stone-900 dark:text-white"
           />
         </div>
         
         <div className="flex items-center space-x-3 w-full md:w-auto">
           <Link 
             href="/admin/products/new"
-            className="flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-2xl bg-white text-stone-950 hover:bg-stone-200 transition-all text-sm font-bold uppercase tracking-widest shadow-xl shadow-white/5"
+            className="flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-2xl bg-stone-900 dark:bg-white text-white dark:text-stone-950 hover:bg-stone-800 dark:hover:bg-stone-200 transition-all text-sm font-bold uppercase tracking-widest shadow-xl shadow-stone-200/50 dark:shadow-none"
           >
             <Plus size={16} />
             <span>Add Product</span>
@@ -149,43 +149,43 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
       </div>
 
       {/* Table */}
-      <div className="bg-stone-900/40 backdrop-blur-2xl border border-stone-800 rounded-[2.5rem] overflow-hidden shadow-2xl">
+      <div className="bg-white dark:bg-stone-900/40 backdrop-blur-2xl border border-stone-200 dark:border-stone-800 rounded-[2.5rem] overflow-hidden shadow-2xl">
         <div className="overflow-x-auto" data-lenis-prevent="true">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-stone-800/50 bg-stone-950/20">
+              <tr className="border-b border-stone-200 dark:border-stone-800/50 bg-stone-50 dark:bg-stone-950/20">
                 <th 
-                  className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('name')}
                 >
                   <div className="flex items-center">Product <SortIcon column="name" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
-                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('sku')}
                 >
                   <div className="flex items-center">SKU <SortIcon column="sku" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
-                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('category')}
                 >
                   <div className="flex items-center">Category <SortIcon column="category" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
-                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('price')}
                 >
                   <div className="flex items-center">Price <SortIcon column="price" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
-                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('stock')}
                 >
                   <div className="flex items-center">Stock <SortIcon column="stock" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
-                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
+                  className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-stone-900 dark:hover:text-white transition-colors"
                   onClick={() => requestSort('status')}
                 >
                   <div className="flex items-center">Status <SortIcon column="status" sortConfig={sortConfig} /></div>
@@ -193,12 +193,12 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                 <th className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-800/30">
+            <tbody className="divide-y divide-stone-200 dark:divide-stone-800/30">
               {paginatedProducts.map((product) => (
-                <tr key={product.id} className="group hover:bg-white/[0.03] transition-all duration-300">
+                <tr key={product.id} className="group hover:bg-stone-50/50 dark:hover:bg-white/[0.03] transition-all duration-300">
                   <td className="px-8 py-5">
                     <div className="flex items-center space-x-5">
-                      <div className="w-14 h-14 rounded-2xl bg-stone-800 overflow-hidden border border-stone-700/50 flex-shrink-0 relative shadow-lg group-hover:scale-105 transition-transform duration-500">
+                      <div className="w-14 h-14 rounded-2xl bg-stone-100 dark:bg-stone-800 overflow-hidden border border-stone-200 dark:border-stone-700/50 flex-shrink-0 relative shadow-lg group-hover:scale-105 transition-transform duration-500">
                         {product.images?.[0] ? (
                           <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="56px" />
                         ) : (
@@ -208,22 +208,22 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                         )}
                       </div>
                       <div className="min-w-0">
-                        <p className="text-sm font-bold text-white truncate leading-tight">{product.name}</p>
+                        <p className="text-sm font-bold text-stone-900 dark:text-white truncate leading-tight">{product.name}</p>
                         <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1.5">{product.material || 'Standard Edition'}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-5">
-                    <span className="text-[11px] font-mono text-stone-400 bg-stone-950/40 px-2.5 py-1 rounded-lg border border-stone-800/50">{product.sku || 'N/A'}</span>
+                    <span className="text-[11px] font-mono text-stone-600 dark:text-stone-400 bg-stone-100 dark:bg-stone-950/40 px-2.5 py-1 rounded-lg border border-stone-200 dark:border-stone-800/50">{product.sku || 'N/A'}</span>
                   </td>
                   <td className="px-6 py-5">
-                    <span className="text-[10px] font-bold uppercase tracking-widest bg-stone-100 text-stone-900 px-3 py-1.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-widest bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-white px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-800">
                       {product.category?.name}
                     </span>
                   </td>
                   <td className="px-6 py-5">
                     <div className="space-y-1">
-                      <p className="text-sm font-bold text-white">₹{product.price.toLocaleString()}</p>
+                      <p className="text-sm font-bold text-stone-900 dark:text-white">₹{product.price.toLocaleString()}</p>
                       {product.discountPrice && (
                         <p className="text-[10px] font-bold text-stone-500 line-through decoration-stone-600">₹{product.discountPrice.toLocaleString()}</p>
                       )}
@@ -232,8 +232,8 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                   <td className="px-6 py-5">
                     <div className="flex items-center space-x-3">
                       <div className="flex flex-col">
-                        <span className="text-[11px] font-bold text-stone-200">{product.stock} units</span>
-                        <div className="w-16 h-1 bg-stone-800 rounded-full mt-1.5 overflow-hidden">
+                        <span className="text-[11px] font-bold text-stone-600 dark:text-stone-300">{product.stock} units</span>
+                        <div className="w-16 h-1 bg-stone-200 dark:bg-stone-800 rounded-full mt-1.5 overflow-hidden">
                           <div 
                             className={`h-full rounded-full transition-all duration-1000 ${product.stock > 10 ? 'bg-emerald-500' : product.stock > 0 ? 'bg-amber-500' : 'bg-red-500'}`} 
                             style={{ width: `${Math.min(100, (product.stock / 20) * 100)}%` }}
@@ -256,14 +256,14 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                       <Link 
                         href={`/product/${product.id}`} 
                         target="_blank"
-                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-800 text-stone-500 hover:text-white transition-all duration-300"
+                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-all duration-300"
                         title="View on site"
                       >
                         <ExternalLink size={16} />
                       </Link>
                       <Link 
                         href={`/admin/products/${product.id}`}
-                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-800 text-stone-500 hover:text-white transition-all duration-300"
+                        className="p-2.5 rounded-xl bg-stone-800/0 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-all duration-300"
                         title="Edit product"
                       >
                         <Edit size={16} />
@@ -289,13 +289,13 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
         </div>
         
         {/* Pagination */}
-        <div className="p-8 border-t border-stone-800/50 flex justify-between items-center">
+        <div className="p-8 border-t border-stone-200 dark:border-stone-800/50 flex justify-between items-center">
           <p className="text-xs font-medium text-stone-500">
             Showing {paginatedProducts.length} of {filteredAndSortedProducts.length} products
           </p>
           <div className="flex items-center space-x-2">
             <button 
-              className="px-4 py-2 rounded-xl bg-stone-800 text-stone-300 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-opacity"
+              className="px-4 py-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-all duration-300"
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
             >
@@ -303,7 +303,7 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
             </button>
             <span className="text-[10px] font-bold text-stone-500 px-2 uppercase">Page {currentPage} of {totalPages || 1}</span>
             <button 
-              className="px-4 py-2 rounded-xl bg-stone-800 text-stone-300 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-opacity"
+              className="px-4 py-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 text-xs font-bold uppercase tracking-widest disabled:opacity-30 transition-all duration-300"
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages || totalPages === 0}
             >

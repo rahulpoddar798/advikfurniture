@@ -23,13 +23,8 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
   };
 
   const handleCheckout = () => {
-    setIsCheckingOut(true);
-    setTimeout(() => {
-      alert("Order placed successfully! This was a simulation of the 2026 checkout flow.");
-      clearCart();
-      setIsCheckingOut(false);
-      onClose();
-    }, 2000);
+    router.push('/checkout');
+    onClose();
   };
 
   return (

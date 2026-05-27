@@ -122,7 +122,9 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center space-x-3">
               <Mail size={18} className="text-stone-500 shrink-0" />
-              <p>info@advik.com</p>
+              <a href="mailto:info@advik.com" className="hover:text-white transition-colors">
+                info@advik.com
+              </a>
             </div>
           </div>
         </div>

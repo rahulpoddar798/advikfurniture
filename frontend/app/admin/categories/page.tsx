@@ -10,7 +10,7 @@ export default async function AdminCategoriesPage() {
   return (
     <div className="space-y-12">
       <div className="space-y-2">
-        <h2 className="text-4xl font-serif font-bold tracking-tight text-white">Categories</h2>
+        <h2 className="text-4xl font-serif font-bold tracking-tight text-stone-900 dark:text-white">Categories</h2>
         <p className="text-stone-500 font-medium">Organize your collection into intuitive groups and subcategories.</p>
       </div>
 

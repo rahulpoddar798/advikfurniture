@@ -131,7 +131,7 @@ export default function CheckoutPage() {
         
         {/* Checkout Header Progress Bar */}
         {step < 5 && (
-          <div className="mb-12 border-b border-stone-200 dark:border-stone-850 pb-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="mb-12 border-b border-stone-200 dark:border-stone-800 pb-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <h1 className="text-xl font-bold uppercase tracking-widest dark:text-white">Secure Checkout</h1>
             
             {/* Steps Indicators */}
@@ -151,7 +151,7 @@ export default function CheckoutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Main Form Area */}
-            <div className="lg:col-span-8 bg-white dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-850 p-6 md:p-8 rounded-2xl shadow-xl space-y-8">
+            <div className="lg:col-span-8 bg-white dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800 p-6 md:p-8 rounded-2xl shadow-xl space-y-8">
               
               {/* STEP 1: SHIPPING ADDRESS */}
               {step === 1 && (
@@ -198,7 +198,7 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-450">City *</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">City *</label>
                       <input
                         type="text"
                         required
@@ -209,7 +209,7 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-450">State *</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">State *</label>
                       <input
                         type="text"
                         required
@@ -220,7 +220,7 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-450">PIN code (6 Digits) *</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">PIN code (6 Digits) *</label>
                       <input
                         type="text"
                         maxLength={6}
@@ -233,7 +233,7 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-450">Phone Number *</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Phone Number *</label>
                       <input
                         type="tel"
                         required
@@ -262,7 +262,7 @@ export default function CheckoutPage() {
                       className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex justify-between items-center ${
                         shippingOption === 'standard' 
                           ? 'border-stone-950 dark:border-white bg-stone-50 dark:bg-stone-900/50' 
-                          : 'border-stone-200 dark:border-stone-850 hover:bg-stone-50/50'
+                          : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50'
                       }`}
                     >
                       <div className="space-y-1 pr-4">
@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                       className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex justify-between items-center ${
                         shippingOption === 'express' 
                           ? 'border-stone-950 dark:border-white bg-stone-50 dark:bg-stone-900/50' 
-                          : 'border-stone-200 dark:border-stone-850 hover:bg-stone-50/50'
+                          : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50'
                       }`}
                     >
                       <div className="space-y-1 pr-4">
@@ -294,7 +294,7 @@ export default function CheckoutPage() {
                       className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex justify-between items-center ${
                         shippingOption === 'whiteGlove' 
                           ? 'border-stone-950 dark:border-white bg-stone-50 dark:bg-stone-900/50' 
-                          : 'border-stone-200 dark:border-stone-850 hover:bg-stone-50/50'
+                          : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50'
                       }`}
                     >
                       <div className="space-y-1 pr-4">
@@ -321,7 +321,7 @@ export default function CheckoutPage() {
                       className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex justify-between items-start ${
                         paymentMethod === 'cod' 
                           ? 'border-stone-950 dark:border-white bg-stone-50 dark:bg-stone-900/50' 
-                          : 'border-stone-200 dark:border-stone-850 hover:bg-stone-50/50'
+                          : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50'
                       }`}
                     >
                       <input
@@ -341,7 +341,7 @@ export default function CheckoutPage() {
                       className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col space-y-4 ${
                         paymentMethod === 'card' 
                           ? 'border-stone-950 dark:border-white bg-stone-50 dark:bg-stone-900/50' 
-                          : 'border-stone-200 dark:border-stone-850 hover:bg-stone-50/50'
+                          : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50'
                       }`}
                     >
                       <div className="flex items-start">
@@ -407,7 +407,7 @@ export default function CheckoutPage() {
                   </div>
                   
                   {/* Shipping preview */}
-                  <div className="p-4 bg-stone-50 dark:bg-stone-900/40 border border-stone-150 dark:border-stone-850 rounded-xl text-xs space-y-2">
+                  <div className="p-4 bg-stone-50 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-800 rounded-xl text-xs space-y-2">
                     <div className="font-black uppercase tracking-widest text-[9px] text-stone-400">Ship To</div>
                     <p className="dark:text-white font-bold">{address.fullName}</p>
                     <p className="text-stone-500">{address.addressLine1}, {address.addressLine2 ? address.addressLine2 + ',' : ''} {address.city}, {address.state} - {address.pincode}</p>
@@ -418,7 +418,7 @@ export default function CheckoutPage() {
                   <div className="space-y-4">
                     <div className="font-black uppercase tracking-widest text-[9px] text-stone-400">Items Ordered</div>
                     {items.map((item) => (
-                      <div key={item.id} className="flex items-center justify-between border-b border-stone-100 dark:border-stone-850 pb-3 last:border-0 last:pb-0">
+                      <div key={item.id} className="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 pb-3 last:border-0 last:pb-0">
                         <div className="flex items-center space-x-4">
                           <div className="relative w-12 h-12 rounded-lg bg-stone-100 dark:bg-stone-800 overflow-hidden shrink-0">
                             <Image src={item.image} alt={item.name} fill className="object-cover" />
@@ -475,7 +475,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Column 2: Order Summary Sticky Panel (lg:col-span-4) */}
-            <div className="lg:col-span-4 lg:sticky lg:top-36 bg-white dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-850 p-6 rounded-2xl shadow-xl space-y-6">
+            <div className="lg:col-span-4 lg:sticky lg:top-36 bg-white dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800 p-6 rounded-2xl shadow-xl space-y-6">
               <h3 className="text-xs font-black uppercase tracking-widest text-stone-900 dark:text-white border-b border-stone-100 dark:border-stone-800 pb-3">
                 Order Summary
               </h3>
@@ -496,7 +496,7 @@ export default function CheckoutPage() {
                   <span className="text-stone-900 dark:text-white">₹{tax.toLocaleString()}</span>
                 </div>
                 
-                <div className="border-t border-stone-100 dark:border-stone-850 pt-4 flex justify-between text-sm font-black text-stone-900 dark:text-white">
+                <div className="border-t border-stone-100 dark:border-stone-800 pt-4 flex justify-between text-sm font-black text-stone-900 dark:text-white">
                   <span>Order Total</span>
                   <span className="text-base font-serif">₹{finalTotal.toLocaleString()}</span>
                 </div>
@@ -511,7 +511,7 @@ export default function CheckoutPage() {
           </div>
         ) : (
           /* STEP 5: SUCCESS / RECEIPT SCREEN */
-          <div className="bg-white dark:bg-stone-900/30 border border-stone-250 dark:border-stone-850 p-8 md:p-12 rounded-3xl shadow-2xl text-center space-y-6 max-w-xl mx-auto">
+          <div className="bg-white dark:bg-stone-900/30 border border-stone-200 dark:border-stone-800 p-8 md:p-12 rounded-3xl shadow-2xl text-center space-y-6 max-w-xl mx-auto">
             <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
               <CheckCircle2 size={44} />
             </div>
@@ -521,7 +521,7 @@ export default function CheckoutPage() {
               Thank you for cataloging excellence. Your delivery address has been verified. Advik Express will contact you prior to dispatch.
             </p>
 
-            <div className="p-4 bg-stone-50 dark:bg-stone-900/40 rounded-2xl border border-stone-150 dark:border-stone-850 max-w-sm mx-auto text-xs text-left space-y-2">
+            <div className="p-4 bg-stone-50 dark:bg-stone-900/40 rounded-2xl border border-stone-200 dark:border-stone-800 max-w-sm mx-auto text-xs text-left space-y-2">
               <div className="font-black uppercase tracking-widest text-[9px] text-stone-400">Order Information</div>
               <div className="flex justify-between">
                 <span className="font-bold text-stone-500">Shipping Mode</span>

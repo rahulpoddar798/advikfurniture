@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getFeaturedProducts } from "@/lib/services";
 import ProductCard from "@/components/ProductCard";
+import NewsletterForm from "@/components/NewsletterForm";
 
 import { Award, Users, Armchair } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
@@ -122,16 +123,7 @@ export default async function Home() {
         <div className="max-w-2xl mx-auto space-y-10">
           <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight dark:text-white">Stay Inspired.</h2>
           <p className="text-stone-500 dark:text-stone-400">Join our exclusive circle for interior design tips, new collection launches, and private event invitations.</p>
-          <div className="flex flex-col md:flex-row gap-4">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-1 bg-stone-100 dark:bg-stone-900 border-none px-6 py-4 outline-none focus:ring-1 focus:ring-stone-900 dark:focus:ring-white dark:text-white transition-all"
-            />
-            <button className="bg-stone-900 dark:bg-white dark:text-stone-900 text-white px-10 py-4 font-bold uppercase tracking-widest text-xs hover:bg-stone-800 dark:hover:bg-stone-200 transition-all active:scale-95">
-              Subscribe
-            </button>
-          </div>
+          <NewsletterForm />
         </div>
       </section>
     </div>

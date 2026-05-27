@@ -92,16 +92,16 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
     <div className="space-y-8">
       <div className="flex justify-between items-center">
         <div className="relative w-96 group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500 group-focus-within:text-white transition-colors" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500 group-focus-within:text-stone-900 dark:group-focus-within:text-white transition-colors" />
           <input 
             type="text" 
             placeholder="Search categories..."
-            className="w-full bg-stone-900/50 border border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+            className="w-full bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-stone-900/20 dark:focus:ring-white/20 transition-all text-sm text-stone-900 dark:text-white"
           />
         </div>
         <button 
           onClick={handleAdd}
-          className="flex items-center space-x-2 px-6 py-3 rounded-2xl bg-white text-stone-950 hover:bg-stone-200 transition-all text-sm font-bold uppercase tracking-widest shadow-xl shadow-white/5"
+          className="flex items-center space-x-2 px-6 py-3 rounded-2xl bg-stone-900 dark:bg-white text-white dark:text-stone-950 hover:bg-stone-800 dark:hover:bg-stone-200 transition-all text-sm font-bold uppercase tracking-widest shadow-xl shadow-stone-200/50 dark:shadow-none"
         >
           <Plus size={16} />
           <span>New Category</span>
@@ -110,21 +110,21 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((cat) => (
-          <div key={cat.id} className="group p-8 rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl border border-stone-800 hover:border-white/20 transition-all duration-500 flex justify-between items-center">
+          <div key={cat.id} className="group p-8 rounded-[2.5rem] bg-white dark:bg-stone-900/40 backdrop-blur-2xl border border-stone-200 dark:border-stone-800 hover:border-stone-400 dark:hover:border-white/20 transition-all duration-500 flex justify-between items-center shadow-xl dark:shadow-none">
             <div>
-              <h3 className="text-xl font-serif font-bold text-white tracking-tight">{cat.name}</h3>
+              <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-white tracking-tight">{cat.name}</h3>
               <p className="text-[10px] font-bold uppercase tracking-widest text-stone-500 mt-1">{cat._count?.products || 0} Products</p>
             </div>
             <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <button 
                 onClick={() => handleEdit(cat)}
-                className="p-2 rounded-xl bg-stone-800 border border-stone-700 text-stone-400 hover:text-white hover:border-stone-600 transition-all"
+                className="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white hover:border-stone-300 dark:hover:border-stone-600 transition-all"
               >
                 <Edit size={16} />
               </button>
               <button 
                 onClick={() => handleDelete(cat.id)}
-                className="p-2 rounded-xl bg-stone-800 border border-stone-700 text-stone-400 hover:text-red-500 hover:border-red-500/50 transition-all"
+                className="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 hover:text-red-500 hover:border-red-500/50 transition-all"
               >
                 <Trash2 size={16} />
               </button>
@@ -137,16 +137,16 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
           <div className="absolute inset-0 bg-stone-950/80 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
-          <div className="relative w-full max-w-md bg-stone-900 border border-stone-800 rounded-[3rem] shadow-2xl overflow-hidden animate-in zoom-in duration-300">
-            <div className="p-8 border-b border-stone-800 flex justify-between items-center">
-              <h3 className="text-xl font-serif font-bold text-white">
+          <div className="relative w-full max-w-md bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-[3rem] shadow-2xl overflow-hidden animate-in zoom-in duration-300">
+            <div className="p-8 border-b border-stone-200 dark:border-stone-800 flex justify-between items-center">
+              <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-white">
                 {editingCategory ? 'Edit Category' : 'New Category'}
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-stone-500 hover:text-white transition-colors">
+              <button onClick={() => setIsModalOpen(false)} className="text-stone-500 hover:text-stone-900 dark:hover:text-white transition-colors">
                 <X size={20} />
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="p-8 space-y-8">
+            <form onSubmit={handleSubmit} className="p-8 space-y-8 text-stone-900 dark:text-white">
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 ml-4">Category Name</label>
                 <input 
@@ -154,14 +154,14 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Living Room"
-                  className="w-full bg-stone-950/50 border border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm"
+                  className="w-full bg-stone-50 dark:bg-stone-950/50 border border-stone-200 dark:border-stone-800 rounded-2xl py-4 px-6 outline-none focus:ring-1 focus:ring-stone-900/20 dark:focus:ring-white/20 transition-all text-sm text-stone-900 dark:text-white placeholder:text-stone-400"
                   required
                 />
               </div>
               <button 
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center space-x-2 py-4 rounded-2xl bg-white text-stone-950 hover:bg-stone-200 transition-all font-bold uppercase tracking-widest shadow-xl shadow-white/5 disabled:opacity-50"
+                className="w-full flex items-center justify-center space-x-2 py-4 rounded-2xl bg-stone-900 dark:bg-white text-white dark:text-stone-950 hover:bg-stone-800 dark:hover:bg-stone-200 transition-all font-bold uppercase tracking-widest shadow-xl shadow-stone-200/50 dark:shadow-none disabled:opacity-50"
               >
                 {loading ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}
                 <span>{editingCategory ? 'Update' : 'Create'}</span>

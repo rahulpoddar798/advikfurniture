@@ -26,7 +26,7 @@ export default async function AdminLayout({
   console.log("ACCESS GRANTED to Admin Panel");
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100 flex relative">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 flex relative">
       {/* Premium Sidebar */}
       <Sidebar />
 

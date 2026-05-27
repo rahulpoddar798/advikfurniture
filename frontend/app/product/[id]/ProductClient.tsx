@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useTransition, useEffect } from 'react';
 import { 
   ShoppingCart, 
   Heart, 
@@ -21,6 +21,7 @@ import { toast } from 'sonner';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { toggleWishlistItem } from '@/app/actions/settings';
 
 interface Review {
   id: string;
@@ -54,13 +55,32 @@ interface Product {
 
 interface ProductClientProps {
   product: Product;
+  initialIsInWishlist?: boolean;
 }
 
-export default function ProductClient({ product }: ProductClientProps) {
+export default function ProductClient({ product, initialIsInWishlist = false }: ProductClientProps) {
   const addItem = useCartStore((state) => state.addItem);
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [isWishlistActive, setIsWishlistActive] = useState(initialIsInWishlist);
+  const [isWishlistPending, startWishlistTransition] = useTransition();
+
+  useEffect(() => {
+    setIsWishlistActive(initialIsInWishlist);
+  }, [initialIsInWishlist]);
+
+  const handleWishlistToggle = useCallback(() => {
+    startWishlistTransition(async () => {
+      const res = await toggleWishlistItem(product.id);
+      if (res.error) {
+        toast.error(res.error === "Unauthorized" ? "Please sign in to manage your wishlist." : res.error);
+      } else {
+        setIsWishlistActive(res.active || false);
+        toast.success(res.success);
+      }
+    });
+  }, [product.id]);
 
   const handleAddToCart = useCallback(() => {
     addItem({
@@ -157,7 +177,7 @@ export default function ProductClient({ product }: ProductClientProps) {
           
           {/* Column 1: Image Gallery (lg:col-span-5) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative aspect-[4/5] bg-stone-100 dark:bg-stone-900 overflow-hidden rounded-2xl shadow-sm border border-stone-200/50 dark:border-stone-850">
+            <div className="relative aspect-[4/5] bg-stone-100 dark:bg-stone-900 overflow-hidden rounded-2xl shadow-sm border border-stone-200/50 dark:border-stone-800">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedImage}
@@ -236,7 +256,7 @@ export default function ProductClient({ product }: ProductClientProps) {
               </div>
             </div>
 
-            <div className="border-y border-stone-200 dark:border-stone-850 py-4 flex flex-col space-y-1">
+            <div className="border-y border-stone-200 dark:border-stone-800 py-4 flex flex-col space-y-1">
               <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Price</div>
               <div className="flex items-baseline space-x-3">
                 <span className="text-2xl font-serif font-black text-stone-900 dark:text-white">₹{product.price.toLocaleString()}</span>
@@ -266,16 +286,16 @@ export default function ProductClient({ product }: ProductClientProps) {
             {/* Specifications Table */}
             <div className="space-y-4 pt-6">
               <h3 className="text-xs font-black uppercase tracking-widest text-stone-900 dark:text-white">Technical Details</h3>
-              <div className="border border-stone-200 dark:border-stone-850 rounded-xl overflow-hidden text-xs">
-                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-850">
+              <div className="border border-stone-200 dark:border-stone-800 rounded-xl overflow-hidden text-xs">
+                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-800">
                   <div className="bg-stone-100 dark:bg-stone-900/50 p-3 font-black text-stone-500 uppercase tracking-wider">Material</div>
                   <div className="p-3 font-semibold dark:text-white">{product.material || 'Premium Woods & Fabric'}</div>
                 </div>
-                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-850">
+                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-800">
                   <div className="bg-stone-100 dark:bg-stone-900/50 p-3 font-black text-stone-500 uppercase tracking-wider">Dimensions</div>
                   <div className="p-3 font-semibold dark:text-white">{product.dimensions || 'Standard Custom Sizing'}</div>
                 </div>
-                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-850">
+                <div className="grid grid-cols-2 border-b border-stone-200 dark:border-stone-800">
                   <div className="bg-stone-100 dark:bg-stone-900/50 p-3 font-black text-stone-500 uppercase tracking-wider">Serial (SKU)</div>
                   <div className="p-3 font-mono font-semibold dark:text-white">{product.sku || 'N/A'}</div>
                 </div>
@@ -288,7 +308,7 @@ export default function ProductClient({ product }: ProductClientProps) {
           </div>
 
           {/* Column 3: Sticky Buy Box (lg:col-span-3) */}
-          <div className="lg:col-span-3 lg:sticky lg:top-36 bg-white dark:bg-stone-900/30 p-6 rounded-2xl border border-stone-250 dark:border-stone-850 shadow-xl space-y-6">
+          <div className="lg:col-span-3 lg:sticky lg:top-36 bg-white dark:bg-stone-900/30 p-6 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-xl space-y-6">
             <div>
               <div className="text-xl font-serif font-black text-stone-950 dark:text-white">₹{product.price.toLocaleString()}</div>
               
@@ -300,7 +320,7 @@ export default function ProductClient({ product }: ProductClientProps) {
             </div>
 
             {/* Location Selector */}
-            <div className="flex items-center space-x-2 text-xs text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-250 cursor-pointer pt-2 border-t border-stone-100 dark:border-stone-850">
+            <div className="flex items-center space-x-2 text-xs text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 cursor-pointer pt-2 border-t border-stone-100 dark:border-stone-800">
               <MapPin size={14} />
               <span className="font-bold">Deliver to India - Delhi 110001</span>
             </div>
@@ -360,10 +380,19 @@ export default function ProductClient({ product }: ProductClientProps) {
                 <Calendar size={14} />
                 <span>Buy Now</span>
               </button>
+              
+              <button 
+                onClick={handleWishlistToggle}
+                disabled={isWishlistPending}
+                className="w-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-900 dark:text-white py-3.5 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-stone-50 dark:hover:bg-stone-800 transition-all flex items-center justify-center space-x-2 shadow-lg disabled:opacity-50"
+              >
+                <Heart size={14} className={isWishlistActive ? "fill-red-500 text-red-500" : ""} />
+                <span>{isWishlistActive ? 'In Wishlist' : 'Add to Wishlist'}</span>
+              </button>
             </div>
 
             {/* Buying specifications */}
-            <div className="text-[10px] text-stone-400 space-y-1.5 font-bold uppercase tracking-wider pt-4 border-t border-stone-100 dark:border-stone-850">
+            <div className="text-[10px] text-stone-400 space-y-1.5 font-bold uppercase tracking-wider pt-4 border-t border-stone-100 dark:border-stone-800">
               <div className="flex justify-between">
                 <span>Ships from</span>
                 <span className="text-stone-600 dark:text-stone-300">Advik Express</span>
@@ -389,7 +418,7 @@ export default function ProductClient({ product }: ProductClientProps) {
         </div>
 
         {/* Amazon-Style Customer Reviews Section */}
-        <section className="mt-24 pt-16 border-t border-stone-200 dark:border-stone-850">
+        <section className="mt-24 pt-16 border-t border-stone-200 dark:border-stone-800">
           <h2 className="text-2xl font-serif font-black text-stone-900 dark:text-white mb-10">Customer Reviews</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -437,7 +466,7 @@ export default function ProductClient({ product }: ProductClientProps) {
             <div className="lg:col-span-8 space-y-10">
               {product.reviews && product.reviews.length > 0 ? (
                 product.reviews.map((rev) => (
-                  <div key={rev.id} className="space-y-3 border-b border-stone-150 dark:border-stone-850 pb-8 last:border-b-0">
+                  <div key={rev.id} className="space-y-3 border-b border-stone-200 dark:border-stone-800 pb-8 last:border-b-0">
                     {/* User profile identifier */}
                     <div className="flex items-center space-x-3">
                       <div className="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden relative flex items-center justify-center">

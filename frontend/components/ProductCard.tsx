@@ -1,12 +1,14 @@
 'use client';
 
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useTransition } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Heart, Star } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
+import { toggleWishlistItem } from '@/app/actions/settings';
+import { toast } from 'sonner';
 
 interface ProductCardProps {
   id: string;
@@ -48,17 +50,32 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
     router.push(`/product/${id}`);
   }, [router, id]);
 
+  const [isPending, startTransition] = useTransition();
+
+  const handleWishlistToggle = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    startTransition(async () => {
+      const res = await toggleWishlistItem(id);
+      if (res.error) {
+        toast.error(res.error === "Unauthorized" ? "Please sign in to manage your wishlist." : res.error);
+      } else {
+        toast.success(res.success);
+      }
+    });
+  }, [id]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="group will-change-transform cursor-pointer bg-white dark:bg-stone-900/40 p-4 rounded-2xl border border-stone-200/50 dark:border-stone-850 hover:shadow-xl hover:border-stone-300 dark:hover:border-stone-700 transition-all duration-300 flex flex-col justify-between"
+      className="group will-change-transform cursor-pointer bg-white dark:bg-stone-900/40 p-4 rounded-2xl border border-stone-200/50 dark:border-stone-800 hover:shadow-xl hover:border-stone-300 dark:hover:border-stone-700 transition-all duration-300 flex flex-col justify-between"
       onClick={handleCardClick}
     >
       <div className="space-y-4">
-        <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-850 rounded-xl">
+        <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-800 rounded-xl">
           <Link href={`/product/${id}`} className="block w-full h-full relative">
             <Image
               src={image}
@@ -82,17 +99,19 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
               <ShoppingCart size={16} />
             </button>
             <button 
-              className="bg-white dark:bg-stone-900 p-3 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-8 group-hover:translate-y-0 duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-90 shadow-md"
+              onClick={handleWishlistToggle}
+              disabled={isPending}
+              className="bg-white dark:bg-stone-900 p-3 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-8 group-hover:translate-y-0 duration-700 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-90 shadow-md disabled:opacity-50"
               title="Add to Wishlist"
               aria-label={`Add ${name} to wishlist`}
             >
-              <Heart size={16} />
+              <Heart size={16} className={isPending ? "animate-pulse" : ""} />
             </button>
           </div>
 
           {/* Category Badge */}
           <div className="absolute top-3 left-3">
-            <span className="bg-white/95 dark:bg-stone-900/95 backdrop-blur-sm px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 rounded-md shadow-sm border border-stone-200/20 dark:border-stone-850">
+            <span className="bg-white/95 dark:bg-stone-900/95 backdrop-blur-sm px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 rounded-md shadow-sm border border-stone-200/20 dark:border-stone-800">
               {category}
             </span>
           </div>

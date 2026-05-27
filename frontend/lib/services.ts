@@ -34,7 +34,14 @@ export const getProducts = cache(async (options: {
 
   return await prisma.product.findMany({
     where,
-    include: { category: true },
+    include: { 
+      category: true,
+      reviews: {
+        select: {
+          rating: true
+        }
+      }
+    },
     orderBy: { createdAt: 'desc' },
     take: limit
   });

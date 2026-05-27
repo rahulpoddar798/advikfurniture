@@ -160,6 +160,19 @@ export async function setDefaultAddress(id: string) {
   }
 }
 
+export async function getUserAddresses() {
+  const session = await auth();
+  if (!session?.user?.id) return [];
+  try {
+    return await prisma.address.findMany({
+      where: { userId: session.user.id },
+      orderBy: { isDefault: 'desc' }
+    });
+  } catch {
+    return [];
+  }
+}
+
 // --- NOTIFICATIONS ---
 export async function updateNotifications(values: {
   emailNotifications: boolean;

@@ -1,10 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NextDynamic from 'next/dynamic';
-
-export const dynamic = 'force-dynamic';
-
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
@@ -16,6 +13,9 @@ import {
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react';
+import { getDashboardAnalytics, AnalyticsStats } from '@/app/actions/admin/analytics';
+
+export const dynamic = 'force-dynamic';
 
 const RevenueChart = NextDynamic(() => import('@/components/admin/Charts').then((mod) => mod.RevenueChart), {
   ssr: false,
@@ -28,13 +28,66 @@ const PerformanceChart = NextDynamic(() => import('@/components/admin/Charts').t
 });
 
 const AdminDashboard = () => {
+  const [analytics, setAnalytics] = useState<AnalyticsStats | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadAnalytics() {
+      try {
+        const data = await getDashboardAnalytics();
+        setAnalytics(data);
+      } catch (err) {
+        console.error("Failed to load dashboard analytics:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadAnalytics();
+  }, []);
+
   const stats = [
-    { name: 'Total Revenue', value: '₹24,50,000', change: '+12.5%', trend: 'up', icon: TrendingUp },
-    { name: 'Total Orders', value: '1,240', change: '+8.2%', trend: 'up', icon: ShoppingBag },
-    { name: 'Total Customers', value: '82,400', change: '+14.1%', trend: 'up', icon: Users },
-    { name: 'Active Products', value: '1,042', change: '-2.4%', trend: 'down', icon: Package },
-    { name: 'Pending Orders', value: '42', change: '5 urgent', trend: 'neutral', icon: Clock },
-    { name: 'Low Stock', value: '12', change: 'Requires action', trend: 'warning', icon: AlertTriangle },
+    { 
+      name: 'Total Revenue', 
+      value: loading ? '...' : `₹${analytics?.totalRevenue.toLocaleString('en-IN')}`, 
+      change: '+12.5%', 
+      trend: 'up', 
+      icon: TrendingUp 
+    },
+    { 
+      name: 'Total Orders', 
+      value: loading ? '...' : analytics?.totalOrders.toLocaleString() || '0', 
+      change: '+8.2%', 
+      trend: 'up', 
+      icon: ShoppingBag 
+    },
+    { 
+      name: 'Total Customers', 
+      value: loading ? '...' : analytics?.totalCustomers.toLocaleString() || '0', 
+      change: '+14.1%', 
+      trend: 'up', 
+      icon: Users 
+    },
+    { 
+      name: 'Active Products', 
+      value: loading ? '...' : analytics?.activeProducts.toLocaleString() || '0', 
+      change: '-2.4%', 
+      trend: 'down', 
+      icon: Package 
+    },
+    { 
+      name: 'Pending Orders', 
+      value: loading ? '...' : analytics?.pendingOrders.toLocaleString() || '0', 
+      change: analytics?.pendingOrders && analytics.pendingOrders > 0 ? `${analytics.pendingOrders} urgent` : 'All processed', 
+      trend: analytics?.pendingOrders && analytics.pendingOrders > 0 ? 'warning' : 'neutral', 
+      icon: Clock 
+    },
+    { 
+      name: 'Low Stock', 
+      value: loading ? '...' : analytics?.lowStockCount.toLocaleString() || '0', 
+      change: analytics?.lowStockCount && analytics.lowStockCount > 0 ? 'Requires action' : 'Fully stocked', 
+      trend: analytics?.lowStockCount && analytics.lowStockCount > 0 ? 'warning' : 'neutral', 
+      icon: AlertTriangle 
+    },
   ];
 
   return (
@@ -93,7 +146,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className="h-[250px] md:h-[300px]">
-            <RevenueChart />
+            <RevenueChart data={analytics?.revenueChartData} />
           </div>
         </div>
 
@@ -108,7 +161,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className="h-[250px] md:h-[300px]">
-            <PerformanceChart />
+            <PerformanceChart data={analytics?.revenueChartData} />
           </div>
         </div>
       </div>

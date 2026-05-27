@@ -13,7 +13,11 @@ import {
   Cell
 } from 'recharts';
 
-const data = [
+interface ChartProps {
+  data?: { name: string; revenue: number; orders: number }[];
+}
+
+const defaultData = [
   { name: 'Mon', revenue: 4000, orders: 24 },
   { name: 'Tue', revenue: 3000, orders: 18 },
   { name: 'Wed', revenue: 2000, orders: 29 },
@@ -23,7 +27,7 @@ const data = [
   { name: 'Sun', revenue: 3490, orders: 32 },
 ];
 
-export const RevenueChart = () => {
+export const RevenueChart: React.FC<ChartProps> = ({ data = defaultData }) => {
   return (
     <div className="w-full h-full min-h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
@@ -72,7 +76,7 @@ export const RevenueChart = () => {
   );
 };
 
-export const PerformanceChart = () => {
+export const PerformanceChart: React.FC<ChartProps> = ({ data = defaultData }) => {
   return (
     <div className="w-full h-full min-h-[300px]">
       <ResponsiveContainer width="100%" height="100%">

@@ -43,8 +43,10 @@ export default function ProductClient({ product }: ProductClientProps) {
     toast.success(`${product.name} added to cart`);
   }, [addItem, product.id, product.name, product.price, product.images, quantity]);
 
-  const images = useMemo(() => 
-    product.images?.length > 0 ? product.images : ['https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000&auto=format&fit=crop'],
+  const images = useMemo<string[]>(() => 
+    (product.images && product.images.length > 0) 
+      ? product.images 
+      : ['https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000&auto=format&fit=crop'],
     [product.images]
   );
 

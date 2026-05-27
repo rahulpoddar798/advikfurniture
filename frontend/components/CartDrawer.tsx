@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShoppingCart, Trash2, Plus, Minus, CreditCard } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
@@ -12,8 +13,14 @@ interface CartDrawerProps {
 }
 
 const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
+  const router = useRouter();
   const { items, removeItem, updateQuantity, totalPrice, totalItems, clearCart } = useCartStore();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const navigateToProduct = (id: string) => {
+    router.push(`/product/${id}`);
+    onClose();
+  };
 
   const handleCheckout = () => {
     setIsCheckingOut(true);

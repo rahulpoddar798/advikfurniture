@@ -54,7 +54,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
     getValues,
     formState: { errors } 
   } = useForm<ProductFormValues>({
-    resolver: zodResolver(ProductSchema),
+    resolver: zodResolver(ProductSchema) as any,
     defaultValues: initialData || {
       name: '',
       description: '',

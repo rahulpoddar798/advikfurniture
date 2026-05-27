@@ -8,7 +8,7 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
   const role = (req.auth?.user as { role?: string })?.role;
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
-  const isAdmin = adminRoles.includes(role);
+  const isAdmin = role ? adminRoles.includes(role) : false;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith("/api/auth");
   const isAdminRoute = nextUrl.pathname.startsWith("/admin");

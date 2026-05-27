@@ -84,8 +84,8 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
     // Sort
     if (sortConfig) {
       result.sort((a, b) => {
-        let aValue: unknown = (a as Record<string, unknown>)[sortConfig.key];
-        let bValue: unknown = (b as Record<string, unknown>)[sortConfig.key];
+        let aValue: unknown = (a as any)[sortConfig.key];
+        let bValue: unknown = (b as any)[sortConfig.key];
 
         if (sortConfig.key === 'category') {
           aValue = a.category?.name || '';

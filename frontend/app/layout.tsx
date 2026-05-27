@@ -87,7 +87,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="theme-detection"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -123,7 +125,7 @@ export default function RootLayout({
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-XXXXXXXXXX",
+                "telephone": "+91-9471983191",
                 "contactType": "customer service",
                 "areaServed": "IN",
                 "availableLanguage": "en"

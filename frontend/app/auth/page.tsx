@@ -56,7 +56,7 @@ const AuthPage = () => {
           setIsLogin(true);
         }
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error("Auth error:", err);
       setError('An error occurred during authentication');
       toast.error('An error occurred during authentication');

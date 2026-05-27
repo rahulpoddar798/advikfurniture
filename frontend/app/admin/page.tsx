@@ -42,7 +42,7 @@ const AdminDashboard = () => {
       {/* Welcome Header */}
       <div className="space-y-2">
         <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-white">Dashboard Overview</h2>
-        <p className="text-sm md:text-base text-stone-500 font-medium">Welcome back, Admin. Here's what's happening today.</p>
+        <p className="text-sm md:text-base text-stone-500 font-medium">Welcome back, Admin. Here&apos;s what&apos;s happening today.</p>
       </div>
 
       {/* Stats Grid */}

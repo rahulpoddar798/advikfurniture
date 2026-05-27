@@ -50,7 +50,7 @@ const Navbar = memo(() => {
     { name: 'Tables', href: '/category/tables' },
     { name: 'Beds', href: '/category/beds' },
     { name: 'Showroom', href: '/showroom' },
-    ...(session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as any)?.role) 
+    ...(session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') 
       ? [{ name: 'Admin', href: '/admin' }] 
       : []),
   ];
@@ -175,7 +175,7 @@ const Navbar = memo(() => {
                         <p className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] mb-1">Account</p>
                         <p className="text-sm font-bold truncate dark:text-white">{session.user?.name || session.user?.email}</p>
                       </div>
-                      {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as any)?.role) && (
+                      {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
                         <Link 
                           href="/admin" 
                           className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-xl transition-colors group"

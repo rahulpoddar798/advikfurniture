@@ -28,7 +28,7 @@ const ProductSchema = z.object({
 
 async function checkAdmin() {
   const session = await auth();
-  const role = (session?.user as any)?.role;
+  const role = session?.user?.role;
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
   
   if (!session || !adminRoles.includes(role)) {
@@ -103,12 +103,12 @@ export async function createProduct(values: z.infer<typeof ProductSchema>) {
     revalidatePath("/admin/products");
     revalidatePath("/collections");
     return { success: true, product };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Create product error:", error);
     if (error instanceof z.ZodError) {
       return { error: error.issues.map(e => e.message).join(", ") };
     }
-    return { error: error.message || "Failed to create product" };
+    return { error: error instanceof Error ? error.message : "Failed to create product" };
   }
 }
 
@@ -127,7 +127,7 @@ export async function updateProduct(id: string, values: z.infer<typeof ProductSc
       return { error: "Product not found" };
     }
 
-    const updateData: any = { ...validated };
+    const updateData: Partial<z.infer<typeof ProductSchema>> & { slug?: string } = { ...validated };
     
     // Update slug if name changed or if it's currently null
     if (existingProduct.name !== validated.name || !existingProduct.slug) {
@@ -155,12 +155,12 @@ export async function updateProduct(id: string, values: z.infer<typeof ProductSc
     revalidatePath(`/product/${id}`);
     revalidatePath("/collections");
     return { success: true, product };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Update product error:", error);
     if (error instanceof z.ZodError) {
       return { error: error.issues.map(e => e.message).join(", ") };
     }
-    return { error: error.message || "Failed to update product" };
+    return { error: error instanceof Error ? error.message : "Failed to update product" };
   }
 }
 
@@ -184,8 +184,8 @@ export async function deleteProduct(id: string) {
     revalidatePath("/admin/products");
     revalidatePath("/collections");
     return { success: true };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Delete product error:", error);
-    return { error: error.message || "Failed to delete product" };
+    return { error: error instanceof Error ? error.message : "Failed to delete product" };
   }
 }

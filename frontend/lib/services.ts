@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { Prisma } from "@prisma/client";
 import { cache } from "react";
 
 export const getFeaturedProducts = cache(async () => {
@@ -18,7 +19,7 @@ export const getProducts = cache(async (options: {
 } = {}) => {
   const { category, search, limit, status = 'PUBLISHED' } = options;
   
-  const where: any = { status };
+  const where: Prisma.ProductWhereInput = { status };
 
   if (category && category !== 'All') {
     where.category = { name: category };

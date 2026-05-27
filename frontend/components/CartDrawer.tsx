@@ -80,12 +80,20 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                       transition={{ delay: 0.1 * index }}
                       className="flex space-x-6"
                     >
-                      <div className="w-24 aspect-square bg-stone-100 dark:bg-stone-800 overflow-hidden rounded-sm flex-shrink-0 relative">
-                        <Image src={item.image} alt={item.name} fill sizes="96px" className="object-cover" />
+                      <div 
+                        onClick={() => navigateToProduct(item.id)}
+                        className="w-24 aspect-square bg-stone-100 dark:bg-stone-800 overflow-hidden rounded-sm flex-shrink-0 relative cursor-pointer group"
+                      >
+                        <Image src={item.image} alt={item.name} fill sizes="96px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                       <div className="flex-1 space-y-2 dark:text-white">
                         <div className="flex justify-between items-start gap-2">
-                          <h3 className="text-sm font-bold uppercase tracking-tight truncate">{item.name}</h3>
+                          <h3 
+                            onClick={() => navigateToProduct(item.id)}
+                            className="text-sm font-bold uppercase tracking-tight truncate cursor-pointer hover:text-stone-500 transition-colors"
+                          >
+                            {item.name}
+                          </h3>
                           <button onClick={() => removeItem(item.id)} className="text-stone-400 hover:text-red-500 transition-colors shrink-0">
                             <Trash2 size={16} />
                           </button>

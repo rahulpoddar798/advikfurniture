@@ -12,11 +12,11 @@ export default async function AdminLayout({
   console.log("--- ADMIN LAYOUT DEBUG ---");
   const session = await auth();
   console.log("Server-side Session User:", session?.user?.email);
-  console.log("Server-side User Role:", (session?.user as any)?.role);
+  console.log("Server-side User Role:", session?.user?.role);
   
   // Robust check for admin roles
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
-  const userRole = (session?.user as any)?.role;
+  const userRole = session?.user?.role;
 
   if (!session?.user || !adminRoles.includes(userRole)) {
     console.log("ACCESS DENIED: Redirecting to home. Role was:", userRole);

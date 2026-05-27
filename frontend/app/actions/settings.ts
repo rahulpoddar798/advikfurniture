@@ -29,7 +29,7 @@ export async function updateProfile(values: z.infer<typeof ProfileSchema>) {
     });
     revalidatePath("/settings/profile");
     return { success: "Profile updated successfully!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -66,7 +66,7 @@ export async function changePassword(values: z.infer<typeof PasswordSchema>) {
       data: { password: hashedPassword }
     });
     return { success: "Password changed successfully!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -99,7 +99,7 @@ export async function addAddress(values: z.infer<typeof AddressSchema>) {
     });
     revalidatePath("/settings/addresses");
     return { success: "Address added successfully!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -118,7 +118,7 @@ export async function updateAddress(id: string, values: z.infer<typeof AddressSc
     });
     revalidatePath("/settings/addresses");
     return { success: "Address updated successfully!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -141,7 +141,7 @@ export async function deleteAddress(id: string) {
     }
     revalidatePath("/settings/addresses");
     return { success: "Address deleted successfully!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -155,7 +155,7 @@ export async function setDefaultAddress(id: string) {
     await prisma.address.update({ where: { id, userId: session.user.id }, data: { isDefault: true } });
     revalidatePath("/settings/addresses");
     return { success: "Default address updated!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }
@@ -179,7 +179,7 @@ export async function updateNotifications(values: {
     });
     revalidatePath("/settings/notifications");
     return { success: "Notification preferences updated!" };
-  } catch (error) {
+  } catch {
     return { error: "Something went wrong!" };
   }
 }

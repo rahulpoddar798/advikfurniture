@@ -12,8 +12,20 @@ import {
   Package
 } from 'lucide-react';
 
+interface Order {
+  id: string;
+  status: string;
+  total: number;
+  createdAt: Date | string;
+  user?: {
+    name?: string | null;
+    email?: string | null;
+  } | null;
+  items: unknown[];
+}
+
 interface OrderListProps {
-  orders: any[];
+  orders: Order[];
 }
 
 const OrderList: React.FC<OrderListProps> = ({ orders }) => {

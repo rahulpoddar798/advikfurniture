@@ -13,14 +13,22 @@ import {
 import { toast } from 'sonner';
 import { createCategory, deleteCategory, updateCategory } from '@/app/actions/admin/categories';
 
+interface Category {
+  id: string;
+  name: string;
+  _count?: {
+    products: number;
+  };
+}
+
 interface CategoryListProps {
-  initialCategories: any[];
+  initialCategories: Category[];
 }
 
 const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
-  const [categories, setCategories] = useState(initialCategories);
+  const [categories, setCategories] = useState<Category[]>(initialCategories);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingCategory, setEditingCategory] = useState<any>(null);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -30,7 +38,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
     setIsModalOpen(true);
   };
 
-  const handleEdit = (cat: any) => {
+  const handleEdit = (cat: Category) => {
     setEditingCategory(cat);
     setName(cat.name);
     setIsModalOpen(true);
@@ -58,7 +66,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
         }
       }
       setIsModalOpen(false);
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong");
     } finally {
       setLoading(false);
@@ -75,7 +83,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ initialCategories }) => {
       } else {
         toast.error(res.error || "Failed to delete");
       }
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong");
     }
   };

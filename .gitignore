@@ -26,3 +26,6 @@ Thumbs.db
 # Production build
 dist/
 build/
+
+# Antigravity CLI
+.antigravitycli/

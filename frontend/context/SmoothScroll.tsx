@@ -1,12 +1,12 @@
 'use client';
 
 import { ReactLenis, useLenis } from 'lenis/react';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, ComponentRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export default function SmoothScrollProvider({ children }: { children: ReactNode }) {
-  const lenisRef = useRef<any>(null);
+  const lenisRef = useRef<ComponentRef<typeof ReactLenis>>(null);
 
   useEffect(() => {
     // Disable browser's native scroll restoration

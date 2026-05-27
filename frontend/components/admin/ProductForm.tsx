@@ -9,8 +9,7 @@ import { toast } from 'sonner';
 import { 
   ChevronLeft, 
   Save, 
-  Loader2,
-  Trash2
+  Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 import { createProduct, updateProduct } from '@/app/actions/admin/products';
@@ -39,8 +38,8 @@ const ProductSchema = z.object({
 type ProductFormValues = z.infer<typeof ProductSchema>;
 
 interface ProductFormProps {
-  initialData?: any;
-  categories: any[];
+  initialData?: Partial<ProductFormValues> & { id: string; sku?: string | null };
+  categories: { id: string; name: string }[];
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) => {
@@ -55,7 +54,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
     getValues,
     formState: { errors } 
   } = useForm<ProductFormValues>({
-    resolver: zodResolver(ProductSchema) as any,
+    resolver: zodResolver(ProductSchema),
     defaultValues: initialData || {
       name: '',
       description: '',
@@ -77,6 +76,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
     }
   });
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const images = watch('images');
 
   const onSubmit = async (data: ProductFormValues) => {
@@ -293,17 +293,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData, categories }) =>
             <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-stone-400 border-b border-stone-800/50 pb-6">Visibility Tags</h3>
             
             <div className="space-y-3">
-              {[
+              {([
                 { label: 'Featured Piece', id: 'featured' },
                 { label: 'Trending Item', id: 'isTrending' },
                 { label: 'Best Seller', id: 'isBestSeller' }
-              ].map((tag) => (
+              ] as const).map((tag) => (
                 <label key={tag.id} className="flex items-center justify-between p-5 rounded-[1.25rem] bg-stone-950/40 border border-stone-800/50 hover:border-white/20 transition-all cursor-pointer group">
                   <span className="text-[10px] font-black uppercase tracking-widest text-stone-500 group-hover:text-stone-300 transition-colors">{tag.label}</span>
                   <div className="relative inline-flex items-center">
                     <input 
                       type="checkbox" 
-                      {...register(tag.id as any)} 
+                      {...register(tag.id)} 
                       className="sr-only peer" 
                     />
                     <div className="w-11 h-6 bg-stone-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-stone-500 after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-white peer-checked:after:bg-stone-900"></div>

@@ -4,14 +4,13 @@ import React, { useState, useTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   MapPin, Plus, Trash2, CheckCircle2, 
-  Loader2, X, Home, Briefcase, Map as MapIcon
+  Loader2, X, Map as MapIcon
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { 
   addAddress, 
   deleteAddress, 
-  setDefaultAddress,
-  updateAddress 
+  setDefaultAddress
 } from '@/app/actions/settings';
 
 interface Address {
@@ -32,7 +31,6 @@ interface AddressListProps {
 const AddressList = ({ initialAddresses }: AddressListProps) => {
   const [isPending, startTransition] = useTransition();
   const [isAdding, setIsAdding] = useState(false);
-  const [editingId, setEditingId] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     street: '',
@@ -43,7 +41,7 @@ const AddressList = ({ initialAddresses }: AddressListProps) => {
     phone: '',
   });
 
-  const handleAction = async (action: () => Promise<any>, successMsg: string) => {
+  const handleAction = async (action: () => Promise<{ error?: string; success?: string }>, successMsg: string) => {
     startTransition(async () => {
       const result = await action();
       if (result.error) {
@@ -51,7 +49,6 @@ const AddressList = ({ initialAddresses }: AddressListProps) => {
       } else {
         toast.success(successMsg);
         setIsAdding(false);
-        setEditingId(null);
         setFormData({
           street: '',
           city: '',

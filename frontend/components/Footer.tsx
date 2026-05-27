@@ -8,6 +8,17 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 const Footer = memo(() => {
   const pathname = usePathname();
 
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const phone = "919471983191";
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `whatsapp://send?phone=${phone}`;
+    } else {
+      window.open(`https://web.whatsapp.com/send?phone=${phone}`, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   // Do not show main footer on admin pages
   if (pathname.startsWith('/admin')) {
     return null;
@@ -101,7 +112,13 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center space-x-3">
               <Phone size={18} className="text-stone-500 shrink-0" />
-              <p>+91 94719 83191</p>
+              <button 
+                onClick={handleWhatsAppClick}
+                className="hover:text-white transition-colors text-left"
+                aria-label="Chat on WhatsApp"
+              >
+                +91 94719 83191
+              </button>
             </div>
             <div className="flex items-center space-x-3">
               <Mail size={18} className="text-stone-500 shrink-0" />

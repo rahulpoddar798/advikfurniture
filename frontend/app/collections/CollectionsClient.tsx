@@ -6,8 +6,19 @@ import { ChevronDown, Search, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  images: string[];
+  createdAt: Date | string;
+  category?: {
+    name: string;
+  } | null;
+}
+
 interface CollectionsClientProps {
-  initialProducts: any[];
+  initialProducts: Product[];
   categories: string[];
   initialCategory: string;
   initialQuery: string;

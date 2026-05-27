@@ -3,6 +3,7 @@
 import React, { memo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
@@ -17,6 +18,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = memo(({ id, name, price, image, category }) => {
   const addItem = useCartStore((state) => state.addItem);
+  const router = useRouter();
 
   const handleAddToCart = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -30,13 +32,18 @@ const ProductCard: React.FC<ProductCardProps> = memo(({ id, name, price, image, 
     });
   }, [addItem, id, name, price, image]);
 
+  const handleCardClick = useCallback(() => {
+    router.push(`/product/${id}`);
+  }, [router, id]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="group will-change-transform"
+      className="group will-change-transform cursor-pointer"
+      onClick={handleCardClick}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-800 rounded-sm">
         <Link href={`/product/${id}`} className="block w-full h-full relative">

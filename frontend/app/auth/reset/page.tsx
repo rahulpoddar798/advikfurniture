@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useTransition } from 'react';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -43,7 +43,7 @@ const ResetPage = () => {
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-serif font-bold tracking-tight dark:text-white">Forgot Password</h1>
           <p className="text-stone-400 dark:text-stone-500 text-sm">
-            Enter your email and we'll send you a link to reset your password.
+            Enter your email and we&apos;ll send you a link to reset your password.
           </p>
         </div>
 

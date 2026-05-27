@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductCard from '@/components/ProductCard';
-import { ScrollAnimation } from '@/components/ScrollAnimation';
 import { getProducts } from '@/lib/services';
 import Link from 'next/link';
 import { Metadata } from 'next';

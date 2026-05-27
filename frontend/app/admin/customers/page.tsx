@@ -9,7 +9,6 @@ import {
   Search, 
   Filter, 
   UserPlus,
-  MoreHorizontal,
   Mail,
   ShieldCheck,
   Ban

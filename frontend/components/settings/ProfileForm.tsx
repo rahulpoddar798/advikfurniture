@@ -4,7 +4,6 @@ import React, { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { User, Mail, Phone, AlignLeft, Camera, Loader2, Save } from 'lucide-react';
 import { updateProfile } from '@/app/actions/settings';
@@ -164,6 +163,7 @@ const ProfileForm = ({ user }: ProfileFormProps) => {
           </div>
           <div className="flex justify-end px-1">
             <span className="text-[10px] text-stone-400 font-bold uppercase tracking-widest">
+              {/* eslint-disable-next-line react-hooks/incompatible-library */}
               {form.watch("bio")?.length || 0} / 500
             </span>
           </div>

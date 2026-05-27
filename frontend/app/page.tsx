@@ -100,7 +100,7 @@ export default async function Home() {
               loading="lazy"
             />
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-stone-100 dark:bg-stone-800 p-8 hidden md:flex flex-col justify-center shadow-2xl">
-              <p className="text-stone-900 dark:text-white font-serif text-xl italic mb-4">"The details are not the details. They make the design."</p>
+              <p className="text-stone-900 dark:text-white font-serif text-xl italic mb-4">&ldquo;The details are not the details. They make the design.&rdquo;</p>
               <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">— Charles Eames</span>
             </div>
           </div>

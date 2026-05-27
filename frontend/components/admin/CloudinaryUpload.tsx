@@ -18,11 +18,12 @@ const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
   const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
-  const onUpload = (result: any) => {
-    console.log("CLOUDINARY UPLOAD EVENT:", result.event);
-    if (result.event === 'success') {
-      console.log("UPLOAD SUCCESSFUL:", result.info.secure_url);
-      onChange(result.info.secure_url);
+  const onUpload = (result: unknown) => {
+    const res = result as { event?: string; info?: string | { secure_url?: string } };
+    console.log("CLOUDINARY UPLOAD EVENT:", res.event);
+    if (res.event === 'success' && res.info && typeof res.info !== 'string' && res.info.secure_url) {
+      console.log("UPLOAD SUCCESSFUL:", res.info.secure_url);
+      onChange(res.info.secure_url);
     }
   };
 
@@ -55,6 +56,7 @@ const CloudinaryUpload: React.FC<CloudinaryUploadProps> = ({
                 <X size={14} />
               </button>
             </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-1000"
               alt="Gallery Item"

@@ -47,7 +47,7 @@ const Header = () => {
         <div className="flex items-center space-x-4 pl-4 sm:pl-6 border-l border-stone-800">
           <div className="text-right hidden sm:block">
             <p className="text-sm font-bold tracking-tight text-white">{session?.user?.name}</p>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-500">{(session?.user as any)?.role?.replace('_', ' ')}</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-500">{(session?.user as { role?: string })?.role?.replace('_', ' ')}</p>
           </div>
           <div className="w-12 h-12 rounded-2xl overflow-hidden border border-stone-800 p-0.5 bg-stone-900">
             {session?.user?.image ? (

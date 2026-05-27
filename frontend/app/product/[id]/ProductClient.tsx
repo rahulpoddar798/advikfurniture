@@ -7,8 +7,24 @@ import { useCartStore } from '@/store/useCartStore';
 import { toast } from 'sonner';
 import Image from 'next/image';
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  images?: string[] | null;
+  material?: string | null;
+  dimensions?: string | null;
+  stock: number;
+  rating?: number | null;
+  reviews?: unknown[] | null;
+  category?: {
+    name: string;
+  } | null;
+}
+
 interface ProductClientProps {
-  product: any;
+  product: Product;
 }
 
 export default function ProductClient({ product }: ProductClientProps) {

@@ -2,8 +2,6 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
-
 const ShowroomCanvas = dynamic(() => import('@/components/ShowroomCanvas'), {
   ssr: false,
   loading: () => (

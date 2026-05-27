@@ -11,7 +11,7 @@ const CategorySchema = z.object({
 
 async function checkAdmin() {
   const session = await auth();
-  const role = (session?.user as any)?.role;
+  const role = session?.user?.role;
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
   
   if (!session || !adminRoles.includes(role)) {
@@ -45,8 +45,8 @@ export async function createCategory(values: z.infer<typeof CategorySchema>) {
     revalidatePath("/admin/categories");
     revalidatePath("/collections");
     return { success: true, category };
-  } catch (error: any) {
-    return { error: error.message || "Failed to create category" };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "Failed to create category" };
   }
 }
 
@@ -63,8 +63,8 @@ export async function updateCategory(id: string, values: z.infer<typeof Category
     revalidatePath("/admin/categories");
     revalidatePath("/collections");
     return { success: true, category };
-  } catch (error: any) {
-    return { error: error.message || "Failed to update category" };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "Failed to update category" };
   }
 }
 
@@ -83,7 +83,7 @@ export async function deleteCategory(id: string) {
     revalidatePath("/admin/categories");
     revalidatePath("/collections");
     return { success: true };
-  } catch (error: any) {
-    return { error: error.message || "Failed to delete category" };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "Failed to delete category" };
   }
 }

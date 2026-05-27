@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { 
-  MoreHorizontal, 
   Edit, 
   Trash2, 
   ExternalLink,
@@ -17,9 +16,29 @@ import { deleteProduct } from '@/app/actions/admin/products';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 
-interface ProductListProps {
-  products: any[];
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  discountPrice?: number | null;
+  sku?: string | null;
+  material?: string | null;
+  stock: number;
+  status: string;
+  images?: string[] | null;
+  category?: { name: string } | null;
 }
+
+interface ProductListProps {
+  products: Product[];
+}
+
+const SortIcon = ({ column, sortConfig }: { column: string; sortConfig: { key: string; direction: 'asc' | 'desc' } | null }) => {
+  if (!sortConfig || sortConfig.key !== column) {
+    return <Filter size={10} className="ml-1 opacity-20" />;
+  }
+  return sortConfig.direction === 'asc' ? <span> ↑</span> : <span> ↓</span>;
+};
 
 const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) => {
   const router = useRouter();
@@ -42,7 +61,7 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
       } else {
         toast.error(result.error || "Failed to delete product");
       }
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong");
     } finally {
       setDeletingId(null);
@@ -65,16 +84,18 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
     // Sort
     if (sortConfig) {
       result.sort((a, b) => {
-        let aValue: any = a[sortConfig.key];
-        let bValue: any = b[sortConfig.key];
+        let aValue: unknown = (a as Record<string, unknown>)[sortConfig.key];
+        let bValue: unknown = (b as Record<string, unknown>)[sortConfig.key];
 
         if (sortConfig.key === 'category') {
           aValue = a.category?.name || '';
           bValue = b.category?.name || '';
         }
 
-        if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
-        if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
+        const a_ = aValue as string | number;
+        const b_ = bValue as string | number;
+        if (a_ < b_) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (a_ > b_) return sortConfig.direction === 'asc' ? 1 : -1;
         return 0;
       });
     }
@@ -89,23 +110,13 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
     currentPage * itemsPerPage
   );
 
-  React.useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, sortConfig]);
-
   const requestSort = (key: string) => {
     let direction: 'asc' | 'desc' = 'asc';
     if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
       direction = 'desc';
     }
     setSortConfig({ key, direction });
-  };
-
-  const SortIcon = ({ column }: { column: string }) => {
-    if (!sortConfig || sortConfig.key !== column) {
-      return <Filter size={10} className="ml-1 opacity-20" />;
-    }
-    return sortConfig.direction === 'asc' ? <span> ↑</span> : <span> ↓</span>;
+    setCurrentPage(1);
   };
 
   return (
@@ -118,7 +129,10 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
             type="text" 
             placeholder="Search products..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setCurrentPage(1);
+            }}
             className="w-full bg-stone-900/50 border border-stone-800 rounded-2xl py-3 pl-12 pr-4 outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm text-white"
           />
         </div>
@@ -144,37 +158,37 @@ const ProductList: React.FC<ProductListProps> = ({ products: initialProducts }) 
                   className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('name')}
                 >
-                  <div className="flex items-center">Product <SortIcon column="name" /></div>
+                  <div className="flex items-center">Product <SortIcon column="name" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
                   className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('sku')}
                 >
-                  <div className="flex items-center">SKU <SortIcon column="sku" /></div>
+                  <div className="flex items-center">SKU <SortIcon column="sku" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
                   className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('category')}
                 >
-                  <div className="flex items-center">Category <SortIcon column="category" /></div>
+                  <div className="flex items-center">Category <SortIcon column="category" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
                   className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('price')}
                 >
-                  <div className="flex items-center">Price <SortIcon column="price" /></div>
+                  <div className="flex items-center">Price <SortIcon column="price" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
                   className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('stock')}
                 >
-                  <div className="flex items-center">Stock <SortIcon column="stock" /></div>
+                  <div className="flex items-center">Stock <SortIcon column="stock" sortConfig={sortConfig} /></div>
                 </th>
                 <th 
                   className="px-6 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 cursor-pointer hover:text-white transition-colors"
                   onClick={() => requestSort('status')}
                 >
-                  <div className="flex items-center">Status <SortIcon column="status" /></div>
+                  <div className="flex items-center">Status <SortIcon column="status" sortConfig={sortConfig} /></div>
                 </th>
                 <th className="px-8 py-6 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 text-right">Actions</th>
               </tr>

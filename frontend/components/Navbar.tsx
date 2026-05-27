@@ -500,11 +500,11 @@ const Navbar = memo(() => {
                   <Link 
                     key={link.name} 
                     href={link.href} 
-                    className={`relative px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${
                       isActive 
                         ? 'bg-white text-stone-950 shadow-md dark:bg-white dark:text-stone-950' 
                         : 'text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40'
-                    }`}
+                    }}`
                   >
                     <Icon size={12} className={isActive ? 'text-stone-950' : 'text-stone-400'} />
                     <span>{link.name}</span>

@@ -63,7 +63,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative h-[110vh] w-full flex items-center justify-center overflow-hidden bg-stone-100 dark:bg-stone-950"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-stone-100 dark:bg-stone-950"
     >
       {/* Background Image with Parallax */}
       <div className="absolute inset-0 z-0 hero-bg will-change-transform">

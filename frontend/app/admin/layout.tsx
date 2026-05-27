@@ -18,7 +18,7 @@ export default async function AdminLayout({
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
   const userRole = session?.user?.role;
 
-  if (!session?.user || !adminRoles.includes(userRole)) {
+  if (!session?.user || !userRole || !adminRoles.includes(userRole)) {
     console.log("ACCESS DENIED: Redirecting to home. Role was:", userRole);
     redirect("/");
   }

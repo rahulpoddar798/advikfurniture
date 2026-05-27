@@ -31,7 +31,7 @@ async function checkAdmin() {
   const role = session?.user?.role;
   const adminRoles = ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"];
   
-  if (!session || !adminRoles.includes(role)) {
+  if (!session || !role || !adminRoles.includes(role)) {
     throw new Error("Unauthorized");
   }
   return session;

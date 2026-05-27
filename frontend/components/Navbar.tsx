@@ -349,7 +349,7 @@ const Navbar = memo(() => {
               {/* Theme Toggle */}
               <button 
                 onClick={toggleTheme}
-                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white overflow-hidden"
+                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white overflow-hidden tap-target"
                 aria-label="Toggle Theme"
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -369,7 +369,7 @@ const Navbar = memo(() => {
               <div className="relative">
                 <button
                   onClick={() => session ? setIsProfileOpen(!isProfileOpen) : router.push('/auth')}
-                  className="flex flex-col text-left px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors"
+                  className="flex flex-col text-left px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors tap-target"
                 >
                   <span className="text-[9px] text-stone-400 font-bold uppercase tracking-wider leading-none">
                     {session ? `Hello, ${session.user?.name?.split(' ')[0]}` : 'Hello, Sign In'}
@@ -402,7 +402,7 @@ const Navbar = memo(() => {
                         {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
                           <Link 
                             href="/admin" 
-                            className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group"
+                            className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group tap-target"
                             onClick={() => setIsProfileOpen(false)}
                           >
                             <LayoutDashboard size={16} className="group-hover:scale-105 transition-transform text-stone-400" />
@@ -411,7 +411,7 @@ const Navbar = memo(() => {
                         )}
                         <Link 
                           href="/settings/profile" 
-                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group"
+                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group tap-target"
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <Settings size={16} className="group-hover:rotate-45 transition-transform text-stone-400" />
@@ -422,7 +422,7 @@ const Navbar = memo(() => {
                             setIsProfileOpen(false);
                             signOut();
                           }}
-                          className="w-full flex items-center space-x-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-950/20 rounded-lg transition-colors group text-left"
+                          className="w-full flex items-center space-x-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-950/20 rounded-lg transition-colors group text-left tap-target"
                         >
                           <LogOut size={16} className="group-hover:-translate-x-0.5 transition-transform text-red-500" />
                           <span>Sign Out</span>
@@ -436,7 +436,7 @@ const Navbar = memo(() => {
               {/* Wishlist */}
               <Link 
                 href="/settings/wishlist" 
-                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white"
+                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white tap-target"
                 aria-label="Wishlist"
               >
                 <Heart size={18} />
@@ -445,7 +445,7 @@ const Navbar = memo(() => {
               {/* Cart */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="flex items-center space-x-2 px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors"
+                className="flex items-center space-x-2 px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors tap-target"
                 aria-label="View Cart"
               >
                 <div className="relative">
@@ -461,7 +461,7 @@ const Navbar = memo(() => {
 
               {/* Mobile menu button */}
               <button 
-                className="md:hidden p-2 text-stone-400 hover:text-white transition-colors"
+                className="md:hidden p-2 text-stone-400 hover:text-white transition-colors tap-target"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle Mobile Menu"
               >
@@ -477,7 +477,7 @@ const Navbar = memo(() => {
             <div className="flex items-center space-x-4 overflow-x-auto no-scrollbar">
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40 transition-all duration-300"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40 transition-all duration-300 tap-target"
               >
                 <Menu size={12} className="text-stone-400" />
                 <span>All Departments</span>
@@ -500,7 +500,7 @@ const Navbar = memo(() => {
                   <Link 
                     key={link.name} 
                     href={link.href} 
-                    className={`relative px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden ${
+                    className={`relative px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${
                       isActive 
                         ? 'bg-white text-stone-950 shadow-md dark:bg-white dark:text-stone-950' 
                         : 'text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40'
@@ -539,7 +539,7 @@ const Navbar = memo(() => {
                 onChange={(e) => setSearchVal(e.target.value)}
                 className="flex-1 px-3 text-xs outline-none"
               />
-              <button type="submit" className="px-3 bg-stone-200 border-l border-stone-300">
+              <button type="submit" className="px-3 bg-stone-200 border-l border-stone-300 tap-target">
                 <Search size={14} />
               </button>
             </form>
@@ -549,7 +549,7 @@ const Navbar = memo(() => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="hover:text-stone-300 transition-colors"
+                  className="hover:text-stone-300 transition-colors tap-target"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -558,7 +558,7 @@ const Navbar = memo(() => {
               {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
                 <Link 
                   href="/admin" 
-                  className="text-stone-300 hover:text-white"
+                  className="text-stone-300 hover:text-white tap-target"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Admin Dashboard
@@ -598,7 +598,7 @@ const Navbar = memo(() => {
                     setIsPincodeModalOpen(false);
                     setIsAddingAddress(false);
                   }} 
-                  className="text-stone-400 hover:text-stone-900 dark:hover:text-white"
+                  className="text-stone-400 hover:text-stone-900 dark:hover:text-white tap-target"
                 >
                   <X size={16} />
                 </button>
@@ -673,14 +673,14 @@ const Navbar = memo(() => {
                     <button
                       type="button"
                       onClick={() => setIsAddingAddress(false)}
-                      className="flex-1 py-2.5 text-[10px] uppercase font-bold tracking-widest text-stone-500 border border-stone-200 dark:border-stone-800 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg"
+                      className="flex-1 py-2.5 text-[10px] uppercase font-bold tracking-widest text-stone-500 border border-stone-200 dark:border-stone-800 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg tap-target"
                     >
                       Back
                     </button>
                     <button
                       type="submit"
                       disabled={isLoadingAddresses}
-                      className="flex-1 py-2.5 text-[10px] uppercase font-bold tracking-widest text-white dark:text-stone-950 bg-stone-950 dark:bg-white hover:opacity-90 rounded-lg disabled:opacity-50"
+                      className="flex-1 py-2.5 text-[10px] uppercase font-bold tracking-widest text-white dark:text-stone-950 bg-stone-950 dark:bg-white hover:opacity-90 rounded-lg disabled:opacity-50 tap-target"
                     >
                       {isLoadingAddresses ? 'Cataloging...' : 'Save & Deliver'}
                     </button>
@@ -696,7 +696,7 @@ const Navbar = memo(() => {
                         <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest">Select a delivery address</p>
                         <button 
                           onClick={() => setIsAddingAddress(true)}
-                          className="text-[9px] font-bold text-stone-950 dark:text-white uppercase tracking-widest hover:underline flex items-center gap-1"
+                          className="text-[9px] font-bold text-stone-950 dark:text-white uppercase tracking-widest hover:underline flex items-center gap-1 tap-target"
                         >
                           <Plus size={10} /> Add address
                         </button>
@@ -715,7 +715,7 @@ const Navbar = memo(() => {
                               localStorage.setItem('advik_city', addr.city);
                               setIsPincodeModalOpen(false);
                             }}
-                            className={`w-full text-left p-3 border rounded-xl transition-colors flex items-start space-x-3 text-xs ${
+                            className={`w-full text-left p-3 border rounded-xl transition-colors flex items-start space-x-3 text-xs tap-target ${
                               pincode === addr.postalCode 
                                 ? 'border-stone-900 dark:border-white bg-stone-50 dark:bg-stone-800/40' 
                                 : 'border-stone-200 dark:border-stone-800 hover:bg-stone-50/50 dark:hover:bg-stone-800/50'
@@ -734,7 +734,7 @@ const Navbar = memo(() => {
                     </div>
                   ) : (
                     <div className="p-3 bg-stone-100 dark:bg-stone-900/60 rounded-xl text-center text-xs">
-                      <Link href="/auth" className="text-stone-950 dark:text-white font-bold underline" onClick={() => setIsPincodeModalOpen(false)}>
+                      <Link href="/auth" className="text-stone-950 dark:text-white font-bold underline tap-target" onClick={() => setIsPincodeModalOpen(false)}>
                         Sign in to see your addresses
                       </Link>
                     </div>
@@ -745,7 +745,7 @@ const Navbar = memo(() => {
                     <button
                       onClick={fetchAutomaticLocation}
                       disabled={isLoadingAddresses}
-                      className="w-full flex items-center justify-center space-x-2 py-2.5 bg-stone-50 dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl border border-stone-200 dark:border-stone-800 text-xs font-bold uppercase tracking-wider dark:text-white transition-colors"
+                      className="w-full flex items-center justify-center space-x-2 py-2.5 bg-stone-50 dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl border border-stone-200 dark:border-stone-800 text-xs font-bold uppercase tracking-wider dark:text-white transition-colors tap-target"
                     >
                       <Locate size={14} className="text-stone-500 dark:text-stone-400 shrink-0" />
                       <span>Use my current location (GPS / IP)</span>

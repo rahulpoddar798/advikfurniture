@@ -75,11 +75,11 @@ const Footer = memo(() => {
         <div className="space-y-6">
           <h3 className="text-white text-sm font-bold uppercase tracking-widest">Quick Links</h3>
           <ul className="space-y-3 text-sm text-stone-400 dark:text-stone-500">
-            <li><Link href="/" prefetch={false} className="hover:text-white transition-colors">Home</Link></li>
-            <li><Link href="/category/beds" prefetch={false} className="hover:text-white transition-colors">Beds</Link></li>
-            <li><Link href="/category/sofas" prefetch={false} className="hover:text-white transition-colors">Sofas</Link></li>
-            <li><Link href="/category/chairs" prefetch={false} className="hover:text-white transition-colors">Chairs</Link></li>
-            <li><Link href="/category/dining" prefetch={false} className="hover:text-white transition-colors">Dining Tables</Link></li>
+            <li><Link href="/" prefetch={false} className="hover:text-white transition-colors tap-target">Home</Link></li>
+            <li><Link href="/category/beds" prefetch={false} className="hover:text-white transition-colors tap-target">Beds</Link></li>
+            <li><Link href="/category/sofas" prefetch={false} className="hover:text-white transition-colors tap-target">Sofas</Link></li>
+            <li><Link href="/category/chairs" prefetch={false} className="hover:text-white transition-colors tap-target">Chairs</Link></li>
+            <li><Link href="/category/dining" prefetch={false} className="hover:text-white transition-colors tap-target">Dining Tables</Link></li>
           </ul>
         </div>
 
@@ -87,11 +87,11 @@ const Footer = memo(() => {
         <div className="space-y-6">
           <h3 className="text-white text-sm font-bold uppercase tracking-widest">Customer Service</h3>
           <ul className="space-y-3 text-sm text-stone-400 dark:text-stone-500">
-            <li><Link href="/contact" prefetch={false} className="hover:text-white transition-colors">Contact Us</Link></li>
-            <li><Link href="/shipping" prefetch={false} className="hover:text-white transition-colors">Shipping & Delivery</Link></li>
-            <li><Link href="/returns" prefetch={false} className="hover:text-white transition-colors">Returns & Exchanges</Link></li>
-            <li><Link href="/faq" prefetch={false} className="hover:text-white transition-colors">FAQ</Link></li>
-            <li><Link href="/warranty" prefetch={false} className="hover:text-white transition-colors">Warranty Information</Link></li>
+            <li><Link href="/contact" prefetch={false} className="hover:text-white transition-colors tap-target">Contact Us</Link></li>
+            <li><Link href="/shipping" prefetch={false} className="hover:text-white transition-colors tap-target">Shipping & Delivery</Link></li>
+            <li><Link href="/returns" prefetch={false} className="hover:text-white transition-colors tap-target">Returns & Exchanges</Link></li>
+            <li><Link href="/faq" prefetch={false} className="hover:text-white transition-colors tap-target">FAQ</Link></li>
+            <li><Link href="/warranty" prefetch={false} className="hover:text-white transition-colors tap-target">Warranty Information</Link></li>
           </ul>
         </div>
 
@@ -134,9 +134,9 @@ const Footer = memo(() => {
       <div className="container mx-auto mt-20 pt-8 border-t border-stone-800 dark:border-stone-900 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-stone-500 text-center md:text-left gap-4 md:gap-0">
         <p>© 2025 Advik Furniture and Interior. All rights reserved.</p>
         <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 mt-4 md:mt-0">
-          <Link href="/privacy" prefetch={false} className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="/terms" prefetch={false} className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link href="/cookies" prefetch={false} className="hover:text-white transition-colors">Cookie Policy</Link>
+          <Link href="/privacy" prefetch={false} className="hover:text-white transition-colors tap-target">Privacy Policy</Link>
+          <Link href="/terms" prefetch={false} className="hover:text-white transition-colors tap-target">Terms of Service</Link>
+          <Link href="/cookies" prefetch={false} className="hover:text-white transition-colors tap-target">Cookie Policy</Link>
         </div>
       </div>
     </footer>

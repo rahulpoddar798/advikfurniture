@@ -266,16 +266,16 @@ const Navbar = memo(() => {
         <nav
           className={`w-full transition-all duration-300 ${
             isScrolled 
-              ? 'bg-stone-900/95 dark:bg-stone-950/95 shadow-lg border-b border-stone-800' 
-              : 'bg-stone-900 dark:bg-stone-950'
-          } text-white px-4 md:px-6 py-3`}
+              ? 'bg-white/95 dark:bg-stone-950/95 shadow-lg border-b border-stone-200 dark:border-stone-800' 
+              : 'bg-white dark:bg-stone-950'
+          } text-stone-900 dark:text-white px-4 md:px-6 py-3`}
         >
           <div className="container mx-auto flex flex-wrap items-center justify-between gap-2 md:gap-4">
             
             {/* Left: Logo & Location */}
             <div className="flex items-center space-x-6 shrink-0">
               <Link href="/" prefetch={true} className="flex items-center space-x-2 group">
-                <div className="relative w-8 h-8 md:w-9 md:h-9 overflow-hidden rounded-lg bg-stone-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-8 h-8 md:w-9 md:h-9 overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   <Image 
                     src="/logoAFI.png" 
                     alt="Advik Logo" 
@@ -285,8 +285,8 @@ const Navbar = memo(() => {
                     priority
                   />
                 </div>
-                <span className="text-lg md:text-xl font-serif font-bold tracking-tight text-white">
-                  Advik<span className="text-stone-400 font-normal">Furniture</span>
+                <span className="text-lg md:text-xl font-serif font-bold tracking-tight text-stone-900 dark:text-stone-100">
+                  Advik<span className="text-stone-500 dark:text-stone-400 font-normal">Furniture</span>
                 </span>
               </Link>
 
@@ -296,12 +296,12 @@ const Navbar = memo(() => {
                   setTempPincode(pincode);
                   setIsPincodeModalOpen(true);
                 }}
-                className="hidden lg:flex items-center space-x-2 text-left group px-3 py-1.5 rounded-lg hover:bg-stone-800 transition-colors border border-transparent hover:border-stone-700"
+                className="hidden lg:flex items-center space-x-2 text-left group px-3 py-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors border border-transparent hover:border-stone-200 dark:hover:border-stone-700"
               >
-                <MapPin size={16} className="text-stone-400 group-hover:text-white transition-colors" />
+                <MapPin size={16} className="text-stone-400 group-hover:text-stone-900 dark:group-hover:text-white transition-colors" />
                 <div className="flex flex-col">
                   <span className="text-[9px] text-stone-400 font-bold uppercase tracking-wider leading-none">Deliver to</span>
-                  <span className="text-xs font-black tracking-tight leading-normal text-white">{city} {pincode}</span>
+                  <span className="text-xs font-black tracking-tight leading-normal text-stone-900 dark:text-stone-100">{city} {pincode}</span>
                 </div>
               </button>
             </div>
@@ -349,7 +349,7 @@ const Navbar = memo(() => {
               {/* Theme Toggle */}
               <button 
                 onClick={toggleTheme}
-                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white overflow-hidden tap-target"
+                className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-stone-900 dark:hover:text-white overflow-hidden tap-target"
                 aria-label="Toggle Theme"
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -369,12 +369,12 @@ const Navbar = memo(() => {
               <div className="relative">
                 <button
                   onClick={() => session ? setIsProfileOpen(!isProfileOpen) : router.push('/auth')}
-                  className="flex flex-col text-left px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors tap-target"
+                  className="flex flex-col text-left px-3 py-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 border border-transparent hover:border-stone-200 dark:hover:border-stone-700 transition-colors tap-target"
                 >
-                  <span className="text-[9px] text-stone-400 font-bold uppercase tracking-wider leading-none">
+                  <span className="text-[9px] text-stone-500 dark:text-stone-400 font-bold uppercase tracking-wider leading-none">
                     {session ? `Hello, ${session.user?.name?.split(' ')[0]}` : 'Hello, Sign In'}
                   </span>
-                  <span className="text-xs font-black tracking-tight leading-normal text-white flex items-center gap-1">
+                  <span className="text-xs font-black tracking-tight leading-normal text-stone-900 dark:text-white flex items-center gap-1">
                     Account & Lists <ChevronDown size={10} className="text-stone-400" />
                   </span>
                 </button>
@@ -393,16 +393,16 @@ const Navbar = memo(() => {
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute right-0 mt-2 w-56 bg-stone-900 border border-stone-800 rounded-xl shadow-2xl p-2 z-50 text-white"
+                        className="absolute right-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-2xl p-2 z-50 text-stone-900 dark:text-white"
                       >
-                        <div className="px-4 py-3 border-b border-stone-800 mb-2">
+                        <div className="px-4 py-3 border-b border-stone-100 dark:border-stone-800 mb-2">
                           <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1">Your Account</p>
                           <p className="text-sm font-bold truncate">{session.user?.name || session.user?.email}</p>
                         </div>
                         {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
                           <Link 
                             href="/admin" 
-                            className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group tap-target"
+                            className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg transition-colors group tap-target"
                             onClick={() => setIsProfileOpen(false)}
                           >
                             <LayoutDashboard size={16} className="group-hover:scale-105 transition-transform text-stone-400" />
@@ -411,7 +411,7 @@ const Navbar = memo(() => {
                         )}
                         <Link 
                           href="/settings/profile" 
-                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-300 hover:bg-stone-800 rounded-lg transition-colors group tap-target"
+                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg transition-colors group tap-target"
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <Settings size={16} className="group-hover:rotate-45 transition-transform text-stone-400" />
@@ -422,7 +422,7 @@ const Navbar = memo(() => {
                             setIsProfileOpen(false);
                             signOut();
                           }}
-                          className="w-full flex items-center space-x-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-950/20 rounded-lg transition-colors group text-left tap-target"
+                          className="w-full flex items-center space-x-3 px-4 py-2.5 text-sm text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors group text-left tap-target"
                         >
                           <LogOut size={16} className="group-hover:-translate-x-0.5 transition-transform text-red-500" />
                           <span>Sign Out</span>
@@ -436,7 +436,7 @@ const Navbar = memo(() => {
               {/* Wishlist */}
               <Link 
                 href="/settings/wishlist" 
-                className="p-2 rounded-lg hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-white tap-target"
+                className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors hidden sm:block text-stone-400 hover:text-stone-900 dark:hover:text-white tap-target"
                 aria-label="Wishlist"
               >
                 <Heart size={18} />
@@ -445,23 +445,23 @@ const Navbar = memo(() => {
               {/* Cart */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="flex items-center space-x-2 px-3 py-1.5 rounded-lg hover:bg-stone-800 border border-transparent hover:border-stone-700 transition-colors tap-target"
+                className="flex items-center space-x-2 px-3 py-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 border border-transparent hover:border-stone-200 dark:hover:border-stone-700 transition-colors tap-target"
                 aria-label="View Cart"
               >
                 <div className="relative">
-                  <ShoppingCart size={20} className="text-white" />
+                  <ShoppingCart size={20} className="text-stone-900 dark:text-white" />
                   {isMounted && totalItems > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-white text-stone-950 text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full shadow-md">
+                    <span className="absolute -top-2 -right-2 bg-stone-900 dark:bg-white text-white dark:text-stone-950 text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full shadow-md">
                       {totalItems}
                     </span>
                   )}
                 </div>
-                <span className="text-xs font-black text-white hidden lg:inline">Cart</span>
+                <span className="text-xs font-black text-stone-900 dark:text-white hidden lg:inline">Cart</span>
               </button>
 
               {/* Mobile menu button */}
               <button 
-                className="md:hidden p-2 text-stone-400 hover:text-white transition-colors tap-target"
+                className="md:hidden p-2 text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors tap-target"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle Mobile Menu"
               >
@@ -472,18 +472,18 @@ const Navbar = memo(() => {
         </nav>
 
         {/* Secondary Amazon sub-navbar */}
-        <div className="w-full bg-stone-900 dark:bg-stone-950 border-b border-stone-800 py-2.5 px-4 md:px-6 text-stone-300 flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar font-semibold">
+        <div className="w-full bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 py-2.5 px-4 md:px-6 text-stone-600 dark:text-stone-300 flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar font-semibold">
           <div className="container mx-auto flex items-center justify-between w-full">
             <div className="flex items-center space-x-4 overflow-x-auto no-scrollbar">
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40 transition-all duration-300 tap-target"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40 transition-all duration-300 tap-target"
               >
                 <Menu size={12} className="text-stone-400" />
                 <span>All Departments</span>
               </button>
               
-              <div className="w-[1px] h-3.5 bg-stone-800 dark:bg-stone-800/80 shrink-0"></div>
+              <div className="w-[1px] h-3.5 bg-stone-200 dark:bg-stone-800 shrink-0"></div>
 
               {navLinks.map((link) => {
                 const linkIcons: Record<string, React.ComponentType<any>> = {
@@ -500,21 +500,17 @@ const Navbar = memo(() => {
                   <Link 
                     key={link.name} 
                     href={link.href} 
-                    className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${
-                      isActive 
-                        ? 'bg-white text-stone-950 shadow-md dark:bg-white dark:text-stone-950' 
-                        : 'text-stone-300 hover:text-white hover:bg-stone-800/40 dark:hover:bg-stone-800/40'
-                    }}`
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${isActive ? 'bg-stone-900 text-white shadow-md dark:bg-white dark:text-stone-950' : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40'}`}
                   >
-                    <Icon size={12} className={isActive ? 'text-stone-950' : 'text-stone-400'} />
+                    <Icon size={12} className={isActive ? 'text-white dark:text-stone-950' : 'text-stone-400'} />
                     <span>{link.name}</span>
                   </Link>
                 );
               })}
             </div>
-            <div className="hidden lg:flex items-center space-x-4 shrink-0 text-stone-500 text-[9px] tracking-wider uppercase font-bold">
+            <div className="hidden lg:flex items-center space-x-4 shrink-0 text-stone-400 dark:text-stone-500 text-[9px] tracking-wider uppercase font-bold">
               <span>₹10,000+ free shipping</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-stone-700"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700"></span>
               <span>100% genuine quality</span>
             </div>
           </div>
@@ -528,7 +524,7 @@ const Navbar = memo(() => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed top-[86px] left-0 w-full bg-stone-900 text-white border-b border-stone-800 z-40 p-6 flex flex-col space-y-4 shadow-2xl"
+            className="md:hidden fixed top-[86px] left-0 w-full bg-white dark:bg-stone-900 text-stone-900 dark:text-white border-b border-stone-200 dark:border-stone-800 z-40 p-6 flex flex-col space-y-4 shadow-2xl"
           >
             {/* Search Input for Mobile */}
             <form onSubmit={handleSearchSubmit} className="flex rounded-lg overflow-hidden bg-white text-stone-900 h-9">
@@ -549,7 +545,7 @@ const Navbar = memo(() => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="hover:text-stone-300 transition-colors tap-target"
+                  className="hover:text-stone-500 dark:hover:text-stone-300 transition-colors tap-target"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -558,7 +554,7 @@ const Navbar = memo(() => {
               {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
                 <Link 
                   href="/admin" 
-                  className="text-stone-300 hover:text-white tap-target"
+                  className="text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white tap-target"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Admin Dashboard

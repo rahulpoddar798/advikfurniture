@@ -42,7 +42,7 @@ export const RevenueChart: React.FC<ChartProps> = ({ data = defaultData }) => {
 
   return (
     <div className="w-full h-full min-h-[300px]">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
         <AreaChart
           data={data}
           margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -102,7 +102,7 @@ export const PerformanceChart: React.FC<ChartProps> = ({ data = defaultData }) =
 
   return (
     <div className="w-full h-full min-h-[300px]">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
         <BarChart data={data}>
           <XAxis 
             dataKey="name" 

@@ -46,6 +46,19 @@ const Navbar = memo(() => {
   
   const [searchVal, setSearchVal] = useState('');
   const [searchDept, setSearchDept] = useState('All');
+  const [isDeptOpen, setIsDeptOpen] = useState(false);
+  const deptRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!isDeptOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (deptRef.current && !deptRef.current.contains(e.target as Node)) {
+        setIsDeptOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDeptOpen]);
   const [pincode, setPincode] = useState('110001');
   const [isPincodeModalOpen, setIsPincodeModalOpen] = useState(false);
   const [tempPincode, setTempPincode] = useState('110001');
@@ -308,19 +321,57 @@ const Navbar = memo(() => {
 
             {/* Center: Amazon-style Search Bar */}
             <div className="hidden md:flex flex-1 max-w-2xl">
-              <form onSubmit={handleSearchSubmit} className="flex w-full h-10 rounded-lg overflow-hidden bg-white text-stone-900 focus-within:ring-2 focus-within:ring-stone-500 shadow-md">
-                {/* Department Selector */}
-                <div className="relative shrink-0 flex items-center bg-stone-100 hover:bg-stone-200 border-r border-stone-200 text-stone-700 text-xs px-3 cursor-pointer">
-                  <select
-                    value={searchDept}
-                    onChange={(e) => setSearchDept(e.target.value)}
-                    className="bg-transparent font-bold uppercase tracking-wider pr-4 outline-none cursor-pointer appearance-none text-[10px]"
+              <form onSubmit={handleSearchSubmit} className="flex w-full h-10 rounded-lg bg-white text-stone-900 focus-within:ring-2 focus-within:ring-stone-500 shadow-md overflow-visible">
+                {/* Department Selector – Custom Dropdown */}
+                <div ref={deptRef} className="relative shrink-0 h-full">
+                  <button
+                    type="button"
+                    onClick={() => setIsDeptOpen((v) => !v)}
+                    className="flex items-center gap-1.5 h-full px-3 rounded-l-lg bg-stone-100 hover:bg-stone-200 dark:bg-stone-700 dark:hover:bg-stone-600 border-r border-stone-200 dark:border-stone-600 text-stone-700 dark:text-stone-200 transition-colors"
+                    aria-haspopup="listbox"
+                    aria-expanded={isDeptOpen}
                   >
-                    {departments.map((dept) => (
-                      <option key={dept} value={dept} className="text-stone-950 uppercase">{dept}</option>
-                    ))}
-                  </select>
-                  <ChevronDown size={12} className="absolute right-2 pointer-events-none text-stone-500" />
+                    <span className="font-bold uppercase tracking-wider text-[10px] whitespace-nowrap">{searchDept}</span>
+                    <motion.div animate={{ rotate: isDeptOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                      <ChevronDown size={12} className="text-stone-500 dark:text-stone-400" />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isDeptOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                        transition={{ duration: 0.15 }}
+                        role="listbox"
+                        className="absolute left-0 top-full mt-1.5 min-w-[110px] bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg shadow-xl overflow-hidden z-[9999]"
+                      >
+                        {departments.map((dept) => (
+                          <li
+                            key={dept}
+                            role="option"
+                            aria-selected={searchDept === dept}
+                            onClick={() => {
+                              setSearchDept(dept);
+                              setIsDeptOpen(false);
+                              const params = new URLSearchParams();
+                              if (dept !== 'All') params.set('category', dept);
+                              if (searchVal) params.set('query', searchVal);
+                              router.push(`/collections?${params.toString()}`);
+                            }}
+                            className={`px-4 py-2 text-[11px] font-bold uppercase tracking-wider cursor-pointer transition-colors ${
+                              searchDept === dept
+                                ? 'bg-stone-900 text-white dark:bg-white dark:text-stone-900'
+                                : 'text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-700'
+                            }`}
+                          >
+                            {dept}
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* Input Query */}
@@ -335,7 +386,7 @@ const Navbar = memo(() => {
                 {/* Search Button */}
                 <button
                   type="submit"
-                  className="w-12 bg-stone-200 hover:bg-stone-300 text-stone-900 flex items-center justify-center transition-colors border-l border-stone-200"
+                  className="w-12 rounded-r-lg bg-stone-200 hover:bg-stone-300 text-stone-900 flex items-center justify-center transition-colors border-l border-stone-200"
                   aria-label="Submit Search"
                 >
                   <Search size={18} />

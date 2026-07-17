@@ -27,7 +27,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-full lg:w-80 h-full lg:h-[calc(100vh-120px)] bg-white/40 dark:bg-stone-900/40 backdrop-blur-2xl border border-stone-200/50 dark:border-stone-800/50 rounded-3xl p-6 lg:sticky lg:top-24 flex flex-col justify-between">
+    <div className="w-full lg:w-80 h-fit bg-white/40 dark:bg-stone-900/40 backdrop-blur-2xl border border-stone-200/50 dark:border-stone-800/50 rounded-3xl p-6 lg:sticky lg:top-24 flex flex-col justify-between">
       <div className="space-y-2">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-6 px-4">Dashboard</p>
         {menuItems.map((item) => {

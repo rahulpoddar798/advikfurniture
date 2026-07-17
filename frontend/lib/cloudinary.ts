@@ -2,9 +2,17 @@ import { v2 as cloudinary } from 'cloudinary';
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY || process.env.CLOUDINARY_API_KEY,
+  // Use server-side key only — NEXT_PUBLIC_ vars are undefined on the server
+  api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
+// Guard: warn loudly if credentials are missing so deletion failures are obvious
+if (!process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+  console.warn(
+    '[Cloudinary] WARNING: CLOUDINARY_API_KEY or CLOUDINARY_API_SECRET is not set. Image deletion will fail silently.'
+  );
+}
 
 /**
  * Extracts the public_id from a Cloudinary URL
@@ -65,17 +73,21 @@ export const deleteImagesByUrls = async (urls: string[]): Promise<void> => {
     .map(url => getPublicIdFromUrl(url))
     .filter((id): id is string => id !== null);
 
-  if (publicIds.length === 0) return;
-
-  try {
-    // Cloudinary destroy only accepts one public_id at a time in the simple API,
-    // or you can use the Admin API for bulk delete. 
-    // For simplicity and safety (since we only have a few images per product),
-    // we'll delete them one by one.
-    await Promise.all(publicIds.map(id => deleteImage(id)));
-  } catch (error) {
-    console.error("Error in deleteImagesByUrls:", error);
+  if (publicIds.length === 0) {
+    console.warn('[Cloudinary] No valid public_ids could be extracted from URLs:', urls);
+    return;
   }
+
+  // Delete all images in parallel and throw if any fail
+  const results = await Promise.allSettled(publicIds.map(id => deleteImage(id)));
+
+  results.forEach((result, i) => {
+    if (result.status === 'rejected') {
+      console.error(`[Cloudinary] Failed to delete image ${publicIds[i]}:`, result.reason);
+    } else {
+      console.log(`[Cloudinary] Deleted image ${publicIds[i]}:`, result.value);
+    }
+  });
 };
 
 export default cloudinary;

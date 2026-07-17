@@ -274,7 +274,7 @@ const Navbar = memo(() => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 flex flex-col md:flex-row flex-wrap gap-2 md:gap-0">
+      <header className="fixed top-0 left-0 w-full z-50 flex flex-col">
         {/* Main Search & Utility Navbar */}
         <nav
           className={`w-full transition-all duration-300 ${
@@ -283,7 +283,7 @@ const Navbar = memo(() => {
               : 'bg-white dark:bg-stone-950'
           } text-stone-900 dark:text-white px-4 md:px-6 py-3`}
         >
-          <div className="container mx-auto flex flex-wrap items-center justify-between gap-2 md:gap-4">
+          <div className="container mx-auto flex items-center justify-between gap-4">
             
             {/* Left: Logo & Location */}
             <div className="flex items-center space-x-6 shrink-0">
@@ -416,8 +416,8 @@ const Navbar = memo(() => {
                 </AnimatePresence>
               </button>
 
-              {/* Accounts & Lists */}
-              <div className="relative">
+              {/* Accounts & Lists (Desktop) */}
+              <div className="relative hidden md:block">
                 <button
                   onClick={() => session ? setIsProfileOpen(!isProfileOpen) : router.push('/auth')}
                   className="flex flex-col text-left px-3 py-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 border border-transparent hover:border-stone-200 dark:hover:border-stone-700 transition-colors tap-target"
@@ -428,6 +428,70 @@ const Navbar = memo(() => {
                   <span className="text-xs font-black tracking-tight leading-normal text-stone-900 dark:text-white flex items-center gap-1">
                     Account & Lists <ChevronDown size={10} className="text-stone-400" />
                   </span>
+                </button>
+
+                <AnimatePresence>
+                  {isProfileOpen && session && (
+                    <>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-40"
+                        onClick={() => setIsProfileOpen(false)}
+                      />
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        className="absolute right-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-2xl p-2 z-50 text-stone-900 dark:text-white"
+                      >
+                        <div className="px-4 py-3 border-b border-stone-100 dark:border-stone-800 mb-2">
+                          <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1">Your Account</p>
+                          <p className="text-sm font-bold truncate">{session.user?.name || session.user?.email}</p>
+                        </div>
+                        {session && ["SUPER_ADMIN", "STAFF_ADMIN", "CONTENT_MANAGER"].includes((session.user as { role?: string })?.role || '') && (
+                          <Link 
+                            href="/admin" 
+                            className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg transition-colors group tap-target"
+                            onClick={() => setIsProfileOpen(false)}
+                          >
+                            <LayoutDashboard size={16} className="group-hover:scale-105 transition-transform text-stone-400" />
+                            <span>Admin Dashboard</span>
+                          </Link>
+                        )}
+                        <Link 
+                          href="/settings/profile" 
+                          className="flex items-center space-x-3 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg transition-colors group tap-target"
+                          onClick={() => setIsProfileOpen(false)}
+                        >
+                          <Settings size={16} className="group-hover:rotate-45 transition-transform text-stone-400" />
+                          <span>Account Settings</span>
+                        </Link>
+                        <button 
+                          onClick={() => {
+                            setIsProfileOpen(false);
+                            signOut();
+                          }}
+                          className="w-full flex items-center space-x-3 px-4 py-2.5 text-sm text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors group text-left tap-target"
+                        >
+                          <LogOut size={16} className="group-hover:-translate-x-0.5 transition-transform text-red-500" />
+                          <span>Sign Out</span>
+                        </button>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Accounts & Lists (Mobile/Tablet) */}
+              <div className="relative md:hidden">
+                <button
+                  onClick={() => session ? setIsProfileOpen(!isProfileOpen) : router.push('/auth')}
+                  className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors tap-target"
+                  aria-label="Account"
+                >
+                  <User size={18} />
                 </button>
 
                 <AnimatePresence>
@@ -523,12 +587,12 @@ const Navbar = memo(() => {
         </nav>
 
         {/* Secondary Amazon sub-navbar */}
-        <div className="w-full bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 py-2.5 px-4 md:px-6 text-stone-600 dark:text-stone-300 flex flex-wrap items-center gap-2 overflow-x-auto no-scrollbar font-semibold">
-          <div className="container mx-auto flex items-center justify-between w-full">
-            <div className="flex items-center space-x-4 overflow-x-auto no-scrollbar">
+        <div className="w-full bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 py-2 px-4 md:px-6 text-stone-600 dark:text-stone-300 flex items-center overflow-x-auto no-scrollbar font-semibold">
+          <div className="container mx-auto flex items-center justify-between w-full gap-4 overflow-x-auto no-scrollbar">
+            <div className="flex items-center space-x-2 md:space-x-4 overflow-x-auto no-scrollbar flex-nowrap shrink-0">
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40 transition-all duration-300 tap-target"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40 transition-all duration-300 tap-target shrink-0 whitespace-nowrap"
               >
                 <Menu size={12} className="text-stone-400" />
                 <span>All Departments</span>
@@ -551,7 +615,7 @@ const Navbar = memo(() => {
                   <Link 
                     key={link.name} 
                     href={link.href} 
-                    className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target ${isActive ? 'bg-stone-900 text-white shadow-md dark:bg-white dark:text-stone-950' : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40'}`}
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center space-x-2 whitespace-nowrap overflow-hidden tap-target shrink-0 ${isActive ? 'bg-stone-900 text-white shadow-md dark:bg-white dark:text-stone-950' : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/60 dark:hover:bg-stone-800/40'}`}
                   >
                     <Icon size={12} className={isActive ? 'text-white dark:text-stone-950' : 'text-stone-400'} />
                     <span>{link.name}</span>

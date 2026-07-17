@@ -102,11 +102,6 @@
       align-items: center;
       justify-content: center;
     }
-    /* Ensure all buttons and links have adequate tap area on mobile */
-    button, a, [role="button"] {
-      min-height: 44px;
-      min-width: 44px;
-    }
   }
 
   /* Hide focus ring for mouse users, keep for keyboard */

@@ -376,6 +376,7 @@ export default function CollectionsClient({
                     <ProductCard 
                       key={product.id} 
                       id={product.id}
+                      stock={product.stock}
                       name={product.name}
                       price={product.price}
                       image={product.images?.[0] || 'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000&auto=format&fit=crop'}

@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductList from '@/components/admin/ProductList';
 import { getAdminProducts } from '@/app/actions/admin/products';
+import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +13,7 @@ export default async function AdminProductsPage() {
       <div className="space-y-2">
         <h2 className="text-4xl font-serif font-bold tracking-tight text-stone-900 dark:text-white">Product Catalog</h2>
         <p className="text-stone-500 font-medium">Manage your furniture collection, stock levels, and product visibility.</p>
+        <Link href="/admin/products/import" className="inline-block text-sm font-semibold underline underline-offset-4">Add sample catalog (60 products)</Link>
       </div>
 
       <ProductList products={products} />

@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import prisma from '../utils/prisma';
 import { z } from 'zod';
+import { getJwtSecret } from '../utils/config';
 
 const registerSchema = z.object({
   email: z.string().email(),
@@ -31,7 +32,7 @@ export const register = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { userId: user.id, role: user.role },
-      process.env.JWT_SECRET || 'secret',
+      getJwtSecret(),
       { expiresIn: '7d' }
     );
 
@@ -58,7 +59,7 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { userId: user.id, role: user.role },
-      process.env.JWT_SECRET || 'secret',
+      getJwtSecret(),
       { expiresIn: '7d' }
     );
 

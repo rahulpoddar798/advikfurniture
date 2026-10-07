@@ -4,13 +4,14 @@ node_modules/
 
 # Next.js
 .next/
-**/ .next/
+**/.next/
 out/
 
 # Environment variables
 .env
 .env.local
 *.env*
+!**/.env.example
 
 # IDEs
 .vscode/
@@ -26,6 +27,9 @@ Thumbs.db
 # Production build
 dist/
 build/
+*.tsbuildinfo
+.vercel/
+coverage/
 
 # Antigravity CLI
 .antigravitycli/

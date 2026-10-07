@@ -322,13 +322,13 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
                 <Truck size={14} className="shrink-0" />
                 <span>{isSample ? 'Delivery terms to be confirmed' : 'FREE shipping in India'}</span>
               </div>
-              <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider ml-6 mt-0.5">Estimated delivery: Wednesday, Jun 3</p>
+              <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider ml-6 mt-0.5">{isSample ? 'Delivery date requires inventory confirmation' : 'Estimated delivery: Wednesday, Jun 3'}</p>
             </div>
 
             {/* Location Selector */}
             <div className="flex items-center space-x-2 text-xs text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 cursor-pointer pt-2 border-t border-stone-100 dark:border-stone-800">
               <MapPin size={14} />
-              <span className="font-bold">Deliver to India - Delhi 110001</span>
+              <span className="font-bold">{isSample ? 'Delivery location to be confirmed' : 'Deliver to India - Delhi 110001'}</span>
             </div>
 
             {/* Stock Message */}

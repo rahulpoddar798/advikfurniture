@@ -1,0 +1,2058 @@
+[
+  {
+    "name": "Nordic White Bar Stool (Sample)",
+    "slug": "sample-nordic-white-bar-stool",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-01",
+    "price": 3990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Painted wood",
+    "dimensions": "40 x 40 x 75",
+    "colors": [
+      "White"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A compact backless stool with a square seat and foot rails. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A compact backless stool with a square seat and foot rails. Proposed material: Painted wood; proposed color: White; example dimensions: 40 x 40 x 75. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Ruslan Bardash / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1503602642458-232111445657",
+      "source": "https://unsplash.com/photos/4kTbAMRAHtQ",
+      "photographer": "Ruslan Bardash",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Linen Lounge Chair (Sample)",
+    "slug": "sample-linen-lounge-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-02",
+    "price": 8990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Woven upholstery, metal base",
+    "dimensions": "65 x 68 x 82",
+    "colors": [
+      "Oatmeal"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A softly rounded lounge seat for a reading corner. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A softly rounded lounge seat for a reading corner. Proposed material: Woven upholstery, metal base; proposed color: Oatmeal; example dimensions: 65 x 68 x 82. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: scopic ltd / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1580480055273-228ff5388ef8",
+      "source": "https://unsplash.com/photos/NLlWwR4d3qU",
+      "photographer": "scopic ltd",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Ash Upholstered Dining Chair (Sample)",
+    "slug": "sample-ash-upholstered-dining-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-03",
+    "price": 6990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood legs",
+    "dimensions": "52 x 58 x 86",
+    "colors": [
+      "Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A high-back dining chair with tapered wood legs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A high-back dining chair with tapered wood legs. Proposed material: Fabric upholstery, wood legs; proposed color: Grey; example dimensions: 52 x 58 x 86. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: sam moghadam / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91",
+      "source": "https://unsplash.com/photos/kvmdsTrGOBM",
+      "photographer": "sam moghadam",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Heritage Ladder Back Chair (Sample)",
+    "slug": "sample-heritage-ladder-back-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-04",
+    "price": 5490,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "46 x 50 x 92",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. An open ladder back and traditional turned front legs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. An open ladder back and traditional turned front legs. Proposed material: Wood; proposed color: Natural Wood; example dimensions: 46 x 50 x 92. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: kelly miller / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237",
+      "source": "https://unsplash.com/photos/BL6XQLZeXpg",
+      "photographer": "kelly miller",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Vintage Timber Side Chair (Sample)",
+    "slug": "sample-vintage-timber-side-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-05",
+    "price": 4990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "45 x 49 x 85",
+    "colors": [
+      "Warm Brown"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A simple timber seat with a broad back panel. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A simple timber seat with a broad back panel. Proposed material: Wood; proposed color: Warm Brown; example dimensions: 45 x 49 x 85. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: allec gomes / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1549497538-303791108f95",
+      "source": "https://unsplash.com/photos/9xpnmt41NKM",
+      "photographer": "allec gomes",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Onyx Shell Bar Chair (Sample)",
+    "slug": "sample-onyx-shell-bar-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-06",
+    "price": 7990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Moulded shell, wood and steel base",
+    "dimensions": "48 x 50 x 108",
+    "colors": [
+      "Black"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A sculpted shell seat above a braced tall base. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A sculpted shell seat above a braced tall base. Proposed material: Moulded shell, wood and steel base; proposed color: Black; example dimensions: 48 x 50 x 108. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: eugene chystiakov / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1581539250439-c96689b516dd",
+      "source": "https://unsplash.com/photos/3neSwyntbQ8",
+      "photographer": "eugene chystiakov",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Contour Black Side Chair (Sample)",
+    "slug": "sample-contour-black-side-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-07",
+    "price": 5990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Moulded shell, metal base",
+    "dimensions": "48 x 53 x 82",
+    "colors": [
+      "Black"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A curved shell with a clean contemporary silhouette. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A curved shell with a clean contemporary silhouette. Proposed material: Moulded shell, metal base; proposed color: Black; example dimensions: 48 x 53 x 82. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: suchit poojari / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1592078615290-033ee584e267",
+      "source": "https://unsplash.com/photos/ljRiZl00n18",
+      "photographer": "suchit poojari",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Ivory Tufted Accent Chair (Sample)",
+    "slug": "sample-ivory-tufted-accent-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-08",
+    "price": 15990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Upholstery, wood frame",
+    "dimensions": "78 x 76 x 96",
+    "colors": [
+      "Ivory"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A button-tufted back with a generous rounded seat. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A button-tufted back with a generous rounded seat. Proposed material: Upholstery, wood frame; proposed color: Ivory; example dimensions: 78 x 76 x 96. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: daniil silantev / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c",
+      "source": "https://unsplash.com/photos/1P6AnKDw6S8",
+      "photographer": "daniil silantev",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Birch Plywood Dining Chair (Sample)",
+    "slug": "sample-birch-plywood-dining-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-09",
+    "price": 6490,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Plywood, wood frame",
+    "dimensions": "48 x 52 x 80",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1640938776314-4d303f8a1380?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. An airy plywood back and smooth curved seat. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. An airy plywood back and smooth curved seat. Proposed material: Plywood, wood frame; proposed color: Natural Wood; example dimensions: 48 x 52 x 80. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: yu carla / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1640938776314-4d303f8a1380",
+      "source": "https://unsplash.com/photos/Or3zn5zbgzE",
+      "photographer": "yu carla",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Mustard Reading Chair (Sample)",
+    "slug": "sample-mustard-reading-chair",
+    "categoryName": "Chairs",
+    "sku": "AFI-DEMO-CHAIRS-10",
+    "price": 13990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood legs",
+    "dimensions": "74 x 78 x 91",
+    "colors": [
+      "Mustard"
+    ],
+    "tags": [
+      "sample-catalog",
+      "chairs",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A bright upholstered armchair for a relaxed reading space. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A bright upholstered armchair for a relaxed reading space. Proposed material: Fabric upholstery, wood legs; proposed color: Mustard; example dimensions: 74 x 78 x 91. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: kam idris / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      "source": "https://unsplash.com/photos/_HqHX3LBN18",
+      "photographer": "kam idris",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Cloud Ivory Sofa (Sample)",
+    "slug": "sample-cloud-ivory-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-01",
+    "price": 38990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "210 x 90 x 84",
+    "colors": [
+      "Ivory"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1632829882891-5047ccc421bc?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A light-toned sofa with loose cushions and a relaxed profile. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A light-toned sofa with loose cushions and a relaxed profile. Proposed material: Fabric upholstery, wood frame; proposed color: Ivory; example dimensions: 210 x 90 x 84. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: spacejoy / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1632829882891-5047ccc421bc",
+      "source": "https://unsplash.com/photos/EVjqpcn79AM",
+      "photographer": "spacejoy",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Canyon Tan Sofa (Sample)",
+    "slug": "sample-canyon-tan-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-02",
+    "price": 46990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Leather-look upholstery, wood frame",
+    "dimensions": "215 x 92 x 85",
+    "colors": [
+      "Tan"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm-toned sofa designed around broad comfortable seats. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm-toned sofa designed around broad comfortable seats. Proposed material: Leather-look upholstery, wood frame; proposed color: Tan; example dimensions: 215 x 92 x 85. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: kara eads / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1554995207-c18c203602cb",
+      "source": "https://unsplash.com/photos/L7EwHkq1B2s",
+      "photographer": "kara eads",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Sand Leather Style Loveseat (Sample)",
+    "slug": "sample-sand-leather-style-loveseat",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-03",
+    "price": 32990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Leather-look upholstery, frame",
+    "dimensions": "170 x 90 x 82",
+    "colors": [
+      "Sand"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1512212621149-107ffe572d2f?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A compact two-seat silhouette with padded armrests. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A compact two-seat silhouette with padded armrests. Proposed material: Leather-look upholstery, frame; proposed color: Sand; example dimensions: 170 x 90 x 82. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: christian kaindl / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1512212621149-107ffe572d2f",
+      "source": "https://unsplash.com/photos/4uD9w-pxBTA",
+      "photographer": "christian kaindl",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Forest Textured Sofa (Sample)",
+    "slug": "sample-forest-textured-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-04",
+    "price": 36990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Textured fabric, wood frame",
+    "dimensions": "205 x 90 x 85",
+    "colors": [
+      "Forest Green"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1590251024078-8a6d9f90b02d?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. Deep green upholstery and cushions create a cozy lounge concept. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. Deep green upholstery and cushions create a cozy lounge concept. Proposed material: Textured fabric, wood frame; proposed color: Forest Green; example dimensions: 205 x 90 x 85. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: lisa amann / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1590251024078-8a6d9f90b02d",
+      "source": "https://unsplash.com/photos/lDAkoo6TpWE",
+      "photographer": "lisa amann",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Coastal Window Sofa (Sample)",
+    "slug": "sample-coastal-window-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-05",
+    "price": 39990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "210 x 95 x 84",
+    "colors": [
+      "White"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1519961655809-34fa156820ff?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A relaxed light sofa with contrasting blue cushion styling. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A relaxed light sofa with contrasting blue cushion styling. Proposed material: Fabric upholstery, wood frame; proposed color: White; example dimensions: 210 x 95 x 84. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: hutomo abrianto / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1519961655809-34fa156820ff",
+      "source": "https://unsplash.com/photos/Q_fZcn8vlWY",
+      "photographer": "hutomo abrianto",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Amber Mid Century Sofa (Sample)",
+    "slug": "sample-amber-mid-century-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-06",
+    "price": 45990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Leather-look upholstery, wood legs",
+    "dimensions": "210 x 88 x 82",
+    "colors": [
+      "Cognac"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A slim raised base and warm upholstery for a mid-century look. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A slim raised base and warm upholstery for a mid-century look. Proposed material: Leather-look upholstery, wood legs; proposed color: Cognac; example dimensions: 210 x 88 x 82. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1549187774-b4e9b0445b41",
+      "source": "https://unsplash.com/photos/brown-leather-2-seat-sofa-bpg-ngqrPc8",
+      "photographer": "Unsplash contributor",
+      "caption": "Brown leather 2-seat sofa photo – Free Brown Image on Unsplash (https://unsplash.com/photos/brown-leather-2-seat-sofa-bpg-ngqrPc8)",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Slate High Back Sofa (Sample)",
+    "slug": "sample-slate-high-back-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-07",
+    "price": 48990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "220 x 94 x 105",
+    "colors": [
+      "Slate Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1560964125-def77e725dbd?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A tall cushioned back and broad seat for a quiet lounge. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A tall cushioned back and broad seat for a quiet lounge. Proposed material: Fabric upholstery, wood frame; proposed color: Slate Grey; example dimensions: 220 x 94 x 105. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1560964125-def77e725dbd",
+      "source": "https://unsplash.com/photos/grey-fabric-sofa-near-window-s1olLeL26AY",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Metro Grey Sectional (Sample)",
+    "slug": "sample-metro-grey-sectional",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-08",
+    "price": 59990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "275 x 165 x 86",
+    "colors": [
+      "Light Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1759722668385-90006d9c7aa7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A modular corner arrangement for a larger sitting area. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A modular corner arrangement for a larger sitting area. Proposed material: Fabric upholstery, wood frame; proposed color: Light Grey; example dimensions: 275 x 165 x 86. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1759722668385-90006d9c7aa7",
+      "source": "https://unsplash.com/es/fotos/un-moderno-sofa-seccional-gris-contra-una-pared-blanca-ERtuYB5ZG2Q",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Emerald Three Seat Sofa (Sample)",
+    "slug": "sample-emerald-three-seat-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-09",
+    "price": 42990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood legs",
+    "dimensions": "215 x 88 x 84",
+    "colors": [
+      "Emerald"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. Three generous seats and slim legs in a rich green finish. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. Three generous seats and slim legs in a rich green finish. Proposed material: Fabric upholstery, wood legs; proposed color: Emerald; example dimensions: 215 x 88 x 84. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Phillip Goldsberry / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      "source": "https://unsplash.com/photos/fZuleEfeA1Q",
+      "photographer": "Phillip Goldsberry",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Crimson Tufted Sofa (Sample)",
+    "slug": "sample-crimson-tufted-sofa",
+    "categoryName": "Sofas",
+    "sku": "AFI-DEMO-SOFAS-10",
+    "price": 54990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Velvet-style upholstery, wood frame",
+    "dimensions": "220 x 90 x 85",
+    "colors": [
+      "Crimson"
+    ],
+    "tags": [
+      "sample-catalog",
+      "sofas",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1629470937909-ee84ace7b885?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. Deep button tufting and rolled arms create a traditional silhouette. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. Deep button tufting and rolled arms create a traditional silhouette. Proposed material: Velvet-style upholstery, wood frame; proposed color: Crimson; example dimensions: 220 x 90 x 85. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Erik Mclean / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1629470937909-ee84ace7b885",
+      "source": "https://unsplash.com/photos/HhlRbmPrkyM",
+      "photographer": "Erik Mclean",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Timber Beam Coffee Table (Sample)",
+    "slug": "sample-timber-beam-coffee-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-01",
+    "price": 10990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood top, metal legs",
+    "dimensions": "120 x 60 x 42",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A substantial rectangular top balanced on an open metal base. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A substantial rectangular top balanced on an open metal base. Proposed material: Wood top, metal legs; proposed color: Natural Wood; example dimensions: 120 x 60 x 42. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: lui peng / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1581428982868-e410dd047a90",
+      "source": "https://unsplash.com/photos/8NxTrV6i4WQ",
+      "photographer": "lui peng",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Glass Frame Coffee Table (Sample)",
+    "slug": "sample-glass-frame-coffee-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-02",
+    "price": 12990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Glass, wood, metal",
+    "dimensions": "110 x 60 x 40",
+    "colors": [
+      "Walnut and Black"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1647967527216-adea2f078e07?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A glass top and framed lower shelf for an airy living space. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A glass top and framed lower shelf for an airy living space. Proposed material: Glass, wood, metal; proposed color: Walnut and Black; example dimensions: 110 x 60 x 40. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: connor home / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1647967527216-adea2f078e07",
+      "source": "https://unsplash.com/photos/djJoOgDRvzU",
+      "photographer": "connor home",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Classic Wood End Table (Sample)",
+    "slug": "sample-classic-wood-end-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-03",
+    "price": 4990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "45 x 45 x 55",
+    "colors": [
+      "Dark Brown"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1590938272761-c11f74452660?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A compact square side table with a lower display shelf. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A compact square side table with a lower display shelf. Proposed material: Wood; proposed color: Dark Brown; example dimensions: 45 x 45 x 55. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: rumman amin / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1590938272761-c11f74452660",
+      "source": "https://unsplash.com/photos/GctCfIx8taQ",
+      "photographer": "rumman amin",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Walnut Lounge Coffee Table (Sample)",
+    "slug": "sample-walnut-lounge-coffee-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-04",
+    "price": 8990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "105 x 55 x 42",
+    "colors": [
+      "Walnut"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1688728147390-6925695b443f?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm tabletop for books and a relaxed coffee setting. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm tabletop for books and a relaxed coffee setting. Proposed material: Wood; proposed color: Walnut; example dimensions: 105 x 55 x 42. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: fredrik posse / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1688728147390-6925695b443f",
+      "source": "https://unsplash.com/photos/sh88a-1Z8ns",
+      "photographer": "fredrik posse",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Nordic Rectangular Table (Sample)",
+    "slug": "sample-nordic-rectangular-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-05",
+    "price": 18990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood, metal legs",
+    "dimensions": "150 x 85 x 75",
+    "colors": [
+      "Natural and Black"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1657524398377-567034729507?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A light rectangular top paired with a dark base. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A light rectangular top paired with a dark base. Proposed material: Wood, metal legs; proposed color: Natural and Black; example dimensions: 150 x 85 x 75. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: onno / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1657524398377-567034729507",
+      "source": "https://unsplash.com/photos/zGKRmwzplVc",
+      "photographer": "onno",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Studio Gathering Table (Sample)",
+    "slug": "sample-studio-gathering-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-06",
+    "price": 21990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "180 x 90 x 75",
+    "colors": [
+      "Warm Brown"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1606660023296-81d67734170a?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A long versatile tabletop for shared meals or gathering. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A long versatile tabletop for shared meals or gathering. Proposed material: Wood; proposed color: Warm Brown; example dimensions: 180 x 90 x 75. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: toa heftiba / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1606660023296-81d67734170a",
+      "source": "https://unsplash.com/photos/16SJwUFgWCw",
+      "photographer": "toa heftiba",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Graphite Gathering Table (Sample)",
+    "slug": "sample-graphite-gathering-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-07",
+    "price": 24990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood, metal base",
+    "dimensions": "180 x 90 x 75",
+    "colors": [
+      "Graphite"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1723750290151-164cb19ebab7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A dark rectangular table with an open modern base. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A dark rectangular table with an open modern base. Proposed material: Wood, metal base; proposed color: Graphite; example dimensions: 180 x 90 x 75. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: clay banks / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1723750290151-164cb19ebab7",
+      "source": "https://unsplash.com/photos/aYjdg6wZrOU",
+      "photographer": "clay banks",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Industrial Trunk Coffee Table (Sample)",
+    "slug": "sample-industrial-trunk-coffee-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-08",
+    "price": 13990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood, metal trim",
+    "dimensions": "110 x 60 x 42",
+    "colors": [
+      "Weathered Green"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1523362365717-c50b87d8ce3c?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A vintage-inspired trunk profile with metal detailing. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A vintage-inspired trunk profile with metal detailing. Proposed material: Wood, metal trim; proposed color: Weathered Green; example dimensions: 110 x 60 x 42. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1523362365717-c50b87d8ce3c",
+      "source": "https://unsplash.com/s/photos/coffee-table",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Round Hairpin Coffee Table (Sample)",
+    "slug": "sample-round-hairpin-coffee-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-09",
+    "price": 7990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood top, metal legs",
+    "dimensions": "70 x 70 x 42",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1612689690865-2035b60c449b?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A circular wood surface supported by slender hairpin legs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A circular wood surface supported by slender hairpin legs. Proposed material: Wood top, metal legs; proposed color: Natural Wood; example dimensions: 70 x 70 x 42. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1612689690865-2035b60c449b",
+      "source": "https://unsplash.com/photos/brown-wooden-table-near-brown-wooden-couch-y-9Fb14RjEg",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Round Oak Gathering Table (Sample)",
+    "slug": "sample-round-oak-gathering-table",
+    "categoryName": "Tables",
+    "sku": "AFI-DEMO-TABLES-10",
+    "price": 17990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood",
+    "dimensions": "110 x 110 x 75",
+    "colors": [
+      "Oak"
+    ],
+    "tags": [
+      "sample-catalog",
+      "tables",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1629236714902-e1926e8ab314?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A round gathering table with an inviting natural finish. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A round gathering table with an inviting natural finish. Proposed material: Wood; proposed color: Oak; example dimensions: 110 x 110 x 75. Example listing covers the named furniture piece only; accessories and other furniture in the photo are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: infinite views / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1629236714902-e1926e8ab314",
+      "source": "https://unsplash.com/photos/OPTtVaI8H2Q",
+      "photographer": "infinite views",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Calm Panel Queen Bed (Sample)",
+    "slug": "sample-calm-panel-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-01",
+    "price": 29990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood frame, panel headboard",
+    "dimensions": "165 x 210 x 105",
+    "colors": [
+      "Warm Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1589911057171-44545e48c56b?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A calm bedroom concept with a simple panel headboard. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A calm bedroom concept with a simple panel headboard. Proposed material: Wood frame, panel headboard; proposed color: Warm Wood; example dimensions: 165 x 210 x 105. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1589911057171-44545e48c56b",
+      "source": "https://unsplash.com/photos/white-bed-linen-with-throw-pillows-cql-B-2gLs0",
+      "photographer": "Unsplash contributor",
+      "caption": "White bed linen with throw pillows photo – Free Grey Image on Unsplash (https://unsplash.com/photos/white-bed-linen-with-throw-pillows-cql-B-2gLs0)",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Coastal Upholstered Queen Bed (Sample)",
+    "slug": "sample-coastal-upholstered-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-02",
+    "price": 35990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Upholstered frame",
+    "dimensions": "165 x 210 x 110",
+    "colors": [
+      "Neutral"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1722247521037-49979a2971f7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A soft upholstered bed styled with blue and white linens. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A soft upholstered bed styled with blue and white linens. Proposed material: Upholstered frame; proposed color: Neutral; example dimensions: 165 x 210 x 110. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1722247521037-49979a2971f7",
+      "source": "https://unsplash.com/photos/a-bed-room-with-a-neatly-made-bed-and-a-flat-screen-tv-9ZKYcWVHE3k",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Oak Slat Platform King Bed (Sample)",
+    "slug": "sample-oak-slat-platform-king-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-03",
+    "price": 42990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood frame, slatted headboard",
+    "dimensions": "195 x 215 x 105",
+    "colors": [
+      "Oak"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1721216596273-586bfde422e7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A low platform profile with a wide slatted headboard. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A low platform profile with a wide slatted headboard. Proposed material: Wood frame, slatted headboard; proposed color: Oak; example dimensions: 195 x 215 x 105. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1721216596273-586bfde422e7",
+      "source": "https://unsplash.com/photos/a-bedroom-with-a-large-bed-and-a-sliding-glass-door-mOMk_bTLDwo",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Monochrome Panel Double Bed (Sample)",
+    "slug": "sample-monochrome-panel-double-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-04",
+    "price": 27990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood frame",
+    "dimensions": "150 x 205 x 100",
+    "colors": [
+      "Light Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1620995559331-e5507e0a169f?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A compact bed concept with a simple understated headboard. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A compact bed concept with a simple understated headboard. Proposed material: Wood frame; proposed color: Light Wood; example dimensions: 150 x 205 x 100. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1620995559331-e5507e0a169f",
+      "source": "https://unsplash.com/photos/white-and-black-bed-linen-8ACHY29XXek",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Woven Headboard Queen Bed (Sample)",
+    "slug": "sample-woven-headboard-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-05",
+    "price": 33990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood frame, woven headboard",
+    "dimensions": "165 x 210 x 112",
+    "colors": [
+      "Natural"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1778145792155-708f364bd772?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm woven headboard for a relaxed bedroom setting. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm woven headboard for a relaxed bedroom setting. Proposed material: Wood frame, woven headboard; proposed color: Natural; example dimensions: 165 x 210 x 112. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1778145792155-708f364bd772",
+      "source": "https://unsplash.com/photos/a-neatly-made-bed-with-white-linens-and-a-blanket-eLi-GNPh0MQ",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Charcoal Curve King Bed (Sample)",
+    "slug": "sample-charcoal-curve-king-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-06",
+    "price": 47990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "195 x 215 x 112",
+    "colors": [
+      "Charcoal"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1742319096912-7bb94fdfeb03?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A broad curved upholstered headboard with a soft outline. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A broad curved upholstered headboard with a soft outline. Proposed material: Fabric upholstery, wood frame; proposed color: Charcoal; example dimensions: 195 x 215 x 112. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1742319096912-7bb94fdfeb03",
+      "source": "https://unsplash.com/photos/a-modern-bedroom-shows-a-bed-and-furnishings-wvuaIBxKAAE",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Mist Upholstered Queen Bed (Sample)",
+    "slug": "sample-mist-upholstered-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-07",
+    "price": 36990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "165 x 210 x 108",
+    "colors": [
+      "Mist Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1723257135850-8eabb3b1d769?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A clean upholstered silhouette for a light bedroom. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A clean upholstered silhouette for a light bedroom. Proposed material: Fabric upholstery, wood frame; proposed color: Mist Grey; example dimensions: 165 x 210 x 108. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1723257135850-8eabb3b1d769",
+      "source": "https://unsplash.com/photos/a-bed-sitting-in-a-bedroom-next-to-a-white-chair-5Ncrcn-KdKM",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Harbour Queen Bed (Sample)",
+    "slug": "sample-harbour-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-08",
+    "price": 34990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Upholstered frame",
+    "dimensions": "165 x 210 x 105",
+    "colors": [
+      "Stone"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1722247521629-6d1f68e39c59?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A neutral bed frame styled in a crisp coastal palette. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A neutral bed frame styled in a crisp coastal palette. Proposed material: Upholstered frame; proposed color: Stone; example dimensions: 165 x 210 x 105. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1722247521629-6d1f68e39c59",
+      "source": "https://unsplash.com/photos/a-bedroom-with-a-bed-and-a-chair-in-it-tnfeGejkp3M",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Linen Rest King Bed (Sample)",
+    "slug": "sample-linen-rest-king-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-09",
+    "price": 44990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "195 x 215 x 110",
+    "colors": [
+      "Linen"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1722650362305-bc320e74204e?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A generous neutral headboard for an uncluttered bedroom. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A generous neutral headboard for an uncluttered bedroom. Proposed material: Fabric upholstery, wood frame; proposed color: Linen; example dimensions: 195 x 215 x 110. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1722650362305-bc320e74204e",
+      "source": "https://unsplash.com/photos/a-bedroom-with-a-large-bed-and-a-white-rug-97_kICCauGc",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Blush Tufted Queen Bed (Sample)",
+    "slug": "sample-blush-tufted-queen-bed",
+    "categoryName": "Beds",
+    "sku": "AFI-DEMO-BEDS-10",
+    "price": 39990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric upholstery, wood frame",
+    "dimensions": "165 x 210 x 120",
+    "colors": [
+      "Blush"
+    ],
+    "tags": [
+      "sample-catalog",
+      "beds",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1634719061749-3f902eb1ccaf?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A tall button-tufted headboard with a soft warm finish. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A tall button-tufted headboard with a soft warm finish. Proposed material: Fabric upholstery, wood frame; proposed color: Blush; example dimensions: 165 x 210 x 120. Example listing covers the bed frame only; mattress, bedding and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1634719061749-3f902eb1ccaf",
+      "source": "https://unsplash.com/photos/a-bedroom-with-a-large-bed-and-a-chandelier-5f_EKzed3lw",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Sunny Wood Dining Set (Sample)",
+    "slug": "sample-sunny-wood-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-01",
+    "price": 39990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table and chairs",
+    "dimensions": "Table: 160 x 85 x 75",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1745794621090-d856c53b0cc2?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A dining table with six coordinated wood chairs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A dining table with six coordinated wood chairs. Proposed material: Wood table and chairs; proposed color: Natural Wood; example dimensions: Table: 160 x 85 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: clay banks / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1745794621090-d856c53b0cc2",
+      "source": "https://unsplash.com/photos/urH155LONWs",
+      "photographer": "clay banks",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Ivory Formal Dining Set (Sample)",
+    "slug": "sample-ivory-formal-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-02",
+    "price": 64990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table, upholstered chairs",
+    "dimensions": "Table: 180 x 90 x 75",
+    "colors": [
+      "Ivory"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1611596188718-840151555242?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A six-seat dining concept with soft upholstered chairs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A six-seat dining concept with soft upholstered chairs. Proposed material: Wood table, upholstered chairs; proposed color: Ivory; example dimensions: Table: 180 x 90 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: claire rendall / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1611596188718-840151555242",
+      "source": "https://unsplash.com/photos/b6kAwr1i0Iw",
+      "photographer": "claire rendall",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Amber Dining Ensemble (Sample)",
+    "slug": "sample-amber-dining-ensemble",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-03",
+    "price": 45990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table, upholstered chairs",
+    "dimensions": "Table: 170 x 90 x 75",
+    "colors": [
+      "Amber and Cream"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1600488999806-8efb986d87b1?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm table setting with six upholstered dining chairs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm table setting with six upholstered dining chairs. Proposed material: Wood table, upholstered chairs; proposed color: Amber and Cream; example dimensions: Table: 170 x 90 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: collov home design / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1600488999806-8efb986d87b1",
+      "source": "https://unsplash.com/photos/v9096DgeVeA",
+      "photographer": "collov home design",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Midnight Dining Set (Sample)",
+    "slug": "sample-midnight-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-04",
+    "price": 59990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Dark table, upholstered chairs",
+    "dimensions": "Table: 180 x 90 x 75",
+    "colors": [
+      "Charcoal and Taupe"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1656403002413-2ac6137237d6?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A six-chair dining ensemble with a dark tabletop. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A six-chair dining ensemble with a dark tabletop. Proposed material: Dark table, upholstered chairs; proposed color: Charcoal and Taupe; example dimensions: Table: 180 x 90 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: kam idris / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1656403002413-2ac6137237d6",
+      "source": "https://unsplash.com/photos/wMzpa3WsDkI",
+      "photographer": "kam idris",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Studio Six Seat Dining Set (Sample)",
+    "slug": "sample-studio-six-seat-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-05",
+    "price": 54990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table, upholstered chairs",
+    "dimensions": "Table: 180 x 90 x 75",
+    "colors": [
+      "Walnut and Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1658280024253-34cafdfbb002?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A streamlined dining concept for six people. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A streamlined dining concept for six people. Proposed material: Wood table, upholstered chairs; proposed color: Walnut and Grey; example dimensions: Table: 180 x 90 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: rebecca chandler / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1658280024253-34cafdfbb002",
+      "source": "https://unsplash.com/photos/fE3kcMhB1oc",
+      "photographer": "rebecca chandler",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Compact Bistro Dining Set (Sample)",
+    "slug": "sample-compact-bistro-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-06",
+    "price": 24990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Table, upholstered chairs",
+    "dimensions": "Table: 100 x 70 x 75",
+    "colors": [
+      "Cream"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1622653533660-a1538fe8424c?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A two-seat dining arrangement for a smaller home. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A two-seat dining arrangement for a smaller home. Proposed material: Table, upholstered chairs; proposed color: Cream; example dimensions: Table: 100 x 70 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: minha baek / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1622653533660-a1538fe8424c",
+      "source": "https://unsplash.com/photos/HaU6PimvBQw",
+      "photographer": "minha baek",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Brick House Dining Set (Sample)",
+    "slug": "sample-brick-house-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-07",
+    "price": 49990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table, upholstered chairs",
+    "dimensions": "Table: 180 x 90 x 75",
+    "colors": [
+      "Walnut and Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1593136596203-7212b076f4d2?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A six-seat dark timber dining arrangement. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A six-seat dark timber dining arrangement. Proposed material: Wood table, upholstered chairs; proposed color: Walnut and Grey; example dimensions: Table: 180 x 90 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: lotus design n print / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1593136596203-7212b076f4d2",
+      "source": "https://unsplash.com/photos/O0vzxGRmjNs",
+      "photographer": "lotus design n print",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Country Gathering Dining Set (Sample)",
+    "slug": "sample-country-gathering-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-08",
+    "price": 57990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table and chairs",
+    "dimensions": "Table: 200 x 95 x 75",
+    "colors": [
+      "Natural Wood"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1713184355726-d3a31d822fcc?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. An eight-seat table concept with rustic wood chairs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. An eight-seat table concept with rustic wood chairs. Proposed material: Wood table and chairs; proposed color: Natural Wood; example dimensions: Table: 200 x 95 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Wipe with a soft dry cloth and protect from standing water, heat and direct sunlight. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: clay banks / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1713184355726-d3a31d822fcc",
+      "source": "https://unsplash.com/photos/yA_A_JkYh8w",
+      "photographer": "clay banks",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Garden Round Dining Set (Sample)",
+    "slug": "sample-garden-round-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-09",
+    "price": 69990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Wood table, upholstered chairs",
+    "dimensions": "Table: 140 x 140 x 75",
+    "colors": [
+      "Brown and Floral"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1634389312178-50613e56acda?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A round table styled with six patterned upholstered chairs. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A round table styled with six patterned upholstered chairs. Proposed material: Wood table, upholstered chairs; proposed color: Brown and Floral; example dimensions: Table: 140 x 140 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: jez timms / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1634389312178-50613e56acda",
+      "source": "https://unsplash.com/photos/XMXuiLoZlFY",
+      "photographer": "jez timms",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Minimal Eight Seat Dining Set (Sample)",
+    "slug": "sample-minimal-eight-seat-dining-set",
+    "categoryName": "Dining",
+    "sku": "AFI-DEMO-DINING-10",
+    "price": 61990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Table, upholstered chairs",
+    "dimensions": "Table: 220 x 100 x 75",
+    "colors": [
+      "Light Stone"
+    ],
+    "tags": [
+      "sample-catalog",
+      "dining",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1631048499453-b1342a519efc?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. An open eight-seat arrangement with a pale tabletop. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. An open eight-seat arrangement with a pale tabletop. Proposed material: Table, upholstered chairs; proposed color: Light Stone; example dimensions: Table: 220 x 100 x 75. The example set covers the table and chair count described; tableware, lighting and room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: point3d commercial imaging ltd / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1631048499453-b1342a519efc",
+      "source": "https://unsplash.com/photos/jm7HYtcW2VM",
+      "photographer": "point3d commercial imaging ltd",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Serene Ivory Lounge Set (Sample)",
+    "slug": "sample-serene-ivory-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-01",
+    "price": 79990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": true,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 400 x 350 cm",
+    "colors": [
+      "Ivory"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A sofa, two accent seats and a round coffee-table concept. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A sofa, two accent seats and a round coffee-table concept. Proposed material: Fabric seating, wood tables; proposed color: Ivory; example dimensions: Suggested room: 400 x 350 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: spacejoy / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1631679706909-1844bbd07221",
+      "source": "https://unsplash.com/photos/c0JoR_-2x3E",
+      "photographer": "spacejoy",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Ochre Loft Lounge Set (Sample)",
+    "slug": "sample-ochre-loft-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-02",
+    "price": 74990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 380 x 330 cm",
+    "colors": [
+      "Ochre"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm sofa and coffee-table concept for a loft-style space. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm sofa and coffee-table concept for a loft-style space. Proposed material: Fabric seating, wood tables; proposed color: Ochre; example dimensions: Suggested room: 380 x 330 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: spacejoy / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20",
+      "source": "https://unsplash.com/photos/umAXneH4GhA",
+      "photographer": "spacejoy",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Dusk Corner Lounge Set (Sample)",
+    "slug": "sample-dusk-corner-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-03",
+    "price": 89990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 450 x 400 cm",
+    "colors": [
+      "Sand"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A spacious lounge concept built around soft corner seating. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A spacious lounge concept built around soft corner seating. Proposed material: Fabric seating, wood tables; proposed color: Sand; example dimensions: Suggested room: 450 x 400 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: roberto nickson / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1564078516393-cf04bd966897",
+      "source": "https://unsplash.com/photos/rEJxpBskj3Q",
+      "photographer": "roberto nickson",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Gallery White Lounge Set (Sample)",
+    "slug": "sample-gallery-white-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-04",
+    "price": 69990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, occasional table",
+    "dimensions": "Suggested room: 360 x 320 cm",
+    "colors": [
+      "White"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1632829882891-5047ccc421bc?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A light sofa and occasional-table concept for a compact lounge. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A light sofa and occasional-table concept for a compact lounge. Proposed material: Fabric seating, occasional table; proposed color: White; example dimensions: Suggested room: 360 x 320 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: spacejoy / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1632829882891-5047ccc421bc",
+      "source": "https://unsplash.com/photos/EVjqpcn79AM",
+      "photographer": "spacejoy",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Earth Tone Lounge Set (Sample)",
+    "slug": "sample-earth-tone-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-05",
+    "price": 84990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 420 x 360 cm",
+    "colors": [
+      "Taupe and Terracotta"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A neutral sofa with accent seating and coffee-table styling. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A neutral sofa with accent seating and coffee-table styling. Proposed material: Fabric seating, wood tables; proposed color: Taupe and Terracotta; example dimensions: Suggested room: 420 x 360 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: spacejoy / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+      "source": "https://unsplash.com/photos/9M66C_w_ToM",
+      "photographer": "spacejoy",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Bay Window Lounge Set (Sample)",
+    "slug": "sample-bay-window-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-06",
+    "price": 87990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 450 x 400 cm",
+    "colors": [
+      "Cream and Teal"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A spacious seating and coffee-table concept with teal accents. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A spacious seating and coffee-table concept with teal accents. Proposed material: Fabric seating, wood tables; proposed color: Cream and Teal; example dimensions: Suggested room: 450 x 400 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: francesca tosolini / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+      "source": "https://unsplash.com/photos/tHkJAMcO3QE",
+      "photographer": "francesca tosolini",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Urban Tan Lounge Set (Sample)",
+    "slug": "sample-urban-tan-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-07",
+    "price": 82990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Leather-look seating, wood tables",
+    "dimensions": "Suggested room: 400 x 350 cm",
+    "colors": [
+      "Tan"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A warm sofa and coffee-table concept for a modern open room. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A warm sofa and coffee-table concept for a modern open room. Proposed material: Leather-look seating, wood tables; proposed color: Tan; example dimensions: Suggested room: 400 x 350 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: kara eads / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1554995207-c18c203602cb",
+      "source": "https://unsplash.com/photos/L7EwHkq1B2s",
+      "photographer": "kara eads",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Metro Compact Lounge Set (Sample)",
+    "slug": "sample-metro-compact-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-08",
+    "price": 65990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood table",
+    "dimensions": "Suggested room: 350 x 300 cm",
+    "colors": [
+      "Grey"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1759722668385-90006d9c7aa7?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A grey modular-sofa concept with space for a coffee table. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A grey modular-sofa concept with space for a coffee table. Proposed material: Fabric seating, wood table; proposed color: Grey; example dimensions: Suggested room: 350 x 300 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: Unsplash contributor / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1759722668385-90006d9c7aa7",
+      "source": "https://unsplash.com/es/fotos/un-moderno-sofa-seccional-gris-contra-una-pared-blanca-ERtuYB5ZG2Q",
+      "photographer": "Unsplash contributor",
+      "caption": "",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Arched Window Lounge Set (Sample)",
+    "slug": "sample-arched-window-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-09",
+    "price": 92990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 500 x 420 cm",
+    "colors": [
+      "Ivory"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A coordinated sofa, accent-chair and coffee-table concept. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A coordinated sofa, accent-chair and coffee-table concept. Proposed material: Fabric seating, wood tables; proposed color: Ivory; example dimensions: Suggested room: 500 x 420 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: collov home design / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87",
+      "source": "https://unsplash.com/photos/H-1j_s0dhCw",
+      "photographer": "collov home design",
+      "license": "https://unsplash.com/license"
+    }
+  },
+  {
+    "name": "Natural Light Lounge Set (Sample)",
+    "slug": "sample-natural-light-lounge-set",
+    "categoryName": "Living Room",
+    "sku": "AFI-DEMO-LIVING-ROOM-10",
+    "price": 85990,
+    "discountPrice": null,
+    "stock": 0,
+    "status": "PUBLISHED",
+    "featured": false,
+    "isTrending": false,
+    "isBestSeller": false,
+    "material": "Fabric seating, wood tables",
+    "dimensions": "Suggested room: 430 x 380 cm",
+    "colors": [
+      "Cream"
+    ],
+    "tags": [
+      "sample-catalog",
+      "living room",
+      "illustrative"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1600494448850-6013c64ba722?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "shortDescription": "Sample catalog listing. A relaxed seating and wood coffee-table concept in neutral tones. Example price and specifications; availability requires admin confirmation.",
+    "description": "SAMPLE CATALOG LISTING — illustrative photography; this is not confirmed Advik Furniture inventory. A relaxed seating and wood coffee-table concept in neutral tones. Proposed material: Fabric seating, wood tables; proposed color: Cream; example dimensions: Suggested room: 430 x 380 cm. The proposed furniture grouping is illustrative; rugs, lighting, art and other room accessories are excluded. Care guidance: Vacuum gently and spot-clean with a dry soft cloth; test any cleaner on a hidden area. Assembly, customization, delivery charges, lead time and warranty require confirmation from Advik Furniture before any order. The INR price and specifications are examples and must be verified by the admin. Stock is set to zero until real inventory is confirmed. Photo credit: collov home design / Unsplash",
+    "imageCredit": {
+      "image": "https://images.unsplash.com/photo-1600494448850-6013c64ba722",
+      "source": "https://unsplash.com/photos/NTaF5rBmlyE",
+      "photographer": "collov home design",
+      "license": "https://unsplash.com/license"
+    }
+  }
+]

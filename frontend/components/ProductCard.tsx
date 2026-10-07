@@ -16,6 +16,7 @@ interface ProductCardProps {
   price: number;
   image: string;
   category: string;
+  stock: number;
   rating?: number;
   reviewCount?: number;
   estimatedDelivery?: string;
@@ -27,6 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
   price, 
   image, 
   category,
+  stock,
   rating = 0,
   reviewCount = 0,
   estimatedDelivery = "Get it in 3-5 days"
@@ -37,6 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
   const handleAddToCart = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (stock <= 0) return;
     addItem({
       id,
       name,
@@ -44,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
       quantity: 1,
       image,
     });
-  }, [addItem, id, name, price, image]);
+  }, [addItem, id, name, price, image, stock]);
 
   const handleCardClick = useCallback(() => {
     router.push(`/product/${id}`);
@@ -92,6 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
           <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-3 pointer-events-none group-hover:pointer-events-auto">
             <button 
               onClick={handleAddToCart}
+              disabled={stock <= 0}
               className="bg-white dark:bg-stone-900 p-3 rounded-full text-stone-900 dark:text-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all transform translate-y-8 group-hover:translate-y-0 duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-90 shadow-md"
               title="Add to Cart"
               aria-label={`Add ${name} to cart`}
@@ -146,7 +150,7 @@ const ProductCard: React.FC<ProductCardProps> = memo(({
           
           {/* Amazon delivery message */}
           <p className="text-[9px] text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wide pt-0.5">
-            {estimatedDelivery}
+            {name.endsWith('(Sample)') ? 'Sample · Example price · Availability unconfirmed' : stock <= 0 ? 'Temporarily out of stock' : estimatedDelivery}
           </p>
         </div>
       </div>

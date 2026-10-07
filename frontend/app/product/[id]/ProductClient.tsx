@@ -59,6 +59,7 @@ interface ProductClientProps {
 }
 
 export default function ProductClient({ product, initialIsInWishlist = false }: ProductClientProps) {
+  const isSample = product.sku?.startsWith('AFI-DEMO-') || false;
   const addItem = useCartStore((state) => state.addItem);
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -121,7 +122,7 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
 
   // Average rating calculation
   const averageRating = useMemo(() => {
-    if (!product.reviews || product.reviews.length === 0) return 4.5; // Premium fallback
+    if (!product.reviews || product.reviews.length === 0) return 0;
     const sum = product.reviews.reduce((acc, r) => acc + r.rating, 0);
     return Number((sum / product.reviews.length).toFixed(1));
   }, [product.reviews]);
@@ -132,8 +133,7 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
   const ratingDistribution = useMemo(() => {
     const distribution = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     if (!product.reviews || product.reviews.length === 0) {
-      // Premium placeholder distribution
-      return { 5: 75, 4: 15, 3: 6, 2: 3, 1: 1 };
+      return distribution;
     }
     product.reviews.forEach((r) => {
       const roundedRating = Math.round(r.rating) as 5 | 4 | 3 | 2 | 1;
@@ -162,6 +162,12 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
   return (
     <div className="pt-32 pb-24 px-4 md:px-8 bg-stone-50 dark:bg-stone-950 transition-colors duration-500 min-h-screen">
       <div className="container mx-auto">
+        {isSample && (
+          <p className="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900" role="note">
+            Sample catalog listing with illustrative photography. Price, material and dimensions are examples.
+            Inventory, delivery and warranty must be confirmed by Advik Furniture before purchase.
+          </p>
+        )}
         
         {/* Breadcrumb */}
         <div className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-stone-400 mb-8 flex items-center space-x-2">
@@ -301,7 +307,7 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="bg-stone-100 dark:bg-stone-900/50 p-3 font-black text-stone-500 uppercase tracking-wider">Status</div>
-                  <div className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">Available</div>
+                  <div className="p-3 font-semibold">{product.stock > 0 ? 'Available' : isSample ? 'Sample · Inventory unconfirmed' : 'Out of stock'}</div>
                 </div>
               </div>
             </div>
@@ -314,7 +320,7 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
               
               <div className="mt-4 flex items-center space-x-2 text-xs font-bold text-emerald-600 dark:text-emerald-400">
                 <Truck size={14} className="shrink-0" />
-                <span>FREE shipping in India</span>
+                <span>{isSample ? 'Delivery terms to be confirmed' : 'FREE shipping in India'}</span>
               </div>
               <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider ml-6 mt-0.5">Estimated delivery: Wednesday, Jun 3</p>
             </div>
@@ -411,7 +417,7 @@ export default function ProductClient({ product, initialIsInWishlist = false }: 
               </div>
               <div className="flex items-center space-x-2">
                 <ShieldCheck size={12} className="text-stone-400 shrink-0" />
-                <span>1 Year Manufacturer Warranty</span>
+                <span>{isSample ? 'Warranty to be confirmed' : '1 Year Manufacturer Warranty'}</span>
               </div>
             </div>
           </div>

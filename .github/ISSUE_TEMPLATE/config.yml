@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Public website
+    url: https://advikfurniture.vercel.app
+    about: Visit the storefront.
+  - name: Private security reports
+    url: https://github.com/rahulpoddar798/advikfurniture/blob/main/SECURITY.md
+    about: Read the private reporting instructions before sharing vulnerability details.

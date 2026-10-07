@@ -48,8 +48,8 @@ export const getProducts = cache(async (options: {
 });
 
 export const getProductById = cache(async (id: string) => {
-  return await prisma.product.findUnique({
-    where: { id },
+  return await prisma.product.findFirst({
+    where: { id, status: 'PUBLISHED' },
     select: {
       id: true,
       name: true,

@@ -2,6 +2,9 @@ import { MetadataRoute } from 'next';
 import { getProducts, getCategories } from '@/lib/services';
 import { siteUrl } from '@/lib/site';
 
+// Product data is queried at request time, not against a database during builds.
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteUrl;
 

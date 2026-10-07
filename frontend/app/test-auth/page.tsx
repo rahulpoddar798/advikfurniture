@@ -1,7 +1,10 @@
 import { auth } from "@/auth";
 import { headers, cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
 export default async function AuthDebugPage() {
+  if (process.env.NODE_ENV === "production") notFound();
+
   const session = await auth();
   const headerList = await headers();
   const cookieList = await cookies();

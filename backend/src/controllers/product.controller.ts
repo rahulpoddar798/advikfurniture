@@ -5,7 +5,7 @@ export const getProducts = async (req: Request, res: Response) => {
   try {
     const { category, search, minPrice, maxPrice, featured, page, limit } = req.query;
 
-    const where: any = {};
+    const where: any = { status: 'PUBLISHED' };
 
     if (category) {
       where.category = { name: category as string };
@@ -113,7 +113,7 @@ export const getProductById = async (req: Request, res: Response) => {
       },
     });
 
-    if (!product) {
+    if (!product || product.status !== 'PUBLISHED') {
       return res.status(404).json({ message: 'Product not found' });
     }
 
